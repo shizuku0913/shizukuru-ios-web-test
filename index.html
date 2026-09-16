@@ -17386,5 +17386,43 @@ window.ShizukuruFirstPlayGuide?.auto();
 
 
   <script type="module" src="./i18n/bootstrap.js"></script>
+
+<!-- code21: temporary atelier geometry diagnostics. Fixed overlay only; no layout/paint logic changes. -->
+<style id="code21-atelier-diag-style">
+#code21AtelierDiag{position:fixed;left:8px;bottom:8px;z-index:2147483646;max-width:calc(100vw - 16px);padding:7px 9px;border-radius:10px;background:rgba(20,20,20,.78);color:#fff;font:600 10px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;pointer-events:none;text-align:left;box-sizing:border-box}
+</style>
+<script id="code21-atelier-diag-script">
+(()=>{
+  const q=s=>document.querySelector(s);
+  const fmt=r=>r?`${r.width.toFixed(0)}×${r.height.toFixed(0)} @ ${r.left.toFixed(0)},${r.top.toFixed(0)}`:'—';
+  const update=()=>{
+    let el=document.getElementById('code21AtelierDiag');
+    if(!el){el=document.createElement('div');el.id='code21AtelierDiag';document.body.appendChild(el);}
+    const vv=window.visualViewport;
+    const root=getComputedStyle(document.documentElement);
+    const dish=q('.dish'), palette=q('.palette'), tube=q('.paint-tube,.paint-tube-wrap,.tube-dispenser');
+    const app=document.getElementById('pinchZone')||q('.app');
+    el.textContent=[
+      `CODE21 ATELIER DIAG`,
+      `inner ${innerWidth}×${innerHeight}  DPR ${devicePixelRatio}`,
+      `visual ${vv?vv.width.toFixed(0):'—'}×${vv?vv.height.toFixed(0):'—'} off ${vv?vv.offsetTop.toFixed(0):'—'}`,
+      `app ${fmt(app?.getBoundingClientRect())}`,
+      `palette ${fmt(palette?.getBoundingClientRect())}`,
+      `dish ${fmt(dish?.getBoundingClientRect())}`,
+      `tube ${fmt(tube?.getBoundingClientRect())}`,
+      `dishVar ${root.getPropertyValue('--shizuku-dish-size').trim()||'—'}`,
+      `vpVar ${root.getPropertyValue('--shizuku-viewport-height').trim()||'—'}`
+    ].join('\n');
+  };
+  const schedule=()=>requestAnimationFrame(()=>requestAnimationFrame(update));
+  addEventListener('resize',schedule,{passive:true});
+  addEventListener('orientationchange',schedule,{passive:true});
+  window.visualViewport?.addEventListener('resize',schedule,{passive:true});
+  addEventListener('shizuku-layout-change',schedule,{passive:true});
+  addEventListener('shizuku-viewport-settled',schedule,{passive:true});
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true});else schedule();
+  setTimeout(schedule,700); setTimeout(schedule,1600);
+})();
+</script>
 </body>
 </html>
