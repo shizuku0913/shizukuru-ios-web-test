@@ -17407,5 +17407,30 @@ window.ShizukuruFirstPlayGuide?.auto();
 
 
 
+<style id="atelier-compare-diag-v2">
+#atelierCompareDiag{display:block!important;visibility:visible!important;opacity:1!important;position:fixed!important;z-index:2147483647!important;left:5px!important;top:calc(env(safe-area-inset-top,0px) + 5px)!important;width:calc(100vw - 10px)!important;max-width:430px!important;max-height:48vh!important;overflow:auto!important;box-sizing:border-box!important;padding:7px 8px!important;margin:0!important;border:2px solid #fff!important;border-radius:8px!important;background:rgba(0,0,0,.88)!important;color:#fff!important;font:700 10px/1.25 ui-monospace,SFMono-Regular,Menlo,monospace!important;white-space:pre!important;pointer-events:none!important;text-align:left!important;transform:none!important;filter:none!important}
+</style>
+<script id="atelier-compare-diag-v2-script">
+(()=>{
+ const $=s=>document.querySelector(s), fmt=n=>Number.isFinite(n)?n.toFixed(1):'-';
+ const panel=document.createElement('div'); panel.id='atelierCompareDiag'; panel.setAttribute('aria-hidden','true'); document.body.appendChild(panel);
+ const one=(name,sel)=>{const el=$(sel);if(!el)return `${name.padEnd(13)} MISSING  ${sel}`;const r=el.getBoundingClientRect(),cs=getComputedStyle(el);return `${name.padEnd(13)} x${fmt(r.x)} y${fmt(r.y)} w${fmt(r.width)} h${fmt(r.height)}  [${sel}] disp:${cs.display}`};
+ const render=()=>{const vv=visualViewport,root=getComputedStyle(document.documentElement);panel.textContent=[
+  'CODE27 ATELIER RECT DIAG v2',
+  `inner         ${fmt(innerWidth)} x ${fmt(innerHeight)} dpr ${fmt(devicePixelRatio)}`,
+  `visualVP      ${fmt(vv?.width)} x ${fmt(vv?.height)} off ${fmt(vv?.offsetLeft)},${fmt(vv?.offsetTop)} scale ${fmt(vv?.scale)}`,
+  `dishVar       ${root.getPropertyValue('--shizuku-dish-size').trim()||'-'}`,
+  one('palette','.palette'), one('topControls','#topControls'), one('dispenser','#dispenserStage'), one('tube','#masterBottle'),
+  one('dishContainer','#dish'), one('dishSurface','#paint'), one('outerRing','#mixRing'),
+  one('fingerIndex','#pinchRangeIndexCue'), one('fingerThumb','#pinchRangeThumbCue'),
+  one('bottomBar','.lower-controls'), one('bottomActions','.atelier-lower-actions')
+ ].join('\n');};
+ let raf=0;const schedule=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>requestAnimationFrame(render));};
+ addEventListener('resize',schedule,{passive:true});addEventListener('orientationchange',schedule,{passive:true});visualViewport?.addEventListener('resize',schedule,{passive:true});visualViewport?.addEventListener('scroll',schedule,{passive:true});
+ new MutationObserver(schedule).observe(document.body,{attributes:true,subtree:true,attributeFilter:['class','style']});
+ setInterval(render,1000);schedule();
+})();
+</script>
+
 </body>
 </html>
