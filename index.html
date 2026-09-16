@@ -17432,5 +17432,47 @@ window.ShizukuruFirstPlayGuide?.auto();
 })();
 </script>
 
+
+<style id="atelier-gap-trace-v28">
+#atelierGapTrace{display:block!important;visibility:visible!important;opacity:1!important;position:fixed!important;z-index:2147483647!important;left:5px!important;bottom:calc(env(safe-area-inset-bottom,0px) + 5px)!important;width:calc(100vw - 10px)!important;max-width:430px!important;max-height:44vh!important;overflow:auto!important;box-sizing:border-box!important;padding:7px 8px!important;margin:0!important;border:2px solid #8ff!important;border-radius:8px!important;background:rgba(0,18,24,.91)!important;color:#eaffff!important;font:700 9px/1.24 ui-monospace,SFMono-Regular,Menlo,monospace!important;white-space:pre!important;pointer-events:none!important;text-align:left!important;transform:none!important}
+</style>
+<script id="atelier-gap-trace-v28-script">
+(()=>{
+ const q=s=>document.querySelector(s), n=v=>{const x=parseFloat(v);return Number.isFinite(x)?x.toFixed(1):String(v||'-')}, r=el=>el?.getBoundingClientRect();
+ const panel=document.createElement('div');panel.id='atelierGapTrace';panel.setAttribute('aria-hidden','true');document.body.appendChild(panel);
+ const css=(el,props)=>{if(!el)return 'MISSING';const c=getComputedStyle(el);return props.map(k=>`${k}=${c.getPropertyValue(k).trim()||'-'}`).join('  ')};
+ const box=(name,el)=>{const b=r(el);return b?`${name}: y${n(b.y)}..${n(b.bottom)} h${n(b.height)}`:`${name}: MISSING`};
+ const render=()=>{
+  const app=q('.app'), pal=q('.palette'), tube=q('#masterBottle'), dish=q('#dish'), lower=q('.lower-controls'), top=q('#topControls'), stage=q('#dispenserStage');
+  const tr=r(tube),dr=r(dish),pr=r(pal),ar=r(app),lr=r(lower),sr=r(stage);
+  panel.textContent=[
+   'CODE28 VERTICAL GAP TRACE — READ ONLY',
+   `vp ${n(innerWidth)}x${n(innerHeight)}  dpr ${n(devicePixelRatio)}  vvH ${n(visualViewport?.height)}`,
+   box('app',app),box('top',top),box('stage',stage),box('tube',tube),box('palette',pal),box('dish',dish),box('lower',lower),
+   `tube→dish GAP = ${tr&&dr?n(dr.top-tr.bottom):'-'}px`,
+   `palette top→dish = ${pr&&dr?n(dr.top-pr.top):'-'}px  dish→palette bottom = ${pr&&dr?n(pr.bottom-dr.bottom):'-'}px`,
+   `palette→lower GAP = ${pr&&lr?n(lr.top-pr.bottom):'-'}px`,
+   '',
+   'APP computed:',
+   css(app,['height','min-height','padding-top','padding-bottom','row-gap','grid-template-rows','align-content']),
+   'PALETTE computed:',
+   css(pal,['height','min-height','max-height','padding-top','padding-bottom','display','align-items','justify-content','position','contain']),
+   'STAGE computed:',
+   css(stage,['height','min-height','padding-top','padding-bottom','margin-top','margin-bottom','display','place-items']),
+   'TUBE computed:',
+   css(tube,['height','width','margin-top','margin-bottom','position','top','bottom','transform']),
+   'DISH computed:',
+   css(dish,['height','width','margin-top','margin-bottom','position','top','bottom','transform','flex']),
+   'LOWER computed:',
+   css(lower,['height','min-height','padding-top','padding-bottom','margin-top','margin-bottom','position']),
+   '',
+   `vars: viewportH=${getComputedStyle(document.documentElement).getPropertyValue('--shizuku-viewport-height').trim()} dish=${getComputedStyle(document.documentElement).getPropertyValue('--shizuku-dish-size').trim()}`
+  ].join('\n');
+ };
+ let af=0;const schedule=()=>{cancelAnimationFrame(af);af=requestAnimationFrame(()=>requestAnimationFrame(render))};
+ addEventListener('resize',schedule,{passive:true});visualViewport?.addEventListener('resize',schedule,{passive:true});new ResizeObserver(schedule).observe(document.body);setInterval(render,1000);schedule();
+})();
+</script>
+
 </body>
 </html>
