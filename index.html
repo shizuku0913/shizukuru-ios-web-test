@@ -759,8 +759,9 @@ h1{font-size:1.05rem;margin:0;font-weight:900;letter-spacing:.02em}
 }
 .dish:before{content:"";position:absolute;inset:-4%;border-radius:50%;z-index:-1;pointer-events:none;opacity:var(--harmony-air,0);background:radial-gradient(circle at 50% 50%,var(--harmony-color,rgba(255,255,255,0)) 0,rgba(255,255,255,0) 68%);filter:blur(15px);transform:scale(var(--harmony-breath,1));transition:opacity .3s ease,transform .28s ease}
 .dish:after{content:"";position:absolute;inset:5%;border-radius:50%;border:2px solid rgba(130,105,80,.08);pointer-events:none}
+/* v10.11.30: mix ring box follows the rendered dish border-box exactly. */
 /* dev3 Birth & Rebirth */
-.mix-ring{position:absolute;inset:-15px;z-index:4;pointer-events:none;overflow:visible;opacity:0;transition:opacity .35s ease}
+.mix-ring{position:absolute;left:-15px;top:-15px;width:calc(100% + 30px);height:calc(100% + 30px);inset:auto;display:block;z-index:4;pointer-events:none;overflow:visible;opacity:0;transition:opacity .35s ease}
 .mix-ring.visible{opacity:.72}.mix-ring.complete{opacity:.92}.mix-ring.absorb{animation:ringAbsorb .78s cubic-bezier(.2,.72,.2,1) forwards}
 .mix-ring-track,.mix-ring-progress{fill:none;vector-effect:non-scaling-stroke}.mix-ring-track{stroke:rgba(119,102,84,.22);stroke-width:1.9}.mix-ring-progress{stroke:var(--ring-color,rgba(243,167,63,.72));stroke-width:3.0;stroke-linecap:round;stroke-dasharray:301.593;stroke-dashoffset:301.593;filter:drop-shadow(0 0 3px var(--ring-glow,rgba(243,167,63,.18)));transition:stroke-dashoffset .15s linear,stroke .4s ease}
 .mix-ring.visible .mix-ring-progress{animation:ringBreath 2.8s ease-in-out infinite}
@@ -13392,22 +13393,22 @@ window.ShizukuV831Manifest=Object.freeze({
       const usableH=Math.max(0,palette.clientHeight-verticalPadding-2);
       const designTarget=Math.min(382,vp.width*.72,vp.height*.42);
 
-      /* v10.11.29: viewport-driven composition fit (OS-agnostic).
-         On short portrait screens, preserve breathing room below the tube by
-         reducing only the dish's visual size. Because the palette is flex-end
-         aligned, this moves the dish downward without moving the footer or
-         changing any mixing/touch behavior. Tall screens retain the existing
-         design target. */
+      /* v10.11.30: balanced viewport-driven composition (OS-agnostic).
+         Keep the dish visually substantial on short portrait screens while
+         reserving a proportional tube-to-dish breathing gap. The same measured
+         rule is used on iOS and Android; no OS/user-agent branch is involved. */
       let compositionCap=usableH;
       const tube=document.getElementById('masterBottle');
       if(tube){
         const paletteRect=palette.getBoundingClientRect();
         const tubeRect=tube.getBoundingClientRect();
-        const desiredGap=Math.min(190,Math.max(70,vp.height*.14));
+        const desiredGap=Math.min(130,Math.max(50,vp.height*.10));
         const paletteBottom=paletteRect.bottom-parseFloat(cs.paddingBottom||0);
-        compositionCap=Math.max(180,paletteBottom-(tubeRect.bottom+desiredGap));
+        compositionCap=Math.max(220,paletteBottom-(tubeRect.bottom+desiredGap));
       }
-      const fitted=Math.max(180,Math.min(designTarget,usableH,compositionCap));
+      const shortPortrait=vp.height<900 && vp.height>vp.width;
+      const preferredFloor=shortPortrait?240:220;
+      const fitted=Math.max(preferredFloor,Math.min(designTarget,usableH,compositionCap));
       root.style.setProperty('--shizuku-dish-size',px(fitted));
     }
 
