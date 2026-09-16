@@ -1,8 +1,0 @@
-Shizukuru v10.11.2 — Official discovery persistence fix
-
-- Fixed a legacy cleanup path that deduplicated official discoveries by pigment recipe identity.
-- Official discoveries are now deduplicated only by published official color name.
-- This matters because identical pigment ratios can legitimately produce different official colors with different water/process state.
-- Official discovery persistence is verified against the primary localStorage payload before the discovery celebration is shown.
-- A transient primary write failure is retried once.
-- Official 350 colors, recipes, recognition thresholds, translations and encyclopedia grouping are unchanged from v10.11.1.

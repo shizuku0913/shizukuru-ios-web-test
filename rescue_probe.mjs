@@ -1,6 +1,0 @@
-import { officialNames,reproductionRecipes,mixingEngine,classification } from './test/production-mixing-utils.js';
-const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-function mix(record, recipe, waterLevel=record.waterLevel){const sum=recipe.reduce((s,r)=>s+r.ratio,0);const sources=new Map(recipe.filter(r=>r.ratio>0).map(r=>[r.hex,r.ratio/sum]));return mixingEngine.mixAggregate({total:1,sources,waterLevel:clamp(waterLevel,0,1),mixLevel:1}).map(Math.round)}
-function variants(record){const out=[];for(let i=0;i<record.recipe.length;i++)for(const pct of [-.1,.1]){const recipe=record.recipe.map((r,j)=>({...r,ratio:r.ratio*(j===i?1+pct:1)}));out.push({label:`${record.recipe[i].name} ${pct}`,recipe,water:record.waterLevel})}for(const delta of [-.05,.05])out.push({label:`water ${delta}`,recipe:record.recipe,water:record.waterLevel+delta});return out}
-let n=0;
-for(const expected of officialNames){const rec=reproductionRecipes[expected];for(const v of variants(rec)){const c=mix(rec,v.recipe,v.water);const cur=classification.nearestStrictOfficialRGB(...c);if(cur.entry)continue;const near=classification.nearestOfficialEncyclopediaRGB(...c);console.log(JSON.stringify({expected,label:v.label,rgb:c,nearest:near.entry?.name,perception:near.perception,strictPerception:cur.perception}));if(++n>=5)process.exit();}}

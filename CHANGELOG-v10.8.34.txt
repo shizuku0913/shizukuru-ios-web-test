@@ -1,6 +1,0 @@
-v10.8.34 — gradual neutral-release tuning
-
-- Keeps the v10.8.33 multi-pigment neutralization model and its onset/max strength unchanged.
-- Slows only the release of neutralization when one pigment begins to dominate (balance exponent 0.65 -> 0.45).
-- Intended device behavior for R:Y:B: 1:1:1 stays dark/neutral; 1:1:2 stays a blue-tinted dark neutral longer; 1:1:3 transitions more clearly toward deep blue/blue-violet.
-- Two-colour mixing, complement undertones, pigment strengths, hue-spread onset, water behavior, official-color data, UI, and drawing behavior are unchanged.

@@ -1,6 +1,0 @@
-Shizukuru v10.8.31
-- Added a second calibrated complementary-pigment undertone: red + cyan.
-- Red + cyan at near-equal balance now trends toward a muted violet-gray instead of a clean saturated purple.
-- The effect fades smoothly as one pigment dominates.
-- Red + green gray-brown calibration is unchanged.
-- CMY subtractive bridge, pigment strengths, 0.52 multi-hue dulling onset, pinch fix, and water behavior are unchanged.

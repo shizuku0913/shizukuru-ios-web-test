@@ -1,6 +1,0 @@
-Shizukuru v10.8.41
-- Added a simulation-only conditional official-color rescue audit.
-- Production recognition thresholds and mixing engine remain unchanged.
-- Candidate rule rescues only current nulls when all existing perceptual guards pass, the nearest official is at least 2x closer than the second nearest, and RGB distance is within adaptive radius + 1.25.
-- Practical ±10% ingredient / ±0.05 water audit: 3712/4736 (78.38%) -> 3916/4736 (82.69%).
-- Rescued 204 misses with 0 new wrong discoveries in the practical audit set.

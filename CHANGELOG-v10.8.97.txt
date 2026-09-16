@@ -1,7 +1,0 @@
-Shizukuru v10.8.97 — i18n English sidecar
-
-- Added i18n/en.js as a data-only English dictionary.
-- English keys mirror the active Japanese i18n dictionary exactly (380/380).
-- Japanese remains the only active/default language in this build.
-- No language switch UI, storage, observers, or new event listeners were added.
-- Existing UI/event architecture remains untouched.

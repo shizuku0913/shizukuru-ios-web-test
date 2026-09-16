@@ -1,6 +1,0 @@
-Shizukuru v10.10.3 — Multilingual release QA checkpoint
-
-- No production color, mixing, drawing, gift, persistence, or UI behavior changed.
-- "My colors" remain outside the translation-completion requirement; user-entered names are preserved as stored.
-- Added release-QA regression coverage for language persistence, scoped Arabic RTL behavior, and rare gift/save-share translation routes.
-- Re-ran the full production and multilingual test suites before packaging.

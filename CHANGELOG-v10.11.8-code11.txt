@@ -1,8 +1,0 @@
-v10.11.8 RC2 code11 — Billing duplicate-class build fix
-
-- Keeps Google Play Billing 7.1.1 and the existing support purchase implementation unchanged.
-- Fixes Android :app:checkDebugDuplicateClasses failures caused by legacy Kotlin
-  kotlin-stdlib-jdk7 / kotlin-stdlib-jdk8 compatibility jars being resolved beside
-  Kotlin 1.8+ kotlin-stdlib, which already contains those classes.
-- Excludes only the two obsolete compatibility modules at Gradle configuration level.
-- Does not change mixing, color recognition, drawing, gifts, i18n, audio, or purchase behavior.

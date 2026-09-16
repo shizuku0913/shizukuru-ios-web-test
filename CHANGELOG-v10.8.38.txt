@@ -1,6 +1,0 @@
-Shizukuru v10.8.38 — Official Recipe Robustness Audit
-- Production mixing engine remains unchanged from v10.8.34 baseline.
-- Added automated robustness audit for all 350 official recipes.
-- Each recipe is perturbed ingredient-by-ingredient at ±10% and ±20%, plus water ±0.05/±0.10 (clamped).
-- Audit records whether formal production recognition remains owned by the intended official color.
-- Outputs OFFICIAL-RECIPE-ROBUSTNESS-AUDIT.json and .md.

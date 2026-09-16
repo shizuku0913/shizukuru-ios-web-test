@@ -1,9 +1,0 @@
-{
-  "name": "shizukuru-mixing-lab-tests",
-  "private": true,
-  "version": "10.8.50",
-  "type": "module",
-  "scripts": {
-    "test": "node --test test/*.test.js test/*.test.cjs"
-  }
-}

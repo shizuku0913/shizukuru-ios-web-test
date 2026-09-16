@@ -1,5 +1,0 @@
-v10.11.5
-- Fixed provisional-color target sample attempt counter not refreshing.
-- Unnamed research targets no longer store "N回近づいた" as a literal target name.
-- Both my-near and provisional-merge attempt paths now synchronize the live target counter.
-- No official-color, recipe, threshold, localization, or persistence-format changes.
