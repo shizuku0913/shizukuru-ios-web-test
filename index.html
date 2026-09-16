@@ -3036,9 +3036,17 @@ html.motion-high-refresh{
 .detail-secret-name{font-size:.67rem;font-weight:900;color:#65584e}
 .detail-secret-count{font-size:1.02rem;font-weight:950;line-height:1;color:#5c5148;white-space:nowrap}
 .detail-secret-water{
-  margin-top:8px;padding:8px 10px;border-radius:13px;
-  background:rgba(231,247,255,.9);text-align:center;
-  font-size:.68rem;font-weight:900;color:#477287;
+  margin-top:8px;padding:7px 9px;border-radius:13px;
+  background:rgba(231,247,255,.9);
+  display:grid;grid-template-columns:30px minmax(0,1fr) auto;
+  gap:8px;align-items:center;color:#477287;
+}
+.detail-secret-water-icon{font-size:1rem;line-height:1;text-align:center}
+.detail-secret-water-name{font-size:.67rem;font-weight:900;color:#477287}
+.detail-secret-water-count{font-size:1.02rem;font-weight:950;line-height:1;color:#477287;white-space:nowrap}
+.detail-secret-water.no-water .detail-secret-water-name{grid-column:2 / 4}
+@media(max-width:430px){
+  .detail-secret-water{grid-template-columns:27px minmax(0,1fr) auto;padding:6px 8px}
 }
 @media(max-width:430px){
   .detail-secret-recipe{padding:10px}
@@ -10728,9 +10736,17 @@ function renderOfficialSecretRecipe(entry){
   const WATER_PER_DROP_DISPLAY=0.18;
   const WATER_MAX_DROPS_DISPLAY=5;
   const waterCount=recipe.water>0?Math.min(WATER_MAX_DROPS_DISPLAY,Math.max(1,Math.round(recipe.water/WATER_PER_DROP_DISPLAY))):0;
-  water.textContent=waterCount>0
-    ?appText('detail.secret.water',{count:waterCount},`💧 水 ×${waterCount}`)
-    :appText('detail.secret.noWater',null,'💧 水なし');
+  if(waterCount>0){
+    const waterName=appText('detail.secret.waterName',null,'水');
+    const waterCountText=appText('detail.secret.count',{count:waterCount},`×${waterCount}`);
+    water.classList.remove('no-water');
+    water.innerHTML=`<span class="detail-secret-water-icon" aria-hidden="true">💧</span><span class="detail-secret-water-name">${waterName}</span><strong class="detail-secret-water-count">${waterCountText}</strong>`;
+    water.setAttribute('aria-label',appText('detail.secret.water',{count:waterCount},`水 ×${waterCount}`));
+  }else{
+    water.classList.add('no-water');
+    water.innerHTML=`<span class="detail-secret-water-icon" aria-hidden="true">💧</span><span class="detail-secret-water-name">${appText('detail.secret.noWater',null,'水なし').replace(/^💧\s*/, '')}</span>`;
+    water.setAttribute('aria-label',appText('detail.secret.noWater',null,'水なし'));
+  }
 }
 
 const ColorDetailPresentation=Object.freeze({
