@@ -1804,7 +1804,11 @@ html,body{height:var(--shizuku-viewport-height)}
 }
 .dish{
   width:var(--shizuku-dish-size);
+  height:var(--shizuku-dish-size);
+  aspect-ratio:auto;
   max-width:100%;
+  max-height:var(--shizuku-dish-size);
+  flex:0 0 var(--shizuku-dish-size);
 }
 /* The palette row owns the remaining height. Never let the dish escape it. */
 .palette{min-height:0;contain:layout size}
@@ -17389,41 +17393,7 @@ window.ShizukuruFirstPlayGuide?.auto();
 
 
 
-<!-- code22: forced-visible atelier geometry diagnostics; diagnostic only. -->
-<style id="code22-atelier-diag-style">
-#code22AtelierDiag{position:fixed!important;top:112px!important;left:10px!important;right:10px!important;bottom:auto!important;z-index:2147483647!important;margin:0!important;padding:10px 12px!important;border:3px solid #fff!important;border-radius:12px!important;background:#111!important;color:#fff!important;font:700 12px/1.38 ui-monospace,SFMono-Regular,Menlo,monospace!important;white-space:pre-wrap!important;pointer-events:none!important;text-align:left!important;box-sizing:border-box!important;opacity:.94!important;transform:none!important;filter:none!important;visibility:visible!important;display:block!important}
-</style>
-<div id="code22AtelierDiag">CODE22 DIAG LOADING…</div>
-<script id="code22-atelier-diag-script">
-(()=>{
- const el=document.getElementById('code22AtelierDiag');
- const q=s=>document.querySelector(s);
- const fmt=r=>r?`${Math.round(r.width)}×${Math.round(r.height)} @ ${Math.round(r.left)},${Math.round(r.top)}`:'—';
- const update=()=>{
-  try{
-   const vv=window.visualViewport, root=getComputedStyle(document.documentElement);
-   const dish=q('.dish'), palette=q('.palette'), tube=q('.paint-tube,.paint-tube-wrap,.tube-dispenser');
-   const app=document.getElementById('pinchZone')||q('.app');
-   el.textContent=[
-    'CODE22 ATELIER DIAG',
-    `inner ${innerWidth}×${innerHeight}  DPR ${devicePixelRatio}`,
-    `visual ${vv?Math.round(vv.width):'—'}×${vv?Math.round(vv.height):'—'} off ${vv?Math.round(vv.offsetTop):'—'} scale ${vv?vv.scale.toFixed(2):'—'}`,
-    `app ${fmt(app?.getBoundingClientRect())}`,
-    `palette ${fmt(palette?.getBoundingClientRect())}`,
-    `dish ${fmt(dish?.getBoundingClientRect())}`,
-    `tube ${fmt(tube?.getBoundingClientRect())}`,
-    `dishVar ${root.getPropertyValue('--shizuku-dish-size').trim()||'—'}`,
-    `vpVar ${root.getPropertyValue('--shizuku-viewport-height').trim()||'—'}`
-   ].join('\n');
-  }catch(e){el.textContent='CODE22 DIAG ERROR\n'+String(e&&e.message||e)}
- };
- const schedule=()=>requestAnimationFrame(()=>requestAnimationFrame(update));
- addEventListener('resize',schedule,{passive:true}); addEventListener('orientationchange',schedule,{passive:true});
- window.visualViewport?.addEventListener('resize',schedule,{passive:true});
- if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',schedule,{once:true}); else schedule();
- setTimeout(schedule,250);setTimeout(schedule,900);setTimeout(schedule,1800);
-})();
-</script>
+
 
 </body>
 </html>
