@@ -1902,6 +1902,27 @@ html,body{height:var(--shizuku-viewport-height)}
   color:#9a7b4d;
   font-weight:800;
 }
+/* v10.11.18 code18: iPhone Safari atelier geometry parity.
+   WebKit can resolve aspect-ratio + auto height + padding in the dish flex item
+   differently from Android. Pin the measured dish to the same explicit square
+   on portrait iPhone-sized viewports. Mixing/rendering behavior is unchanged. */
+@supports (-webkit-touch-callout:none){
+  @media (orientation:portrait) and (max-width:430px){
+    body:not(.draw-mode-open) .dish{
+      width:var(--shizuku-dish-size);
+      height:var(--shizuku-dish-size);
+      min-width:0;
+      min-height:0;
+      box-sizing:border-box;
+      aspect-ratio:1 / 1;
+    }
+    body:not(.draw-mode-open) .dish>canvas{
+      width:100%;
+      height:100%;
+      aspect-ratio:1 / 1;
+    }
+  }
+}
 </style>
 <script id="safe-storage-bootstrap">
 const safeStorage=(()=>{
@@ -3265,10 +3286,10 @@ html[data-text-direction="rtl"] :is(canvas,.draw-shell,.draw-stage,.draw-toolbar
           <button class="draw-brush" data-size="5" style="--dot:4px" aria-label="とても細い筆"></button>
           <button class="draw-brush" data-size="8" style="--dot:6px" aria-label="細い筆"></button>
           <button class="draw-brush" data-size="12" style="--dot:8px" aria-label="少し細い筆"></button>
-          <button class="draw-brush active" data-size="42.5" style="--dot:21px" aria-label="最大径85%テスト"></button>
-          <button class="draw-brush" data-size="45" style="--dot:23px" aria-label="最大径90%テスト"></button>
-          <button class="draw-brush" data-size="47.5" style="--dot:24px" aria-label="最大径95%テスト"></button>
-          <button class="draw-brush" data-size="50" style="--dot:25px" aria-label="最大径100%テスト"></button>
+          <button class="draw-brush active" data-size="18" style="--dot:11px" aria-label="ふつうの筆"></button>
+          <button class="draw-brush" data-size="26" style="--dot:15px" aria-label="少し太い筆"></button>
+          <button class="draw-brush" data-size="36" style="--dot:20px" aria-label="太い筆"></button>
+          <button class="draw-brush" data-size="50" style="--dot:25px" aria-label="とても太い筆"></button>
         </div>
       </div>
       <button class="draw-tool icon-only" id="drawClear" aria-label="絵をきれいにする" title="絵をきれいにする">🧽</button>
