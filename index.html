@@ -10736,17 +10736,13 @@ function renderOfficialSecretRecipe(entry){
   const WATER_PER_DROP_DISPLAY=0.18;
   const WATER_MAX_DROPS_DISPLAY=5;
   const waterCount=recipe.water>0?Math.min(WATER_MAX_DROPS_DISPLAY,Math.max(1,Math.round(recipe.water/WATER_PER_DROP_DISPLAY))):0;
-  if(waterCount>0){
-    const waterName=appText('detail.secret.waterName',null,'水');
-    const waterCountText=appText('detail.secret.count',{count:waterCount},`×${waterCount}`);
-    water.classList.remove('no-water');
-    water.innerHTML=`<span class="detail-secret-water-icon" aria-hidden="true">💧</span><span class="detail-secret-water-name">${waterName}</span><strong class="detail-secret-water-count">${waterCountText}</strong>`;
-    water.setAttribute('aria-label',appText('detail.secret.water',{count:waterCount},`水 ×${waterCount}`));
-  }else{
-    water.classList.add('no-water');
-    water.innerHTML=`<span class="detail-secret-water-icon" aria-hidden="true">💧</span><span class="detail-secret-water-name">${appText('detail.secret.noWater',null,'水なし').replace(/^💧\s*/, '')}</span>`;
-    water.setAttribute('aria-label',appText('detail.secret.noWater',null,'水なし'));
-  }
+  // code25/code20: keep the water row identical even when no water is needed.
+  // Children can now read every secret recipe using the same icon/name/count columns.
+  const waterName=appText('detail.secret.waterName',null,'水');
+  const waterCountText=appText('detail.secret.count',{count:waterCount},`×${waterCount}`);
+  water.classList.remove('no-water');
+  water.innerHTML=`<span class="detail-secret-water-icon" aria-hidden="true">💧</span><span class="detail-secret-water-name">${waterName}</span><strong class="detail-secret-water-count">${waterCountText}</strong>`;
+  water.setAttribute('aria-label',appText('detail.secret.water',{count:waterCount},`水 ×${waterCount}`));
 }
 
 const ColorDetailPresentation=Object.freeze({
