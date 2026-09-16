@@ -1,0 +1,6 @@
+Shizukuru v10.8.47
+- Audit-only build; production discovery behavior is unchanged from v10.8.42.
+- Added RGB + pigment-recipe + water tie-break simulation for official-color misses.
+- Practical ±10% suite: 4691/4736 correct (99.05%), 36 existing wrong, 9 misses, zero new wrong discoveries.
+- Holdout suite: 14166/14208 correct (99.70%), 30 existing wrong, 12 misses, zero new wrong discoveries.
+- Candidate only runs after v10.8.42 returns null and never overrides an existing discovery result.

@@ -1,0 +1,8 @@
+Shizukuru Mixing Lab v10.8.73 - Audio Boundary Smoothing
+
+- Adds a very short fade-in to embedded WAV playback to suppress start-boundary clicks.
+- Adds a short fade-out before natural sample endings, especially for mix tracks whose waveform ends away from zero.
+- Replaces abrupt AudioBufferSource.stop() with a 24 ms gain fade before stopping.
+- Prevents a deliberately stopped mixing sample from restarting through its onended callback.
+- No color recognition, mixing physics, drawing, gift, guide, localization, or purchase behavior changed.
+- Full automated suite: 128/128 passing.

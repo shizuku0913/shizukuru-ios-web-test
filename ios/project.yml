@@ -1,0 +1,27 @@
+name: ShizukuruMixingLab
+options:
+  bundleIdPrefix: studio.nullnode
+  deploymentTarget:
+    iOS: "16.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+targets:
+  ShizukuruMixingLab:
+    type: application
+    platform: iOS
+    sources:
+      - path: ShizukuruMixingLab/App
+      - path: ShizukuruMixingLab/Resources
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: studio.nullnode.shizukuru
+        PRODUCT_NAME: Shizukuru Mixing Lab
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIRequiresFullScreen: YES
+        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: "Shizukuruで描いた絵を写真に保存するために使用します。"
+        CODE_SIGN_STYLE: Automatic

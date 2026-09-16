@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'jp.shizukuru.mixinglab'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'jp.shizukuru.mixinglab'
+        minSdk 26
+        targetSdk 35
+        versionCode 4
+        versionName '0.2.0'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+
+// v10.11.9 RC2 code12
+// Billing 7.x can expose legacy Kotlin JDK7/JDK8 compatibility artifacts through
+// the resolved dependency graph. Kotlin 1.8+ already includes those classes in
+// kotlin-stdlib itself, so keeping the legacy jars can trigger D8/R8 duplicate
+// class errors (kotlin.collections.*, kotlin.io.path.*, etc.).
+// This app is Java-based; exclude only the obsolete compatibility wrappers while
+// leaving the Kotlin stdlib selected by AndroidX/Billing untouched.
+configurations.configureEach {
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk7'
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+}
+
+dependencies {
+    implementation 'androidx.core:core:1.15.0'
+    implementation 'androidx.webkit:webkit:1.14.0'
+    implementation 'com.android.billingclient:billing:7.1.1'
+}

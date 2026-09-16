@@ -1,0 +1,6 @@
+Shizukuru v10.8.40
+- Added practical official-color rescue simulation only; production recognition is unchanged.
+- Tested additive RGB-radius slack from +0.25 to +2.00 while preserving nearest-official selection and DeltaE/hue/chroma guards.
+- Baseline: 3712/4736 correct (78.38%), 988 none, 36 wrong.
+- Even +0.25 rescues 79 cases but creates 6 new wrong discoveries.
+- Conclusion: reject uniform radius expansion; next step is conditional rescue aimed only at safe null cases.

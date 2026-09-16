@@ -1,0 +1,9 @@
+Shizukuru Mixing Lab v10.8.37
+
+- Added a full 350-color official recipe ownership audit.
+- Each published reproduction recipe is run through the production RYB mixing engine.
+- The audit verifies both:
+  1) its intended official color is the geometrically nearest official center, and
+  2) the production formal-discovery classifier returns that intended color.
+- Generates OFFICIAL-RECIPE-OWNERSHIP-AUDIT.json and .md with ownership margins and highest-risk recipes.
+- No mixing parameters, official colors, discovery radii, UI, or app behavior were changed in this version.

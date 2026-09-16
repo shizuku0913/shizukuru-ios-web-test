@@ -1,0 +1,11 @@
+Shizukuru v10.8.25 — K/M reference bench
+
+- Production mixing remains the existing RYB engine. No K/M result is used by live mixing.
+- Added KMPigmentReferenceModel, a compact Kubelka–Munk K/S reference model for controlled comparison.
+- Added ratio sweeps for blue+yellow, red+yellow, and red+blue.
+- Exposed reference-bench state in the mixing engine manifest.
+- Added regression tests proving K/M cannot become an active production mode accidentally.
+- Existing 350-color reachability and recognition tests remain unchanged and passing.
+
+Important:
+This first K/M bench derives K/S from three linear-RGB reflectance channels. It is intentionally a reference ruler, not a claim of full spectral pigment simulation. A later calibration step can replace/reference it with wavelength-resolved pigment data if that improves the child-facing RYB model.

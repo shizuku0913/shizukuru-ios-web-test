@@ -1,0 +1,7015 @@
+{
+  "summary": {
+    "count": 350,
+    "nearestOwned": 350,
+    "strictCorrect": 349,
+    "strictWrong": 0,
+    "rescueCorrect": 350,
+    "rescueWrong": 0,
+    "unrecognizedAfterRescue": 0,
+    "meanTargetDistance": 0.5997704577035302,
+    "maxTargetDistance": 6.0827625302982185
+  },
+  "rows": [
+    {
+      "name": "べにいろ",
+      "targetHex": "#ff4a22",
+      "color": [
+        249,
+        74,
+        35
+      ],
+      "hex": "#F94A23",
+      "targetDistance": 6.0827625302982185,
+      "nearest": "べにいろ",
+      "nearestDistance": 6.0827625302982185,
+      "runnerUp": "しゅいろ",
+      "runnerUpDistance": 10.488088481701514,
+      "nearestOwned": true,
+      "strict": "べにいろ",
+      "rescue": "べにいろ",
+      "water": 0.22276037509689195,
+      "ingredients": 4
+    },
+    {
+      "name": "しゅいろ",
+      "targetHex": "#ff511e",
+      "color": [
+        249,
+        81,
+        30
+      ],
+      "hex": "#F9511E",
+      "targetDistance": 6,
+      "nearest": "しゅいろ",
+      "nearestDistance": 6,
+      "runnerUp": "べにいろ",
+      "runnerUpDistance": 10.04987562112089,
+      "nearestOwned": true,
+      "strict": "しゅいろ",
+      "rescue": "しゅいろ",
+      "water": 0.4026185735774205,
+      "ingredients": 3
+    },
+    {
+      "name": "カステラいろ",
+      "targetHex": "#f2c14e",
+      "color": [
+        241,
+        190,
+        83
+      ],
+      "hex": "#F1BE53",
+      "targetDistance": 5.916079783099616,
+      "nearest": "カステラいろ",
+      "nearestDistance": 5.916079783099616,
+      "runnerUp": "グラタンいろ",
+      "runnerUpDistance": 13.076696830622021,
+      "nearestOwned": true,
+      "strict": null,
+      "rescue": "カステラいろ",
+      "water": 0.07222297957666082,
+      "ingredients": 5
+    },
+    {
+      "name": "つつじいろ",
+      "targetHex": "#ff3643",
+      "color": [
+        250,
+        56,
+        67
+      ],
+      "hex": "#FA3843",
+      "targetDistance": 5.385164807134505,
+      "nearest": "つつじいろ",
+      "nearestDistance": 5.385164807134505,
+      "runnerUp": "いちごいろ",
+      "runnerUpDistance": 19.313207915827967,
+      "nearestOwned": true,
+      "strict": "つつじいろ",
+      "rescue": "つつじいろ",
+      "water": 0.09738678194840587,
+      "ingredients": 3
+    },
+    {
+      "name": "きんぎょいろ",
+      "targetHex": "#ff583a",
+      "color": [
+        250,
+        88,
+        60
+      ],
+      "hex": "#FA583C",
+      "targetDistance": 5.385164807134505,
+      "nearest": "きんぎょいろ",
+      "nearestDistance": 5.385164807134505,
+      "runnerUp": "ももいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "きんぎょいろ",
+      "rescue": "きんぎょいろ",
+      "water": 0.01459900822956115,
+      "ingredients": 3
+    },
+    {
+      "name": "だいだい",
+      "targetHex": "#ff8c1e",
+      "color": [
+        250,
+        140,
+        30
+      ],
+      "hex": "#FA8C1E",
+      "targetDistance": 5,
+      "nearest": "だいだい",
+      "nearestDistance": 5,
+      "runnerUp": "みかんいろ",
+      "runnerUpDistance": 9.486832980505138,
+      "nearestOwned": true,
+      "strict": "だいだい",
+      "rescue": "だいだい",
+      "water": 0.7441092549496945,
+      "ingredients": 3
+    },
+    {
+      "name": "あお",
+      "targetHex": "#1a80ff",
+      "color": [
+        26,
+        128,
+        250
+      ],
+      "hex": "#1A80FA",
+      "targetDistance": 5,
+      "nearest": "あお",
+      "nearestDistance": 5,
+      "runnerUp": "るりいろ",
+      "runnerUpDistance": 57.463031594234565,
+      "nearestOwned": true,
+      "strict": "あお",
+      "rescue": "あお",
+      "water": 0.029629535458866364,
+      "ingredients": 4
+    },
+    {
+      "name": "ピンク",
+      "targetHex": "#ff3d8f",
+      "color": [
+        250,
+        61,
+        143
+      ],
+      "hex": "#FA3D8F",
+      "targetDistance": 5,
+      "nearest": "ピンク",
+      "nearestDistance": 5,
+      "runnerUp": "たこいろ",
+      "runnerUpDistance": 50.941142507800116,
+      "nearestOwned": true,
+      "strict": "ピンク",
+      "rescue": "ピンク",
+      "water": 0.009421721416262456,
+      "ingredients": 3
+    },
+    {
+      "name": "ももいろ",
+      "targetHex": "#ff5c41",
+      "color": [
+        250,
+        92,
+        65
+      ],
+      "hex": "#FA5C41",
+      "targetDistance": 5,
+      "nearest": "ももいろ",
+      "nearestDistance": 5,
+      "runnerUp": "きんぎょいろ",
+      "runnerUpDistance": 9.486832980505138,
+      "nearestOwned": true,
+      "strict": "ももいろ",
+      "rescue": "ももいろ",
+      "water": 0.009158954378217458,
+      "ingredients": 3
+    },
+    {
+      "name": "サーモンピンク",
+      "targetHex": "#ff9060",
+      "color": [
+        250,
+        144,
+        96
+      ],
+      "hex": "#FA9060",
+      "targetDistance": 5,
+      "nearest": "サーモンピンク",
+      "nearestDistance": 5,
+      "runnerUp": "あさもやのゆうやけいろ",
+      "runnerUpDistance": 8.602325267042627,
+      "nearestOwned": true,
+      "strict": "サーモンピンク",
+      "rescue": "サーモンピンク",
+      "water": 0.06808580796322028,
+      "ingredients": 3
+    },
+    {
+      "name": "サンセットオレンジ",
+      "targetHex": "#ff7020",
+      "color": [
+        250,
+        112,
+        32
+      ],
+      "hex": "#FA7020",
+      "targetDistance": 5,
+      "nearest": "サンセットオレンジ",
+      "nearestDistance": 5,
+      "runnerUp": "キャンプファイヤーいろ",
+      "runnerUpDistance": 11.180339887498949,
+      "nearestOwned": true,
+      "strict": "サンセットオレンジ",
+      "rescue": "サンセットオレンジ",
+      "water": 0.4707136837532744,
+      "ingredients": 4
+    },
+    {
+      "name": "パステルオレンジ",
+      "targetHex": "#ffad8a",
+      "color": [
+        250,
+        173,
+        138
+      ],
+      "hex": "#FAAD8A",
+      "targetDistance": 5,
+      "nearest": "パステルオレンジ",
+      "nearestDistance": 5,
+      "runnerUp": "アプリコットいろ",
+      "runnerUpDistance": 20.615528128088304,
+      "nearestOwned": true,
+      "strict": "パステルオレンジ",
+      "rescue": "パステルオレンジ",
+      "water": 0.7448516299138999,
+      "ingredients": 3
+    },
+    {
+      "name": "あさやけいろ",
+      "targetHex": "#f5a05c",
+      "color": [
+        250,
+        160,
+        92
+      ],
+      "hex": "#FAA05C",
+      "targetDistance": 5,
+      "nearest": "あさやけいろ",
+      "nearestDistance": 5,
+      "runnerUp": "サーモンピンク",
+      "runnerUpDistance": 17.233687939614086,
+      "nearestOwned": true,
+      "strict": "あさやけいろ",
+      "rescue": "あさやけいろ",
+      "water": 0.030991759451105758,
+      "ingredients": 3
+    },
+    {
+      "name": "ぶどういろ",
+      "targetHex": "#6b3fa0",
+      "color": [
+        105,
+        63,
+        156
+      ],
+      "hex": "#693F9C",
+      "targetDistance": 4.47213595499958,
+      "nearest": "ぶどういろ",
+      "nearestDistance": 4.47213595499958,
+      "runnerUp": "ロイヤルパープル",
+      "runnerUpDistance": 24.49489742783178,
+      "nearestOwned": true,
+      "strict": "ぶどういろ",
+      "rescue": "ぶどういろ",
+      "water": 0.6307408945448697,
+      "ingredients": 6
+    },
+    {
+      "name": "オレンジ",
+      "targetHex": "#ff6420",
+      "color": [
+        251,
+        101,
+        32
+      ],
+      "hex": "#FB6520",
+      "targetDistance": 4.123105625617661,
+      "nearest": "オレンジ",
+      "nearestDistance": 4.123105625617661,
+      "runnerUp": "キャンプファイヤーいろ",
+      "runnerUpDistance": 5.916079783099616,
+      "nearestOwned": true,
+      "strict": "オレンジ",
+      "rescue": "オレンジ",
+      "water": 0.7006818436467411,
+      "ingredients": 4
+    },
+    {
+      "name": "パステルピンク",
+      "targetHex": "#ffada7",
+      "color": [
+        251,
+        172,
+        167
+      ],
+      "hex": "#FBACA7",
+      "targetDistance": 4.123105625617661,
+      "nearest": "パステルピンク",
+      "nearestDistance": 4.123105625617661,
+      "runnerUp": "ぶたいろ",
+      "runnerUpDistance": 16.15549442140351,
+      "nearestOwned": true,
+      "strict": "パステルピンク",
+      "rescue": "パステルピンク",
+      "water": 0.003221369446544907,
+      "ingredients": 3
+    },
+    {
+      "name": "アプリコットいろ",
+      "targetHex": "#ffbd7e",
+      "color": [
+        251,
+        189,
+        126
+      ],
+      "hex": "#FBBD7E",
+      "targetDistance": 4,
+      "nearest": "アプリコットいろ",
+      "nearestDistance": 4,
+      "runnerUp": "スープをうすめたラーメンいろ",
+      "runnerUpDistance": 13.379088160259652,
+      "nearestOwned": true,
+      "strict": "アプリコットいろ",
+      "rescue": "アプリコットいろ",
+      "water": 0.028215781513068496,
+      "ingredients": 3
+    },
+    {
+      "name": "コーラルいろ",
+      "targetHex": "#ff7246",
+      "color": [
+        251,
+        114,
+        70
+      ],
+      "hex": "#FB7246",
+      "targetDistance": 4,
+      "nearest": "コーラルいろ",
+      "nearestDistance": 4,
+      "runnerUp": "ももいろ",
+      "runnerUpDistance": 22.912878474779202,
+      "nearestOwned": true,
+      "strict": "コーラルいろ",
+      "rescue": "コーラルいろ",
+      "water": 0.5174747519235751,
+      "ingredients": 4
+    },
+    {
+      "name": "ときいろ",
+      "targetHex": "#ff6fac",
+      "color": [
+        251,
+        111,
+        172
+      ],
+      "hex": "#FB6FAC",
+      "targetDistance": 4,
+      "nearest": "ときいろ",
+      "nearestDistance": 4,
+      "runnerUp": "ガムいろ",
+      "runnerUpDistance": 26.870057685088806,
+      "nearestOwned": true,
+      "strict": "ときいろ",
+      "rescue": "ときいろ",
+      "water": 0.16478302128228078,
+      "ingredients": 3
+    },
+    {
+      "name": "コーラルピンク",
+      "targetHex": "#ff6f78",
+      "color": [
+        251,
+        111,
+        120
+      ],
+      "hex": "#FB6F78",
+      "targetDistance": 4,
+      "nearest": "コーラルピンク",
+      "nearestDistance": 4,
+      "runnerUp": "まだあおいトマトいろ",
+      "runnerUpDistance": 19.87460691435179,
+      "nearestOwned": true,
+      "strict": "コーラルピンク",
+      "rescue": "コーラルピンク",
+      "water": 0.04895046041383061,
+      "ingredients": 3
+    },
+    {
+      "name": "シャーベットいろ",
+      "targetHex": "#ff9a7a",
+      "color": [
+        251,
+        154,
+        122
+      ],
+      "hex": "#FB9A7A",
+      "targetDistance": 4,
+      "nearest": "シャーベットいろ",
+      "nearestDistance": 4,
+      "runnerUp": "あさもやのゆうやけいろ",
+      "runnerUpDistance": 20.856653614614213,
+      "nearestOwned": true,
+      "strict": "シャーベットいろ",
+      "rescue": "シャーベットいろ",
+      "water": 0.6893167242024377,
+      "ingredients": 4
+    },
+    {
+      "name": "めだまやきいろ",
+      "targetHex": "#ffe7a9",
+      "color": [
+        251,
+        231,
+        169
+      ],
+      "hex": "#FBE7A9",
+      "targetDistance": 4,
+      "nearest": "めだまやきいろ",
+      "nearestDistance": 4,
+      "runnerUp": "ぞうげいろ",
+      "runnerUpDistance": 9,
+      "nearestOwned": true,
+      "strict": "めだまやきいろ",
+      "rescue": "めだまやきいろ",
+      "water": 0.016553258697967976,
+      "ingredients": 4
+    },
+    {
+      "name": "カーキいろ",
+      "targetHex": "#35672d",
+      "color": [
+        51,
+        106,
+        46
+      ],
+      "hex": "#336A2E",
+      "targetDistance": 3.741657386773941,
+      "nearest": "カーキいろ",
+      "nearestDistance": 3.741657386773941,
+      "runnerUp": "ほうれんそういろ",
+      "runnerUpDistance": 6.48074069840786,
+      "nearestOwned": true,
+      "strict": "カーキいろ",
+      "rescue": "カーキいろ",
+      "water": 0.020120665522059426,
+      "ingredients": 5
+    },
+    {
+      "name": "つちいろ",
+      "targetHex": "#806044",
+      "color": [
+        128,
+        94,
+        71
+      ],
+      "hex": "#805E47",
+      "targetDistance": 3.6055512754639896,
+      "nearest": "つちいろ",
+      "nearestDistance": 3.6055512754639896,
+      "runnerUp": "かたつむりいろ",
+      "runnerUpDistance": 10.816653826391969,
+      "nearestOwned": true,
+      "strict": "つちいろ",
+      "rescue": "つちいろ",
+      "water": 0.9957637231324333,
+      "ingredients": 6
+    },
+    {
+      "name": "おにぎりいろ",
+      "targetHex": "#fcf2e4",
+      "color": [
+        249,
+        244,
+        228
+      ],
+      "hex": "#F9F4E4",
+      "targetDistance": 3.6055512754639896,
+      "nearest": "おにぎりいろ",
+      "nearestDistance": 3.6055512754639896,
+      "runnerUp": "ヨーグルトいろ",
+      "runnerUpDistance": 6.48074069840786,
+      "nearestOwned": true,
+      "strict": "おにぎりいろ",
+      "rescue": "おにぎりいろ",
+      "water": 0.05135587164200842,
+      "ingredients": 3
+    },
+    {
+      "name": "おひさまいろ",
+      "targetHex": "#ffd23f",
+      "color": [
+        252,
+        211,
+        63
+      ],
+      "hex": "#FCD33F",
+      "targetDistance": 3.1622776601683795,
+      "nearest": "おひさまいろ",
+      "nearestDistance": 3.1622776601683795,
+      "runnerUp": "にわとりいろ",
+      "runnerUpDistance": 8.602325267042627,
+      "nearestOwned": true,
+      "strict": "おひさまいろ",
+      "rescue": "おひさまいろ",
+      "water": 0.005001353570027276,
+      "ingredients": 4
+    },
+    {
+      "name": "ちゃいろ",
+      "targetHex": "#9a6432",
+      "color": [
+        152,
+        101,
+        48
+      ],
+      "hex": "#986530",
+      "targetDistance": 3,
+      "nearest": "ちゃいろ",
+      "nearestDistance": 3,
+      "runnerUp": "こげたホットケーキいろ",
+      "runnerUpDistance": 14.282856857085699,
+      "nearestOwned": true,
+      "strict": "ちゃいろ",
+      "rescue": "ちゃいろ",
+      "water": 0.03830932064331136,
+      "ingredients": 5
+    },
+    {
+      "name": "こがねいろ",
+      "targetHex": "#ffad20",
+      "color": [
+        252,
+        173,
+        32
+      ],
+      "hex": "#FCAD20",
+      "targetDistance": 3,
+      "nearest": "こがねいろ",
+      "nearestDistance": 3,
+      "runnerUp": "たいようのいろ",
+      "runnerUpDistance": 8.602325267042627,
+      "nearestOwned": true,
+      "strict": "こがねいろ",
+      "rescue": "こがねいろ",
+      "water": 0.768847521093262,
+      "ingredients": 3
+    },
+    {
+      "name": "とりのこいろ",
+      "targetHex": "#ffe15b",
+      "color": [
+        252,
+        225,
+        91
+      ],
+      "hex": "#FCE15B",
+      "targetDistance": 3,
+      "nearest": "とりのこいろ",
+      "nearestDistance": 3,
+      "runnerUp": "たいようのたまごいろ",
+      "runnerUpDistance": 16.76305461424021,
+      "nearestOwned": true,
+      "strict": "とりのこいろ",
+      "rescue": "とりのこいろ",
+      "water": 0.008295788581017404,
+      "ingredients": 4
+    },
+    {
+      "name": "みずいろ",
+      "targetHex": "#7bb6ff",
+      "color": [
+        123,
+        182,
+        252
+      ],
+      "hex": "#7BB6FC",
+      "targetDistance": 3,
+      "nearest": "みずいろ",
+      "nearestDistance": 3,
+      "runnerUp": "かきごおりにしたソーダいろ",
+      "runnerUpDistance": 28.94822965226026,
+      "nearestOwned": true,
+      "strict": "みずいろ",
+      "rescue": "みずいろ",
+      "water": 0.13102069341175995,
+      "ingredients": 4
+    },
+    {
+      "name": "さくらいろ",
+      "targetHex": "#ff8fbf",
+      "color": [
+        252,
+        143,
+        191
+      ],
+      "hex": "#FC8FBF",
+      "targetDistance": 3,
+      "nearest": "さくらいろ",
+      "nearestDistance": 3,
+      "runnerUp": "ガムいろ",
+      "runnerUpDistance": 19.339079605813716,
+      "nearestOwned": true,
+      "strict": "さくらいろ",
+      "rescue": "さくらいろ",
+      "water": 0.19157099601797944,
+      "ingredients": 3
+    },
+    {
+      "name": "マシュマロいろ",
+      "targetHex": "#fef4ee",
+      "color": [
+        252,
+        242,
+        239
+      ],
+      "hex": "#FCF2EF",
+      "targetDistance": 3,
+      "nearest": "マシュマロいろ",
+      "nearestDistance": 3,
+      "runnerUp": "うさぎいろ",
+      "runnerUpDistance": 6.782329983125267,
+      "nearestOwned": true,
+      "strict": "マシュマロいろ",
+      "rescue": "マシュマロいろ",
+      "water": 0.6799311578177291,
+      "ingredients": 3
+    },
+    {
+      "name": "れもんいろ",
+      "targetHex": "#fbe54a",
+      "color": [
+        254,
+        229,
+        74
+      ],
+      "hex": "#FEE54A",
+      "targetDistance": 3,
+      "nearest": "れもんいろ",
+      "nearestDistance": 3,
+      "runnerUp": "バナナいろ",
+      "runnerUpDistance": 13.038404810405298,
+      "nearestOwned": true,
+      "strict": "れもんいろ",
+      "rescue": "れもんいろ",
+      "water": 0.047437166998226706,
+      "ingredients": 3
+    },
+    {
+      "name": "あさひいろ",
+      "targetHex": "#ffcf6b",
+      "color": [
+        252,
+        207,
+        107
+      ],
+      "hex": "#FCCF6B",
+      "targetDistance": 3,
+      "nearest": "あさひいろ",
+      "nearestDistance": 3,
+      "runnerUp": "たいようのたまごいろ",
+      "runnerUpDistance": 14.317821063276352,
+      "nearestOwned": true,
+      "strict": "あさひいろ",
+      "rescue": "あさひいろ",
+      "water": 0,
+      "ingredients": 3
+    },
+    {
+      "name": "たいようのいろ",
+      "targetHex": "#ffb424",
+      "color": [
+        252,
+        180,
+        36
+      ],
+      "hex": "#FCB424",
+      "targetDistance": 3,
+      "nearest": "たいようのいろ",
+      "nearestDistance": 3,
+      "runnerUp": "こがねいろ",
+      "runnerUpDistance": 8.602325267042627,
+      "nearestOwned": true,
+      "strict": "たいようのいろ",
+      "rescue": "たいようのいろ",
+      "water": 0.5827576984814883,
+      "ingredients": 4
+    },
+    {
+      "name": "にじいろ",
+      "targetHex": "#ff9ecb",
+      "color": [
+        252,
+        158,
+        203
+      ],
+      "hex": "#FC9ECB",
+      "targetDistance": 3,
+      "nearest": "にじいろ",
+      "nearestDistance": 3,
+      "runnerUp": "おりがみつるいろ",
+      "runnerUpDistance": 16.431676725154983,
+      "nearestOwned": true,
+      "strict": "にじいろ",
+      "rescue": "にじいろ",
+      "water": 0.13580078284499622,
+      "ingredients": 3
+    },
+    {
+      "name": "こいみどり",
+      "targetHex": "#285828",
+      "color": [
+        38,
+        89,
+        41
+      ],
+      "hex": "#265929",
+      "targetDistance": 2.449489742783178,
+      "nearest": "こいみどり",
+      "nearestDistance": 2.449489742783178,
+      "runnerUp": "こくばんいろ",
+      "runnerUpDistance": 17.291616465790582,
+      "nearestOwned": true,
+      "strict": "こいみどり",
+      "rescue": "こいみどり",
+      "water": 0.22481879792409018,
+      "ingredients": 5
+    },
+    {
+      "name": "グレイッシュベージュ",
+      "targetHex": "#b8ad9e",
+      "color": [
+        182,
+        174,
+        158
+      ],
+      "hex": "#B6AE9E",
+      "targetDistance": 2.23606797749979,
+      "nearest": "グレイッシュベージュ",
+      "nearestDistance": 2.23606797749979,
+      "runnerUp": "パステルはいいろ",
+      "runnerUpDistance": 16.583123951776997,
+      "nearestOwned": true,
+      "strict": "グレイッシュベージュ",
+      "rescue": "グレイッシュベージュ",
+      "water": 0.41001448431867177,
+      "ingredients": 5
+    },
+    {
+      "name": "きいろ",
+      "targetHex": "#ffd622",
+      "color": [
+        253,
+        214,
+        34
+      ],
+      "hex": "#FDD622",
+      "targetDistance": 2,
+      "nearest": "きいろ",
+      "nearestDistance": 2,
+      "runnerUp": "なのはないろ",
+      "runnerUpDistance": 12.688577540449518,
+      "nearestOwned": true,
+      "strict": "きいろ",
+      "rescue": "きいろ",
+      "water": 0,
+      "ingredients": 3
+    },
+    {
+      "name": "パステルこがねいろ",
+      "targetHex": "#ffd489",
+      "color": [
+        253,
+        212,
+        137
+      ],
+      "hex": "#FDD489",
+      "targetDistance": 2,
+      "nearest": "パステルこがねいろ",
+      "nearestDistance": 2,
+      "runnerUp": "バターいろ",
+      "runnerUpDistance": 20.639767440550294,
+      "nearestOwned": true,
+      "strict": "パステルこがねいろ",
+      "rescue": "パステルこがねいろ",
+      "water": 0.1622645294705749,
+      "ingredients": 4
+    },
+    {
+      "name": "パステルクリームいろ",
+      "targetHex": "#fff2ac",
+      "color": [
+        253,
+        242,
+        172
+      ],
+      "hex": "#FDF2AC",
+      "targetDistance": 2,
+      "nearest": "パステルクリームいろ",
+      "nearestDistance": 2,
+      "runnerUp": "ぞうげいろ",
+      "runnerUpDistance": 8.306623862918075,
+      "nearestOwned": true,
+      "strict": "パステルクリームいろ",
+      "rescue": "パステルクリームいろ",
+      "water": 0.810204162325068,
+      "ingredients": 3
+    },
+    {
+      "name": "パステルみずいろ",
+      "targetHex": "#a5cdff",
+      "color": [
+        165,
+        205,
+        253
+      ],
+      "hex": "#A5CDFD",
+      "targetDistance": 2,
+      "nearest": "パステルみずいろ",
+      "nearestDistance": 2,
+      "runnerUp": "たきのいろ",
+      "runnerUpDistance": 36.02776706930364,
+      "nearestOwned": true,
+      "strict": "パステルみずいろ",
+      "rescue": "パステルみずいろ",
+      "water": 0,
+      "ingredients": 3
+    },
+    {
+      "name": "パステルさくらいろ",
+      "targetHex": "#ffb3d3",
+      "color": [
+        253,
+        179,
+        211
+      ],
+      "hex": "#FDB3D3",
+      "targetDistance": 2,
+      "nearest": "パステルさくらいろ",
+      "nearestDistance": 2,
+      "runnerUp": "わたあめいろ",
+      "runnerUpDistance": 9.899494936611665,
+      "nearestOwned": true,
+      "strict": "パステルさくらいろ",
+      "rescue": "パステルさくらいろ",
+      "water": 0.028279042184613214,
+      "ingredients": 3
+    },
+    {
+      "name": "たいようのたまごいろ",
+      "targetHex": "#ffdd6b",
+      "color": [
+        253,
+        221,
+        107
+      ],
+      "hex": "#FDDD6B",
+      "targetDistance": 2,
+      "nearest": "たいようのたまごいろ",
+      "nearestDistance": 2,
+      "runnerUp": "あさひいろ",
+      "runnerUpDistance": 14.142135623730951,
+      "nearestOwned": true,
+      "strict": "たいようのたまごいろ",
+      "rescue": "たいようのたまごいろ",
+      "water": 0.14108446635322178,
+      "ingredients": 3
+    },
+    {
+      "name": "ほっぺいろ",
+      "targetHex": "#ffb3ba",
+      "color": [
+        253,
+        179,
+        186
+      ],
+      "hex": "#FDB3BA",
+      "targetDistance": 2,
+      "nearest": "ほっぺいろ",
+      "nearestDistance": 2,
+      "runnerUp": "ぶたいろ",
+      "runnerUpDistance": 13.74772708486752,
+      "nearestOwned": true,
+      "strict": "ほっぺいろ",
+      "rescue": "ほっぺいろ",
+      "water": 0.042125964350820756,
+      "ingredients": 3
+    },
+    {
+      "name": "ぞうげいろ",
+      "targetHex": "#ffeea5",
+      "color": [
+        254,
+        239,
+        166
+      ],
+      "hex": "#FEEFA6",
+      "targetDistance": 1.7320508075688772,
+      "nearest": "ぞうげいろ",
+      "nearestDistance": 1.7320508075688772,
+      "runnerUp": "パステルクリームいろ",
+      "runnerUpDistance": 6.782329983125267,
+      "nearestOwned": true,
+      "strict": "ぞうげいろ",
+      "rescue": "ぞうげいろ",
+      "water": 0.7459010212202194,
+      "ingredients": 4
+    },
+    {
+      "name": "ペールジェイド",
+      "targetHex": "#56c58d",
+      "color": [
+        86,
+        196,
+        142
+      ],
+      "hex": "#56C48E",
+      "targetDistance": 1.4142135623730951,
+      "nearest": "ペールジェイド",
+      "nearestDistance": 1.4142135623730951,
+      "runnerUp": "いんこいろ",
+      "runnerUpDistance": 21.2602916254693,
+      "nearestOwned": true,
+      "strict": "ペールジェイド",
+      "rescue": "ペールジェイド",
+      "water": 0.37835107916197736,
+      "ingredients": 7
+    },
+    {
+      "name": "アンティークベージュ",
+      "targetHex": "#b18e38",
+      "color": [
+        178,
+        142,
+        57
+      ],
+      "hex": "#B28E39",
+      "targetDistance": 1.4142135623730951,
+      "nearest": "アンティークベージュ",
+      "nearestDistance": 1.4142135623730951,
+      "runnerUp": "なっとういろ",
+      "runnerUpDistance": 13.74772708486752,
+      "nearestOwned": true,
+      "strict": "アンティークベージュ",
+      "rescue": "アンティークベージュ",
+      "water": 0.7471198702689724,
+      "ingredients": 4
+    },
+    {
+      "name": "きゅうりいろ",
+      "targetHex": "#6ba33f",
+      "color": [
+        108,
+        164,
+        63
+      ],
+      "hex": "#6CA43F",
+      "targetDistance": 1.4142135623730951,
+      "nearest": "きゅうりいろ",
+      "nearestDistance": 1.4142135623730951,
+      "runnerUp": "まっちゃいろ",
+      "runnerUpDistance": 16.67333200053307,
+      "nearestOwned": true,
+      "strict": "きゅうりいろ",
+      "rescue": "きゅうりいろ",
+      "water": 0.029234360183143203,
+      "ingredients": 6
+    },
+    {
+      "name": "かえるいろ",
+      "targetHex": "#5a9e4a",
+      "color": [
+        91,
+        158,
+        73
+      ],
+      "hex": "#5B9E49",
+      "targetDistance": 1.4142135623730951,
+      "nearest": "かえるいろ",
+      "nearestDistance": 1.4142135623730951,
+      "runnerUp": "きゅうりいろ",
+      "runnerUpDistance": 19.519221295943137,
+      "nearestOwned": true,
+      "strict": "かえるいろ",
+      "rescue": "かえるいろ",
+      "water": 0.6033015194465405,
+      "ingredients": 6
+    },
+    {
+      "name": "うしいろ",
+      "targetHex": "#3a342e",
+      "color": [
+        58,
+        51,
+        45
+      ],
+      "hex": "#3A332D",
+      "targetDistance": 1.4142135623730951,
+      "nearest": "うしいろ",
+      "nearestDistance": 1.4142135623730951,
+      "runnerUp": "くらいあか",
+      "runnerUpDistance": 9.486832980505138,
+      "nearestOwned": true,
+      "strict": "うしいろ",
+      "rescue": "うしいろ",
+      "water": 0,
+      "ingredients": 6
+    },
+    {
+      "name": "ぶたいろ",
+      "targetHex": "#f5b8b0",
+      "color": [
+        244,
+        184,
+        177
+      ],
+      "hex": "#F4B8B1",
+      "targetDistance": 1.4142135623730951,
+      "nearest": "ぶたいろ",
+      "nearestDistance": 1.4142135623730951,
+      "runnerUp": "アプリコットクリーム",
+      "runnerUpDistance": 6.782329983125267,
+      "nearestOwned": true,
+      "strict": "ぶたいろ",
+      "rescue": "ぶたいろ",
+      "water": 0.03596096014815412,
+      "ingredients": 4
+    },
+    {
+      "name": "くれよんいろ",
+      "targetHex": "#e85a3a",
+      "color": [
+        231,
+        89,
+        58
+      ],
+      "hex": "#E7593A",
+      "targetDistance": 1.4142135623730951,
+      "nearest": "くれよんいろ",
+      "nearestDistance": 1.4142135623730951,
+      "runnerUp": "くつしたいろ",
+      "runnerUpDistance": 17.578395831246947,
+      "nearestOwned": true,
+      "strict": "くれよんいろ",
+      "rescue": "くれよんいろ",
+      "water": 0.04694323222970286,
+      "ingredients": 5
+    },
+    {
+      "name": "みどり",
+      "targetHex": "#1fb141",
+      "color": [
+        31,
+        177,
+        66
+      ],
+      "hex": "#1FB142",
+      "targetDistance": 1,
+      "nearest": "みどり",
+      "nearestDistance": 1,
+      "runnerUp": "おうむいろ",
+      "runnerUpDistance": 44.33959855479073,
+      "nearestOwned": true,
+      "strict": "みどり",
+      "rescue": "みどり",
+      "water": 0.544623690545559,
+      "ingredients": 5
+    },
+    {
+      "name": "くろ",
+      "targetHex": "#1e1e1e",
+      "color": [
+        30,
+        30,
+        31
+      ],
+      "hex": "#1E1E1F",
+      "targetDistance": 1,
+      "nearest": "くろ",
+      "nearestDistance": 1,
+      "runnerUp": "こうもりいろ",
+      "runnerUpDistance": 21.18962010041709,
+      "nearestOwned": true,
+      "strict": "くろ",
+      "rescue": "くろ",
+      "water": 0.2908338503746781,
+      "ingredients": 5
+    },
+    {
+      "name": "クリームいろ",
+      "targetHex": "#ffe780",
+      "color": [
+        254,
+        231,
+        128
+      ],
+      "hex": "#FEE780",
+      "targetDistance": 1,
+      "nearest": "クリームいろ",
+      "nearestDistance": 1,
+      "runnerUp": "まだあおいバナナいろ",
+      "runnerUpDistance": 7.874007874011811,
+      "nearestOwned": true,
+      "strict": "クリームいろ",
+      "rescue": "クリームいろ",
+      "water": 0,
+      "ingredients": 4
+    },
+    {
+      "name": "せいじいろ",
+      "targetHex": "#1c9781",
+      "color": [
+        28,
+        150,
+        129
+      ],
+      "hex": "#1C9681",
+      "targetDistance": 1,
+      "nearest": "せいじいろ",
+      "nearestDistance": 1,
+      "runnerUp": "くじゃくいろ",
+      "runnerUpDistance": 15.297058540778353,
+      "nearestOwned": true,
+      "strict": "せいじいろ",
+      "rescue": "せいじいろ",
+      "water": 0.427116964630172,
+      "ingredients": 5
+    },
+    {
+      "name": "わかくさいろ",
+      "targetHex": "#7ed292",
+      "color": [
+        126,
+        211,
+        146
+      ],
+      "hex": "#7ED392",
+      "targetDistance": 1,
+      "nearest": "わかくさいろ",
+      "nearestDistance": 1,
+      "runnerUp": "ミントグリーン",
+      "runnerUpDistance": 21.679483388678797,
+      "nearestOwned": true,
+      "strict": "わかくさいろ",
+      "rescue": "わかくさいろ",
+      "water": 0.13765307655472092,
+      "ingredients": 7
+    },
+    {
+      "name": "セピアいろ",
+      "targetHex": "#85411d",
+      "color": [
+        132,
+        65,
+        29
+      ],
+      "hex": "#84411D",
+      "targetDistance": 1,
+      "nearest": "セピアいろ",
+      "nearestDistance": 1,
+      "runnerUp": "なつめやしいろ",
+      "runnerUpDistance": 10.862780491200215,
+      "nearestOwned": true,
+      "strict": "セピアいろ",
+      "rescue": "セピアいろ",
+      "water": 0.04040334861905313,
+      "ingredients": 5
+    },
+    {
+      "name": "グレイッシュテラコッタ",
+      "targetHex": "#a86f62",
+      "color": [
+        168,
+        110,
+        98
+      ],
+      "hex": "#A86E62",
+      "targetDistance": 1,
+      "nearest": "グレイッシュテラコッタ",
+      "nearestDistance": 1,
+      "runnerUp": "べに",
+      "runnerUpDistance": 21.77154105707724,
+      "nearestOwned": true,
+      "strict": "グレイッシュテラコッタ",
+      "rescue": "グレイッシュテラコッタ",
+      "water": 0.01973806423321366,
+      "ingredients": 7
+    },
+    {
+      "name": "パステルむらさき",
+      "targetHex": "#c8b4e8",
+      "color": [
+        199,
+        180,
+        232
+      ],
+      "hex": "#C7B4E8",
+      "targetDistance": 1,
+      "nearest": "パステルむらさき",
+      "nearestDistance": 1,
+      "runnerUp": "うすいあお",
+      "runnerUpDistance": 27.313000567495322,
+      "nearestOwned": true,
+      "strict": "パステルむらさき",
+      "rescue": "パステルむらさき",
+      "water": 0.07492673405213282,
+      "ingredients": 6
+    },
+    {
+      "name": "ぎんねず",
+      "targetHex": "#e1e0df",
+      "color": [
+        225,
+        224,
+        224
+      ],
+      "hex": "#E1E0E0",
+      "targetDistance": 1,
+      "nearest": "ぎんねず",
+      "nearestDistance": 1,
+      "runnerUp": "ぱんだいろ",
+      "runnerUpDistance": 7.874007874011811,
+      "nearestOwned": true,
+      "strict": "ぎんねず",
+      "rescue": "ぎんねず",
+      "water": 0.0016718309075535293,
+      "ingredients": 7
+    },
+    {
+      "name": "どらやきいろ",
+      "targetHex": "#d9a441",
+      "color": [
+        217,
+        165,
+        65
+      ],
+      "hex": "#D9A541",
+      "targetDistance": 1,
+      "nearest": "どらやきいろ",
+      "nearestDistance": 1,
+      "runnerUp": "ラーメンいろ",
+      "runnerUpDistance": 7.681145747868609,
+      "nearestOwned": true,
+      "strict": "どらやきいろ",
+      "rescue": "どらやきいろ",
+      "water": 0.08976358257152907,
+      "ingredients": 4
+    },
+    {
+      "name": "みたらしだんごいろ",
+      "targetHex": "#c9832a",
+      "color": [
+        202,
+        131,
+        42
+      ],
+      "hex": "#CA832A",
+      "targetDistance": 1,
+      "nearest": "みたらしだんごいろ",
+      "nearestDistance": 1,
+      "runnerUp": "たいやきいろ",
+      "runnerUpDistance": 9,
+      "nearestOwned": true,
+      "strict": "みたらしだんごいろ",
+      "rescue": "みたらしだんごいろ",
+      "water": 0.23400432623956943,
+      "ingredients": 5
+    },
+    {
+      "name": "ピザいろ",
+      "targetHex": "#d9622a",
+      "color": [
+        217,
+        99,
+        42
+      ],
+      "hex": "#D9632A",
+      "targetDistance": 1,
+      "nearest": "ピザいろ",
+      "nearestDistance": 1,
+      "runnerUp": "こうよういろ",
+      "runnerUpDistance": 12.727922061357855,
+      "nearestOwned": true,
+      "strict": "ピザいろ",
+      "rescue": "ピザいろ",
+      "water": 0.7102827983561437,
+      "ingredients": 6
+    },
+    {
+      "name": "じゅくしたみかんいろ",
+      "targetHex": "#a76515",
+      "color": [
+        167,
+        101,
+        20
+      ],
+      "hex": "#A76514",
+      "targetDistance": 1,
+      "nearest": "じゅくしたみかんいろ",
+      "nearestDistance": 1,
+      "runnerUp": "おこのみやきいろ",
+      "runnerUpDistance": 26.09597670139978,
+      "nearestOwned": true,
+      "strict": "じゅくしたみかんいろ",
+      "rescue": "じゅくしたみかんいろ",
+      "water": 0.09891214873547358,
+      "ingredients": 5
+    },
+    {
+      "name": "にんじんいろ",
+      "targetHex": "#e8781f",
+      "color": [
+        231,
+        120,
+        31
+      ],
+      "hex": "#E7781F",
+      "targetDistance": 1,
+      "nearest": "にんじんいろ",
+      "nearestDistance": 1,
+      "runnerUp": "かぼちゃいろ",
+      "runnerUpDistance": 7.280109889280519,
+      "nearestOwned": true,
+      "strict": "にんじんいろ",
+      "rescue": "にんじんいろ",
+      "water": 0.0036477434453554445,
+      "ingredients": 4
+    },
+    {
+      "name": "バナナいろ",
+      "targetHex": "#f5e042",
+      "color": [
+        246,
+        224,
+        66
+      ],
+      "hex": "#F6E042",
+      "targetDistance": 1,
+      "nearest": "バナナいろ",
+      "nearestDistance": 1,
+      "runnerUp": "ひよこいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "バナナいろ",
+      "rescue": "バナナいろ",
+      "water": 0.3158216322607994,
+      "ingredients": 4
+    },
+    {
+      "name": "じゃがいもいろ",
+      "targetHex": "#c9a468",
+      "color": [
+        201,
+        164,
+        103
+      ],
+      "hex": "#C9A467",
+      "targetDistance": 1,
+      "nearest": "じゃがいもいろ",
+      "nearestDistance": 1,
+      "runnerUp": "こいぬいろ",
+      "runnerUpDistance": 10.816653826391969,
+      "nearestOwned": true,
+      "strict": "じゃがいもいろ",
+      "rescue": "じゃがいもいろ",
+      "water": 0.133854274234869,
+      "ingredients": 3
+    },
+    {
+      "name": "なのはないろ",
+      "targetHex": "#f2d020",
+      "color": [
+        241,
+        208,
+        32
+      ],
+      "hex": "#F1D020",
+      "targetDistance": 1,
+      "nearest": "なのはないろ",
+      "nearestDistance": 1,
+      "runnerUp": "はなびいろ",
+      "runnerUpDistance": 13.601470508735442,
+      "nearestOwned": true,
+      "strict": "なのはないろ",
+      "rescue": "なのはないろ",
+      "water": 0.40268513865745637,
+      "ingredients": 4
+    },
+    {
+      "name": "かぼちゃいろ",
+      "targetHex": "#e07a1f",
+      "color": [
+        223,
+        122,
+        31
+      ],
+      "hex": "#DF7A1F",
+      "targetDistance": 1,
+      "nearest": "かぼちゃいろ",
+      "nearestDistance": 1,
+      "runnerUp": "にんじんいろ",
+      "runnerUpDistance": 9.219544457292889,
+      "nearestOwned": true,
+      "strict": "かぼちゃいろ",
+      "rescue": "かぼちゃいろ",
+      "water": 0.11087881867621147,
+      "ingredients": 5
+    },
+    {
+      "name": "きりんいろ",
+      "targetHex": "#e8b84a",
+      "color": [
+        231,
+        184,
+        74
+      ],
+      "hex": "#E7B84A",
+      "targetDistance": 1,
+      "nearest": "きりんいろ",
+      "nearestDistance": 1,
+      "runnerUp": "カステラいろ",
+      "runnerUpDistance": 14.764823060233402,
+      "nearestOwned": true,
+      "strict": "きりんいろ",
+      "rescue": "きりんいろ",
+      "water": 0.018407909127558304,
+      "ingredients": 4
+    },
+    {
+      "name": "みつばちいろ",
+      "targetHex": "#f2c022",
+      "color": [
+        241,
+        192,
+        34
+      ],
+      "hex": "#F1C022",
+      "targetDistance": 1,
+      "nearest": "みつばちいろ",
+      "nearestDistance": 1,
+      "runnerUp": "はなびいろ",
+      "runnerUpDistance": 8.774964387392123,
+      "nearestOwned": true,
+      "strict": "みつばちいろ",
+      "rescue": "みつばちいろ",
+      "water": 0.024299531954578957,
+      "ingredients": 4
+    },
+    {
+      "name": "くじゃくいろ",
+      "targetHex": "#1f8a8a",
+      "color": [
+        31,
+        139,
+        138
+      ],
+      "hex": "#1F8B8A",
+      "targetDistance": 1,
+      "nearest": "くじゃくいろ",
+      "nearestDistance": 1,
+      "runnerUp": "せいじいろ",
+      "runnerUpDistance": 15.297058540778353,
+      "nearestOwned": true,
+      "strict": "くじゃくいろ",
+      "rescue": "くじゃくいろ",
+      "water": 0.2569820240255656,
+      "ingredients": 8
+    },
+    {
+      "name": "かたつむりいろ",
+      "targetHex": "#886545",
+      "color": [
+        135,
+        101,
+        69
+      ],
+      "hex": "#876545",
+      "targetDistance": 1,
+      "nearest": "かたつむりいろ",
+      "nearestDistance": 1,
+      "runnerUp": "ふくろういろ",
+      "runnerUpDistance": 8.366600265340757,
+      "nearestOwned": true,
+      "strict": "かたつむりいろ",
+      "rescue": "かたつむりいろ",
+      "water": 0.015783698293380444,
+      "ingredients": 4
+    },
+    {
+      "name": "あひるいろ",
+      "targetHex": "#f2ca30",
+      "color": [
+        242,
+        202,
+        49
+      ],
+      "hex": "#F2CA31",
+      "targetDistance": 1,
+      "nearest": "あひるいろ",
+      "nearestDistance": 1,
+      "runnerUp": "パイナップルいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "あひるいろ",
+      "rescue": "あひるいろ",
+      "water": 0.1441704645956093,
+      "ingredients": 5
+    },
+    {
+      "name": "あざらしいろ",
+      "targetHex": "#8a8880",
+      "color": [
+        137,
+        136,
+        128
+      ],
+      "hex": "#898880",
+      "targetDistance": 1,
+      "nearest": "あざらしいろ",
+      "nearestDistance": 1,
+      "runnerUp": "はいいろ",
+      "runnerUpDistance": 16.0312195418814,
+      "nearestOwned": true,
+      "strict": "あざらしいろ",
+      "rescue": "あざらしいろ",
+      "water": 0.13919373745954586,
+      "ingredients": 7
+    },
+    {
+      "name": "こねこいろ",
+      "targetHex": "#e1a868",
+      "color": [
+        224,
+        168,
+        104
+      ],
+      "hex": "#E0A868",
+      "targetDistance": 1,
+      "nearest": "こねこいろ",
+      "nearestDistance": 1,
+      "runnerUp": "はむすたーいろ",
+      "runnerUpDistance": 7.874007874011811,
+      "nearestOwned": true,
+      "strict": "こねこいろ",
+      "rescue": "こねこいろ",
+      "water": 0.9775475427065976,
+      "ingredients": 4
+    },
+    {
+      "name": "つゆぞらいろ",
+      "targetHex": "#9aa8ad",
+      "color": [
+        154,
+        168,
+        174
+      ],
+      "hex": "#9AA8AE",
+      "targetDistance": 1,
+      "nearest": "つゆぞらいろ",
+      "nearestDistance": 1,
+      "runnerUp": "こあらいろ",
+      "runnerUpDistance": 16.06237840420901,
+      "nearestOwned": true,
+      "strict": "つゆぞらいろ",
+      "rescue": "つゆぞらいろ",
+      "water": 0.5429032831639051,
+      "ingredients": 5
+    },
+    {
+      "name": "たそがれいろ",
+      "targetHex": "#8a5a7a",
+      "color": [
+        138,
+        90,
+        123
+      ],
+      "hex": "#8A5A7B",
+      "targetDistance": 1,
+      "nearest": "たそがれいろ",
+      "nearestDistance": 1,
+      "runnerUp": "はいいろ",
+      "runnerUpDistance": 35.22782990761707,
+      "nearestOwned": true,
+      "strict": "たそがれいろ",
+      "rescue": "たそがれいろ",
+      "water": 0.3225256956368685,
+      "ingredients": 5
+    },
+    {
+      "name": "どうくつのいずみいろ",
+      "targetHex": "#7ec4d6",
+      "color": [
+        126,
+        196,
+        215
+      ],
+      "hex": "#7EC4D7",
+      "targetDistance": 1,
+      "nearest": "どうくつのいずみいろ",
+      "nearestDistance": 1,
+      "runnerUp": "かきごおりにしたソーダいろ",
+      "runnerUpDistance": 21.30727575266252,
+      "nearestOwned": true,
+      "strict": "どうくつのいずみいろ",
+      "rescue": "どうくつのいずみいろ",
+      "water": 0.20045945311523974,
+      "ingredients": 5
+    },
+    {
+      "name": "はなびいろ",
+      "targetHex": "#f6c41c",
+      "color": [
+        245,
+        196,
+        28
+      ],
+      "hex": "#F5C41C",
+      "targetDistance": 1,
+      "nearest": "はなびいろ",
+      "nearestDistance": 1,
+      "runnerUp": "ひまわりいろ",
+      "runnerUpDistance": 7.1414284285428495,
+      "nearestOwned": true,
+      "strict": "はなびいろ",
+      "rescue": "はなびいろ",
+      "water": 0.039206990405218675,
+      "ingredients": 4
+    },
+    {
+      "name": "きゅうしょくいろ",
+      "targetHex": "#e8b25a",
+      "color": [
+        232,
+        178,
+        91
+      ],
+      "hex": "#E8B25B",
+      "targetDistance": 1,
+      "nearest": "きゅうしょくいろ",
+      "nearestDistance": 1,
+      "runnerUp": "ぷりんいろ",
+      "runnerUpDistance": 7,
+      "nearestOwned": true,
+      "strict": "きゅうしょくいろ",
+      "rescue": "きゅうしょくいろ",
+      "water": 0.40533195044904774,
+      "ingredients": 4
+    },
+    {
+      "name": "あか",
+      "targetHex": "#ff0000",
+      "color": [
+        255,
+        0,
+        0
+      ],
+      "hex": "#FF0000",
+      "targetDistance": 0,
+      "nearest": "あか",
+      "nearestDistance": 0,
+      "runnerUp": "まぐまいろ",
+      "runnerUpDistance": 62.321745803531535,
+      "nearestOwned": true,
+      "strict": "あか",
+      "rescue": "あか",
+      "water": 0,
+      "ingredients": 1
+    },
+    {
+      "name": "むらさき",
+      "targetHex": "#9d2fd6",
+      "color": [
+        157,
+        47,
+        214
+      ],
+      "hex": "#9D2FD6",
+      "targetDistance": 0,
+      "nearest": "むらさき",
+      "nearestDistance": 0,
+      "runnerUp": "ぼたんいろ",
+      "runnerUpDistance": 58.47221562417488,
+      "nearestOwned": true,
+      "strict": "むらさき",
+      "rescue": "むらさき",
+      "water": 0.03426934299990535,
+      "ingredients": 7
+    },
+    {
+      "name": "しろ",
+      "targetHex": "#fbfaf5",
+      "color": [
+        251,
+        250,
+        245
+      ],
+      "hex": "#FBFAF5",
+      "targetDistance": 0,
+      "nearest": "しろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぎゅうにゅういろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "しろ",
+      "rescue": "しろ",
+      "water": 0.027062310505265454,
+      "ingredients": 5
+    },
+    {
+      "name": "ワインいろ",
+      "targetHex": "#c82f51",
+      "color": [
+        200,
+        47,
+        81
+      ],
+      "hex": "#C82F51",
+      "targetDistance": 0,
+      "nearest": "ワインいろ",
+      "nearestDistance": 0,
+      "runnerUp": "スモーキーローズ",
+      "runnerUpDistance": 21.656407827707714,
+      "nearestOwned": true,
+      "strict": "ワインいろ",
+      "rescue": "ワインいろ",
+      "water": 0.3536552055412884,
+      "ingredients": 5
+    },
+    {
+      "name": "えんじいろ",
+      "targetHex": "#60241a",
+      "color": [
+        96,
+        36,
+        26
+      ],
+      "hex": "#60241A",
+      "targetDistance": 0,
+      "nearest": "えんじいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ようかんいろ",
+      "runnerUpDistance": 8.774964387392123,
+      "nearestOwned": true,
+      "strict": "えんじいろ",
+      "rescue": "えんじいろ",
+      "water": 0.1570824762048562,
+      "ingredients": 5
+    },
+    {
+      "name": "オリーブいろ",
+      "targetHex": "#599d2c",
+      "color": [
+        89,
+        157,
+        44
+      ],
+      "hex": "#599D2C",
+      "targetDistance": 0,
+      "nearest": "オリーブいろ",
+      "nearestDistance": 0,
+      "runnerUp": "しんりょくいろ",
+      "runnerUpDistance": 20.420577856662135,
+      "nearestOwned": true,
+      "strict": "オリーブいろ",
+      "rescue": "オリーブいろ",
+      "water": 0.7971713950794656,
+      "ingredients": 6
+    },
+    {
+      "name": "レンガいろ",
+      "targetHex": "#cb4e4d",
+      "color": [
+        203,
+        78,
+        77
+      ],
+      "hex": "#CB4E4D",
+      "targetDistance": 0,
+      "nearest": "レンガいろ",
+      "nearestDistance": 0,
+      "runnerUp": "スパイスブラウン",
+      "runnerUpDistance": 21.2602916254693,
+      "nearestOwned": true,
+      "strict": "レンガいろ",
+      "rescue": "レンガいろ",
+      "water": 0.8049724039433955,
+      "ingredients": 5
+    },
+    {
+      "name": "キャラメルいろ",
+      "targetHex": "#603d1a",
+      "color": [
+        96,
+        61,
+        26
+      ],
+      "hex": "#603D1A",
+      "targetDistance": 0,
+      "nearest": "キャラメルいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あじがこゆいみそしるいろ",
+      "runnerUpDistance": 8.306623862918075,
+      "nearestOwned": true,
+      "strict": "キャラメルいろ",
+      "rescue": "キャラメルいろ",
+      "water": 0.7062939880175622,
+      "ingredients": 4
+    },
+    {
+      "name": "きみどり",
+      "targetHex": "#59c32f",
+      "color": [
+        89,
+        195,
+        47
+      ],
+      "hex": "#59C32F",
+      "targetDistance": 0,
+      "nearest": "きみどり",
+      "nearestDistance": 0,
+      "runnerUp": "もえぎいろ",
+      "runnerUpDistance": 8.306623862918075,
+      "nearestOwned": true,
+      "strict": "きみどり",
+      "rescue": "きみどり",
+      "water": 0.0032799306849483397,
+      "ingredients": 7
+    },
+    {
+      "name": "もえぎいろ",
+      "targetHex": "#51c130",
+      "color": [
+        81,
+        193,
+        48
+      ],
+      "hex": "#51C130",
+      "targetDistance": 0,
+      "nearest": "もえぎいろ",
+      "nearestDistance": 0,
+      "runnerUp": "きみどり",
+      "runnerUpDistance": 8.306623862918075,
+      "nearestOwned": true,
+      "strict": "もえぎいろ",
+      "rescue": "もえぎいろ",
+      "water": 0.1745472547873097,
+      "ingredients": 6
+    },
+    {
+      "name": "からしいろ",
+      "targetHex": "#bba21c",
+      "color": [
+        187,
+        162,
+        28
+      ],
+      "hex": "#BBA21C",
+      "targetDistance": 0,
+      "nearest": "からしいろ",
+      "nearestDistance": 0,
+      "runnerUp": "なっとういろ",
+      "runnerUpDistance": 33.12099032335839,
+      "nearestOwned": true,
+      "strict": "からしいろ",
+      "rescue": "からしいろ",
+      "water": 0.12732041363837196,
+      "ingredients": 6
+    },
+    {
+      "name": "マスタードいろ",
+      "targetHex": "#604c1b",
+      "color": [
+        96,
+        76,
+        27
+      ],
+      "hex": "#604C1B",
+      "targetDistance": 0,
+      "nearest": "マスタードいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あじがこゆいみそしるいろ",
+      "runnerUpDistance": 14.798648586948742,
+      "nearestOwned": true,
+      "strict": "マスタードいろ",
+      "rescue": "マスタードいろ",
+      "water": 0.226379889231536,
+      "ingredients": 6
+    },
+    {
+      "name": "ひまわりいろ",
+      "targetHex": "#f6c515",
+      "color": [
+        246,
+        197,
+        21
+      ],
+      "hex": "#F6C515",
+      "targetDistance": 0,
+      "nearest": "ひまわりいろ",
+      "nearestDistance": 0,
+      "runnerUp": "はなびいろ",
+      "runnerUpDistance": 7.0710678118654755,
+      "nearestOwned": true,
+      "strict": "ひまわりいろ",
+      "rescue": "ひまわりいろ",
+      "water": 0.23069668932002968,
+      "ingredients": 6
+    },
+    {
+      "name": "すみれちゃ",
+      "targetHex": "#325989",
+      "color": [
+        50,
+        89,
+        137
+      ],
+      "hex": "#325989",
+      "targetDistance": 0,
+      "nearest": "すみれちゃ",
+      "nearestDistance": 0,
+      "runnerUp": "ブルーベリーいろ",
+      "runnerUpDistance": 32.03123475609394,
+      "nearestOwned": true,
+      "strict": "すみれちゃ",
+      "rescue": "すみれちゃ",
+      "water": 0.12861173114243468,
+      "ingredients": 8
+    },
+    {
+      "name": "モスピンク",
+      "targetHex": "#b78483",
+      "color": [
+        183,
+        132,
+        131
+      ],
+      "hex": "#B78483",
+      "targetDistance": 0,
+      "nearest": "モスピンク",
+      "nearestDistance": 0,
+      "runnerUp": "おゆをたしたみそしるいろ",
+      "runnerUpDistance": 25.455844122715714,
+      "nearestOwned": true,
+      "strict": "モスピンク",
+      "rescue": "モスピンク",
+      "water": 0.8513968557491899,
+      "ingredients": 4
+    },
+    {
+      "name": "しんりんいろ",
+      "targetHex": "#1e4923",
+      "color": [
+        30,
+        73,
+        35
+      ],
+      "hex": "#1E4923",
+      "targetDistance": 0,
+      "nearest": "しんりんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こくばんいろ",
+      "runnerUpDistance": 11.090536506409416,
+      "nearestOwned": true,
+      "strict": "しんりんいろ",
+      "rescue": "しんりんいろ",
+      "water": 0.3489631555933388,
+      "ingredients": 4
+    },
+    {
+      "name": "あいいろ",
+      "targetHex": "#404eea",
+      "color": [
+        64,
+        78,
+        234
+      ],
+      "hex": "#404EEA",
+      "targetDistance": 0,
+      "nearest": "あいいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ききょういろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "あいいろ",
+      "rescue": "あいいろ",
+      "water": 0.33840793084120374,
+      "ingredients": 6
+    },
+    {
+      "name": "るりいろ",
+      "targetHex": "#3952eb",
+      "color": [
+        57,
+        82,
+        235
+      ],
+      "hex": "#3952EB",
+      "targetDistance": 0,
+      "nearest": "るりいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あいいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "るりいろ",
+      "rescue": "るりいろ",
+      "water": 0.14337435376368665,
+      "ingredients": 6
+    },
+    {
+      "name": "ききょういろ",
+      "targetHex": "#4649e8",
+      "color": [
+        70,
+        73,
+        232
+      ],
+      "hex": "#4649E8",
+      "targetDistance": 0,
+      "nearest": "ききょういろ",
+      "nearestDistance": 0,
+      "runnerUp": "あいいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "ききょういろ",
+      "rescue": "ききょういろ",
+      "water": 0.04827004722017142,
+      "ingredients": 6
+    },
+    {
+      "name": "ラベンダーいろ",
+      "targetHex": "#b69be8",
+      "color": [
+        182,
+        155,
+        232
+      ],
+      "hex": "#B69BE8",
+      "targetDistance": 0,
+      "nearest": "ラベンダーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "パステルラベンダーいろ",
+      "runnerUpDistance": 24.596747752497688,
+      "nearestOwned": true,
+      "strict": "ラベンダーいろ",
+      "rescue": "ラベンダーいろ",
+      "water": 0.42257012672955174,
+      "ingredients": 5
+    },
+    {
+      "name": "こんいろ",
+      "targetHex": "#1c3b4d",
+      "color": [
+        28,
+        59,
+        77
+      ],
+      "hex": "#1C3B4D",
+      "targetDistance": 0,
+      "nearest": "こんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ほしぞらいろ",
+      "runnerUpDistance": 17.720045146669353,
+      "nearestOwned": true,
+      "strict": "こんいろ",
+      "rescue": "こんいろ",
+      "water": 0.5193915841194515,
+      "ingredients": 8
+    },
+    {
+      "name": "ぼたんいろ",
+      "targetHex": "#c836af",
+      "color": [
+        200,
+        54,
+        175
+      ],
+      "hex": "#C836AF",
+      "targetDistance": 0,
+      "nearest": "ぼたんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぼたん",
+      "runnerUpDistance": 41.593268686170845,
+      "nearestOwned": true,
+      "strict": "ぼたんいろ",
+      "rescue": "ぼたんいろ",
+      "water": 0.24221243431607523,
+      "ingredients": 8
+    },
+    {
+      "name": "ふじいろ",
+      "targetHex": "#c787e7",
+      "color": [
+        199,
+        135,
+        231
+      ],
+      "hex": "#C787E7",
+      "targetDistance": 0,
+      "nearest": "ふじいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ラベンダーいろ",
+      "runnerUpDistance": 26.267851073127396,
+      "nearestOwned": true,
+      "strict": "ふじいろ",
+      "rescue": "ふじいろ",
+      "water": 0.055922732191393154,
+      "ingredients": 7
+    },
+    {
+      "name": "なすいろ",
+      "targetHex": "#4f2047",
+      "color": [
+        79,
+        32,
+        71
+      ],
+      "hex": "#4F2047",
+      "targetDistance": 0,
+      "nearest": "なすいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こいむらさき",
+      "runnerUpDistance": 20.83266665599966,
+      "nearestOwned": true,
+      "strict": "なすいろ",
+      "rescue": "なすいろ",
+      "water": 0.1303944657712976,
+      "ingredients": 7
+    },
+    {
+      "name": "モーブいろ",
+      "targetHex": "#652436",
+      "color": [
+        101,
+        36,
+        54
+      ],
+      "hex": "#652436",
+      "targetDistance": 0,
+      "nearest": "モーブいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あんこいろ",
+      "runnerUpDistance": 22.090722034374522,
+      "nearestOwned": true,
+      "strict": "モーブいろ",
+      "rescue": "モーブいろ",
+      "water": 0,
+      "ingredients": 6
+    },
+    {
+      "name": "はいいろ",
+      "targetHex": "#817c79",
+      "color": [
+        129,
+        124,
+        121
+      ],
+      "hex": "#817C79",
+      "targetDistance": 0,
+      "nearest": "はいいろ",
+      "nearestDistance": 0,
+      "runnerUp": "オリーブグレー",
+      "runnerUpDistance": 14.696938456699069,
+      "nearestOwned": true,
+      "strict": "はいいろ",
+      "rescue": "はいいろ",
+      "water": 0.1298960474983901,
+      "ingredients": 7
+    },
+    {
+      "name": "ラベンダーグレー",
+      "targetHex": "#a9a2b8",
+      "color": [
+        169,
+        162,
+        184
+      ],
+      "hex": "#A9A2B8",
+      "targetDistance": 0,
+      "nearest": "ラベンダーグレー",
+      "nearestDistance": 0,
+      "runnerUp": "つゆぞらいろ",
+      "runnerUpDistance": 19.544820285692065,
+      "nearestOwned": true,
+      "strict": "ラベンダーグレー",
+      "rescue": "ラベンダーグレー",
+      "water": 0.7726511468673125,
+      "ingredients": 4
+    },
+    {
+      "name": "ミントグリーン",
+      "targetHex": "#73ce80",
+      "color": [
+        115,
+        206,
+        128
+      ],
+      "hex": "#73CE80",
+      "targetDistance": 0,
+      "nearest": "ミントグリーン",
+      "nearestDistance": 0,
+      "runnerUp": "わかくさいろ",
+      "runnerUpDistance": 21.470910553583888,
+      "nearestOwned": true,
+      "strict": "ミントグリーン",
+      "rescue": "ミントグリーン",
+      "water": 0.009560908831190318,
+      "ingredients": 7
+    },
+    {
+      "name": "ペリウィンクル",
+      "targetHex": "#7680f0",
+      "color": [
+        118,
+        128,
+        240
+      ],
+      "hex": "#7680F0",
+      "targetDistance": 0,
+      "nearest": "ペリウィンクル",
+      "nearestDistance": 0,
+      "runnerUp": "おおぞらいろ",
+      "runnerUpDistance": 54.55272678794342,
+      "nearestOwned": true,
+      "strict": "ペリウィンクル",
+      "rescue": "ペリウィンクル",
+      "water": 0.9689586510485969,
+      "ingredients": 5
+    },
+    {
+      "name": "すみいろ",
+      "targetHex": "#3e3738",
+      "color": [
+        62,
+        55,
+        56
+      ],
+      "hex": "#3E3738",
+      "targetDistance": 0,
+      "nearest": "すみいろ",
+      "nearestDistance": 0,
+      "runnerUp": "うしいろ",
+      "runnerUpDistance": 11.180339887498949,
+      "nearestOwned": true,
+      "strict": "すみいろ",
+      "rescue": "すみいろ",
+      "water": 0.2618003642813419,
+      "ingredients": 6
+    },
+    {
+      "name": "アースブラウン",
+      "targetHex": "#877731",
+      "color": [
+        135,
+        119,
+        49
+      ],
+      "hex": "#877731",
+      "targetDistance": 0,
+      "nearest": "アースブラウン",
+      "nearestDistance": 0,
+      "runnerUp": "こげたホットケーキいろ",
+      "runnerUpDistance": 19.44222209522358,
+      "nearestOwned": true,
+      "strict": "アースブラウン",
+      "rescue": "アースブラウン",
+      "water": 0.3407191837579013,
+      "ingredients": 5
+    },
+    {
+      "name": "オーキッドいろ",
+      "targetHex": "#d86fc6",
+      "color": [
+        216,
+        111,
+        198
+      ],
+      "hex": "#D86FC6",
+      "targetDistance": 0,
+      "nearest": "オーキッドいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ガムいろ",
+      "runnerUpDistance": 42.24926034855522,
+      "nearestOwned": true,
+      "strict": "オーキッドいろ",
+      "rescue": "オーキッドいろ",
+      "water": 0.029572898550890386,
+      "ingredients": 7
+    },
+    {
+      "name": "ディープティール",
+      "targetHex": "#1d5748",
+      "color": [
+        29,
+        87,
+        72
+      ],
+      "hex": "#1D5748",
+      "targetDistance": 0,
+      "nearest": "ディープティール",
+      "nearestDistance": 0,
+      "runnerUp": "こんいろ",
+      "runnerUpDistance": 28.46049894151541,
+      "nearestOwned": true,
+      "strict": "ディープティール",
+      "rescue": "ディープティール",
+      "water": 0.3537603810742722,
+      "ingredients": 6
+    },
+    {
+      "name": "アプリコットクリーム",
+      "targetHex": "#f3beae",
+      "color": [
+        243,
+        190,
+        174
+      ],
+      "hex": "#F3BEAE",
+      "targetDistance": 0,
+      "nearest": "アプリコットクリーム",
+      "nearestDistance": 0,
+      "runnerUp": "ぶたいろ",
+      "runnerUpDistance": 6.6332495807108005,
+      "nearestOwned": true,
+      "strict": "アプリコットクリーム",
+      "rescue": "アプリコットクリーム",
+      "water": 0.2958729305008892,
+      "ingredients": 3
+    },
+    {
+      "name": "ピスタチオいろ",
+      "targetHex": "#88d46a",
+      "color": [
+        136,
+        212,
+        106
+      ],
+      "hex": "#88D46A",
+      "targetDistance": 0,
+      "nearest": "ピスタチオいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ミントグリーン",
+      "runnerUpDistance": 31,
+      "nearestOwned": true,
+      "strict": "ピスタチオいろ",
+      "rescue": "ピスタチオいろ",
+      "water": 0.006822982613928617,
+      "ingredients": 6
+    },
+    {
+      "name": "モーブグレー",
+      "targetHex": "#95818f",
+      "color": [
+        149,
+        129,
+        143
+      ],
+      "hex": "#95818F",
+      "targetDistance": 0,
+      "nearest": "モーブグレー",
+      "nearestDistance": 0,
+      "runnerUp": "かばいろ",
+      "runnerUpDistance": 13.96424004376894,
+      "nearestOwned": true,
+      "strict": "モーブグレー",
+      "rescue": "モーブグレー",
+      "water": 0.4223751496467739,
+      "ingredients": 8
+    },
+    {
+      "name": "オリーブブラウン",
+      "targetHex": "#46401f",
+      "color": [
+        70,
+        64,
+        31
+      ],
+      "hex": "#46401F",
+      "targetDistance": 0,
+      "nearest": "オリーブブラウン",
+      "nearestDistance": 0,
+      "runnerUp": "くらいきいろ",
+      "runnerUpDistance": 17.60681686165901,
+      "nearestOwned": true,
+      "strict": "オリーブブラウン",
+      "rescue": "オリーブブラウン",
+      "water": 0.16951252597052305,
+      "ingredients": 6
+    },
+    {
+      "name": "ミッドナイトブルー",
+      "targetHex": "#2b2d74",
+      "color": [
+        43,
+        45,
+        116
+      ],
+      "hex": "#2B2D74",
+      "targetDistance": 0,
+      "nearest": "ミッドナイトブルー",
+      "nearestDistance": 0,
+      "runnerUp": "つきよいろ",
+      "runnerUpDistance": 26.095976701399774,
+      "nearestOwned": true,
+      "strict": "ミッドナイトブルー",
+      "rescue": "ミッドナイトブルー",
+      "water": 0.16230109831215464,
+      "ingredients": 8
+    },
+    {
+      "name": "アンティークゴールド",
+      "targetHex": "#b08d57",
+      "color": [
+        176,
+        141,
+        87
+      ],
+      "hex": "#B08D57",
+      "targetDistance": 0,
+      "nearest": "アンティークゴールド",
+      "nearestDistance": 0,
+      "runnerUp": "おゆをたしたみそしるいろ",
+      "runnerUpDistance": 22.226110770892873,
+      "nearestOwned": true,
+      "strict": "アンティークゴールド",
+      "rescue": "アンティークゴールド",
+      "water": 0.2963072137301788,
+      "ingredients": 7
+    },
+    {
+      "name": "マゼンタパープル",
+      "targetHex": "#8c3370",
+      "color": [
+        140,
+        51,
+        112
+      ],
+      "hex": "#8C3370",
+      "targetDistance": 0,
+      "nearest": "マゼンタパープル",
+      "nearestDistance": 0,
+      "runnerUp": "たそがれいろ",
+      "runnerUpDistance": 40.311288741492746,
+      "nearestOwned": true,
+      "strict": "マゼンタパープル",
+      "rescue": "マゼンタパープル",
+      "water": 0.19487580231978968,
+      "ingredients": 8
+    },
+    {
+      "name": "スモーキーバイオレット",
+      "targetHex": "#a73995",
+      "color": [
+        167,
+        57,
+        149
+      ],
+      "hex": "#A73995",
+      "targetDistance": 0,
+      "nearest": "スモーキーバイオレット",
+      "nearestDistance": 0,
+      "runnerUp": "ぼたん",
+      "runnerUpDistance": 23.95829710142188,
+      "nearestOwned": true,
+      "strict": "スモーキーバイオレット",
+      "rescue": "スモーキーバイオレット",
+      "water": 0.013921268648108652,
+      "ingredients": 8
+    },
+    {
+      "name": "オリーブグレー",
+      "targetHex": "#85866f",
+      "color": [
+        133,
+        134,
+        111
+      ],
+      "hex": "#85866F",
+      "targetDistance": 0,
+      "nearest": "オリーブグレー",
+      "nearestDistance": 0,
+      "runnerUp": "やまのいろ",
+      "runnerUpDistance": 12.727922061357857,
+      "nearestOwned": true,
+      "strict": "オリーブグレー",
+      "rescue": "オリーブグレー",
+      "water": 0.3771075872145593,
+      "ingredients": 4
+    },
+    {
+      "name": "スパイスブラウン",
+      "targetHex": "#d94e3d",
+      "color": [
+        217,
+        78,
+        61
+      ],
+      "hex": "#D94E3D",
+      "targetDistance": 0,
+      "nearest": "スパイスブラウン",
+      "nearestDistance": 0,
+      "runnerUp": "くつしたいろ",
+      "runnerUpDistance": 17.291616465790582,
+      "nearestOwned": true,
+      "strict": "スパイスブラウン",
+      "rescue": "スパイスブラウン",
+      "water": 0.12166834786824986,
+      "ingredients": 7
+    },
+    {
+      "name": "ダスティピーチ",
+      "targetHex": "#d98180",
+      "color": [
+        217,
+        129,
+        128
+      ],
+      "hex": "#D98180",
+      "targetDistance": 0,
+      "nearest": "ダスティピーチ",
+      "nearestDistance": 0,
+      "runnerUp": "まだあおいトマトいろ",
+      "runnerUpDistance": 25.199206336708308,
+      "nearestOwned": true,
+      "strict": "ダスティピーチ",
+      "rescue": "ダスティピーチ",
+      "water": 0.1633259481093364,
+      "ingredients": 6
+    },
+    {
+      "name": "アンバーブラウン",
+      "targetHex": "#813339",
+      "color": [
+        129,
+        51,
+        57
+      ],
+      "hex": "#813339",
+      "targetDistance": 0,
+      "nearest": "アンバーブラウン",
+      "nearestDistance": 0,
+      "runnerUp": "さつまいもいろ",
+      "runnerUpDistance": 18.841443681416774,
+      "nearestOwned": true,
+      "strict": "アンバーブラウン",
+      "rescue": "アンバーブラウン",
+      "water": 0.05139732923421774,
+      "ingredients": 6
+    },
+    {
+      "name": "ロイヤルパープル",
+      "targetHex": "#6b3188",
+      "color": [
+        107,
+        49,
+        136
+      ],
+      "hex": "#6B3188",
+      "targetDistance": 0,
+      "nearest": "ロイヤルパープル",
+      "nearestDistance": 0,
+      "runnerUp": "ぶどういろ",
+      "runnerUpDistance": 27.78488797889961,
+      "nearestOwned": true,
+      "strict": "ロイヤルパープル",
+      "rescue": "ロイヤルパープル",
+      "water": 0.3070978679717848,
+      "ingredients": 7
+    },
+    {
+      "name": "スモーキーローズ",
+      "targetHex": "#b9395d",
+      "color": [
+        185,
+        57,
+        93
+      ],
+      "hex": "#B9395D",
+      "targetDistance": 0,
+      "nearest": "スモーキーローズ",
+      "nearestDistance": 0,
+      "runnerUp": "ワインいろ",
+      "runnerUpDistance": 21.656407827707714,
+      "nearestOwned": true,
+      "strict": "スモーキーローズ",
+      "rescue": "スモーキーローズ",
+      "water": 0.09456729755038396,
+      "ingredients": 6
+    },
+    {
+      "name": "アクアミント",
+      "targetHex": "#49c8b1",
+      "color": [
+        73,
+        200,
+        177
+      ],
+      "hex": "#49C8B1",
+      "targetDistance": 0,
+      "nearest": "アクアミント",
+      "nearestDistance": 0,
+      "runnerUp": "あおたけ",
+      "runnerUpDistance": 35.17101079013795,
+      "nearestOwned": true,
+      "strict": "アクアミント",
+      "rescue": "アクアミント",
+      "water": 0.688959456968587,
+      "ingredients": 5
+    },
+    {
+      "name": "ディーププラム",
+      "targetHex": "#672b62",
+      "color": [
+        103,
+        43,
+        98
+      ],
+      "hex": "#672B62",
+      "targetDistance": 0,
+      "nearest": "ディーププラム",
+      "nearestDistance": 0,
+      "runnerUp": "こいむらさき",
+      "runnerUpDistance": 18.275666882497067,
+      "nearestOwned": true,
+      "strict": "ディーププラム",
+      "rescue": "ディーププラム",
+      "water": 0.39873680548043927,
+      "ingredients": 6
+    },
+    {
+      "name": "パステルみどり",
+      "targetHex": "#9bd8a4",
+      "color": [
+        155,
+        216,
+        164
+      ],
+      "hex": "#9BD8A4",
+      "targetDistance": 0,
+      "nearest": "パステルみどり",
+      "nearestDistance": 0,
+      "runnerUp": "わかくさいろ",
+      "runnerUpDistance": 34.65544690232691,
+      "nearestOwned": true,
+      "strict": "パステルみどり",
+      "rescue": "パステルみどり",
+      "water": 0.3790965351939291,
+      "ingredients": 7
+    },
+    {
+      "name": "パステルラベンダーいろ",
+      "targetHex": "#a1a5e0",
+      "color": [
+        161,
+        165,
+        224
+      ],
+      "hex": "#A1A5E0",
+      "targetDistance": 0,
+      "nearest": "パステルラベンダーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ラベンダーいろ",
+      "runnerUpDistance": 24.596747752497688,
+      "nearestOwned": true,
+      "strict": "パステルラベンダーいろ",
+      "rescue": "パステルラベンダーいろ",
+      "water": 0.9510765134380199,
+      "ingredients": 5
+    },
+    {
+      "name": "パステルはいいろ",
+      "targetHex": "#a9a5a3",
+      "color": [
+        169,
+        165,
+        163
+      ],
+      "hex": "#A9A5A3",
+      "targetDistance": 0,
+      "nearest": "パステルはいいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こあらいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "パステルはいいろ",
+      "rescue": "パステルはいいろ",
+      "water": 0.0865082384207117,
+      "ingredients": 8
+    },
+    {
+      "name": "のうねずみ",
+      "targetHex": "#6e6968",
+      "color": [
+        110,
+        105,
+        104
+      ],
+      "hex": "#6E6968",
+      "targetDistance": 0,
+      "nearest": "のうねずみ",
+      "nearestDistance": 0,
+      "runnerUp": "どろあそびしたぞうさんいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "のうねずみ",
+      "rescue": "のうねずみ",
+      "water": 0.005208532973192632,
+      "ingredients": 6
+    },
+    {
+      "name": "ねずみいろ",
+      "targetHex": "#979191",
+      "color": [
+        151,
+        145,
+        145
+      ],
+      "hex": "#979191",
+      "targetDistance": 0,
+      "nearest": "ねずみいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぞうさんいろ",
+      "runnerUpDistance": 10.295630140987,
+      "nearestOwned": true,
+      "strict": "ねずみいろ",
+      "rescue": "ねずみいろ",
+      "water": 0,
+      "ingredients": 7
+    },
+    {
+      "name": "はいじろ",
+      "targetHex": "#bfbbbb",
+      "color": [
+        191,
+        187,
+        187
+      ],
+      "hex": "#BFBBBB",
+      "targetDistance": 0,
+      "nearest": "はいじろ",
+      "nearestDistance": 0,
+      "runnerUp": "グレイッシュベージュ",
+      "runnerUpDistance": 32.95451410656816,
+      "nearestOwned": true,
+      "strict": "はいじろ",
+      "rescue": "はいじろ",
+      "water": 0.5477340430030093,
+      "ingredients": 6
+    },
+    {
+      "name": "くらいあか",
+      "targetHex": "#422e2e",
+      "color": [
+        66,
+        46,
+        46
+      ],
+      "hex": "#422E2E",
+      "targetDistance": 0,
+      "nearest": "くらいあか",
+      "nearestDistance": 0,
+      "runnerUp": "うしいろ",
+      "runnerUpDistance": 10,
+      "nearestOwned": true,
+      "strict": "くらいあか",
+      "rescue": "くらいあか",
+      "water": 0.24880808669695512,
+      "ingredients": 5
+    },
+    {
+      "name": "うすいあか",
+      "targetHex": "#ecc6c6",
+      "color": [
+        236,
+        198,
+        198
+      ],
+      "hex": "#ECC6C6",
+      "targetDistance": 0,
+      "nearest": "うすいあか",
+      "nearestDistance": 0,
+      "runnerUp": "けしごむいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "うすいあか",
+      "rescue": "うすいあか",
+      "water": 0.6622474562215349,
+      "ingredients": 4
+    },
+    {
+      "name": "べに",
+      "targetHex": "#b0674f",
+      "color": [
+        176,
+        103,
+        79
+      ],
+      "hex": "#B0674F",
+      "targetDistance": 0,
+      "nearest": "べに",
+      "nearestDistance": 0,
+      "runnerUp": "かんがるーいろ",
+      "runnerUpDistance": 21.213203435596427,
+      "nearestOwned": true,
+      "strict": "べに",
+      "rescue": "べに",
+      "water": 0.06196471271291061,
+      "ingredients": 7
+    },
+    {
+      "name": "くらいきいろ",
+      "targetHex": "#3d422e",
+      "color": [
+        61,
+        66,
+        46
+      ],
+      "hex": "#3D422E",
+      "targetDistance": 0,
+      "nearest": "くらいきいろ",
+      "nearestDistance": 0,
+      "runnerUp": "うしいろ",
+      "runnerUpDistance": 14.317821063276352,
+      "nearestOwned": true,
+      "strict": "くらいきいろ",
+      "rescue": "くらいきいろ",
+      "water": 0.46672023005480096,
+      "ingredients": 5
+    },
+    {
+      "name": "うすいきいろ",
+      "targetHex": "#e2ecc6",
+      "color": [
+        226,
+        236,
+        198
+      ],
+      "hex": "#E2ECC6",
+      "targetDistance": 0,
+      "nearest": "うすいきいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あさもやのこもれびいろ",
+      "runnerUpDistance": 8.774964387392123,
+      "nearestOwned": true,
+      "strict": "うすいきいろ",
+      "rescue": "うすいきいろ",
+      "water": 0.17538239278549836,
+      "ingredients": 5
+    },
+    {
+      "name": "わかば",
+      "targetHex": "#80b04f",
+      "color": [
+        128,
+        176,
+        79
+      ],
+      "hex": "#80B04F",
+      "targetDistance": 0,
+      "nearest": "わかば",
+      "nearestDistance": 0,
+      "runnerUp": "ずんだいろ",
+      "runnerUpDistance": 8.602325267042627,
+      "nearestOwned": true,
+      "strict": "わかば",
+      "rescue": "わかば",
+      "water": 0.002520098887849599,
+      "ingredients": 5
+    },
+    {
+      "name": "もえぎ",
+      "targetHex": "#67b04f",
+      "color": [
+        103,
+        176,
+        79
+      ],
+      "hex": "#67B04F",
+      "targetDistance": 0,
+      "nearest": "もえぎ",
+      "nearestDistance": 0,
+      "runnerUp": "ずんだいろ",
+      "runnerUpDistance": 18.681541692269406,
+      "nearestOwned": true,
+      "strict": "もえぎ",
+      "rescue": "もえぎ",
+      "water": 0.2620342493709177,
+      "ingredients": 7
+    },
+    {
+      "name": "うすいみどり",
+      "targetHex": "#c6ecc6",
+      "color": [
+        198,
+        236,
+        198
+      ],
+      "hex": "#C6ECC6",
+      "targetDistance": 0,
+      "nearest": "うすいみどり",
+      "nearestDistance": 0,
+      "runnerUp": "うすいきいろ",
+      "runnerUpDistance": 28,
+      "nearestOwned": true,
+      "strict": "うすいみどり",
+      "rescue": "うすいみどり",
+      "water": 0.6118926000391783,
+      "ingredients": 5
+    },
+    {
+      "name": "わかくさ",
+      "targetHex": "#4fb067",
+      "color": [
+        79,
+        176,
+        103
+      ],
+      "hex": "#4FB067",
+      "targetDistance": 0,
+      "nearest": "わかくさ",
+      "nearestDistance": 0,
+      "runnerUp": "じょうろいろ",
+      "runnerUpDistance": 24.779023386727737,
+      "nearestOwned": true,
+      "strict": "わかくさ",
+      "rescue": "わかくさ",
+      "water": 0.0825346335130685,
+      "ingredients": 6
+    },
+    {
+      "name": "せいじ",
+      "targetHex": "#4fb080",
+      "color": [
+        79,
+        176,
+        128
+      ],
+      "hex": "#4FB080",
+      "targetDistance": 0,
+      "nearest": "せいじ",
+      "nearestDistance": 0,
+      "runnerUp": "いんこいろ",
+      "runnerUpDistance": 13.601470508735444,
+      "nearestOwned": true,
+      "strict": "せいじ",
+      "rescue": "せいじ",
+      "water": 0.01594360959157348,
+      "ingredients": 8
+    },
+    {
+      "name": "あおたけ",
+      "targetHex": "#4fb098",
+      "color": [
+        79,
+        176,
+        152
+      ],
+      "hex": "#4FB098",
+      "targetDistance": 0,
+      "nearest": "あおたけ",
+      "nearestDistance": 0,
+      "runnerUp": "いんこいろ",
+      "runnerUpDistance": 19.4164878389476,
+      "nearestOwned": true,
+      "strict": "あおたけ",
+      "rescue": "あおたけ",
+      "water": 0.29771953703369947,
+      "ingredients": 6
+    },
+    {
+      "name": "あさぎ",
+      "targetHex": "#4f98b0",
+      "color": [
+        79,
+        152,
+        176
+      ],
+      "hex": "#4F98B0",
+      "targetDistance": 0,
+      "nearest": "あさぎ",
+      "nearestDistance": 0,
+      "runnerUp": "そらいろ",
+      "runnerUpDistance": 25,
+      "nearestOwned": true,
+      "strict": "あさぎ",
+      "rescue": "あさぎ",
+      "water": 0.6346499004540965,
+      "ingredients": 4
+    },
+    {
+      "name": "そらいろ",
+      "targetHex": "#4f7fb0",
+      "color": [
+        79,
+        127,
+        176
+      ],
+      "hex": "#4F7FB0",
+      "targetDistance": 0,
+      "nearest": "そらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あさぎ",
+      "runnerUpDistance": 25,
+      "nearestOwned": true,
+      "strict": "そらいろ",
+      "rescue": "そらいろ",
+      "water": 0.19180850249853698,
+      "ingredients": 5
+    },
+    {
+      "name": "くらいあお",
+      "targetHex": "#2e3342",
+      "color": [
+        46,
+        51,
+        66
+      ],
+      "hex": "#2E3342",
+      "targetDistance": 0,
+      "nearest": "くらいあお",
+      "nearestDistance": 0,
+      "runnerUp": "よふけのつきよいろ",
+      "runnerUpDistance": 16.76305461424021,
+      "nearestOwned": true,
+      "strict": "くらいあお",
+      "rescue": "くらいあお",
+      "water": 0.37989857667499644,
+      "ingredients": 7
+    },
+    {
+      "name": "うすいあお",
+      "targetHex": "#c6cfec",
+      "color": [
+        198,
+        207,
+        236
+      ],
+      "hex": "#C6CFEC",
+      "targetDistance": 0,
+      "nearest": "うすいあお",
+      "nearestDistance": 0,
+      "runnerUp": "ランドリーいろ",
+      "runnerUpDistance": 15.033296378372908,
+      "nearestOwned": true,
+      "strict": "うすいあお",
+      "rescue": "うすいあお",
+      "water": 0,
+      "ingredients": 4
+    },
+    {
+      "name": "るり",
+      "targetHex": "#4f4fb0",
+      "color": [
+        79,
+        79,
+        176
+      ],
+      "hex": "#4F4FB0",
+      "targetDistance": 0,
+      "nearest": "るり",
+      "nearestDistance": 0,
+      "runnerUp": "ぶどういろ",
+      "runnerUpDistance": 36,
+      "nearestOwned": true,
+      "strict": "るり",
+      "rescue": "るり",
+      "water": 0.27674564729910345,
+      "ingredients": 3
+    },
+    {
+      "name": "こいむらさき",
+      "targetHex": "#582858",
+      "color": [
+        88,
+        40,
+        88
+      ],
+      "hex": "#582858",
+      "targetDistance": 0,
+      "nearest": "こいむらさき",
+      "nearestDistance": 0,
+      "runnerUp": "ディーププラム",
+      "runnerUpDistance": 18.275666882497067,
+      "nearestOwned": true,
+      "strict": "こいむらさき",
+      "rescue": "こいむらさき",
+      "water": 0.3759756092895963,
+      "ingredients": 5
+    },
+    {
+      "name": "うすいむらさき",
+      "targetHex": "#ecc6ec",
+      "color": [
+        236,
+        198,
+        236
+      ],
+      "hex": "#ECC6EC",
+      "targetDistance": 0,
+      "nearest": "うすいむらさき",
+      "nearestDistance": 0,
+      "runnerUp": "はなびらいろ",
+      "runnerUpDistance": 23.02172886644268,
+      "nearestOwned": true,
+      "strict": "うすいむらさき",
+      "rescue": "うすいむらさき",
+      "water": 0,
+      "ingredients": 6
+    },
+    {
+      "name": "ぼたん",
+      "targetHex": "#b04f98",
+      "color": [
+        176,
+        79,
+        152
+      ],
+      "hex": "#B04F98",
+      "targetDistance": 0,
+      "nearest": "ぼたん",
+      "nearestDistance": 0,
+      "runnerUp": "スモーキーバイオレット",
+      "runnerUpDistance": 23.95829710142188,
+      "nearestOwned": true,
+      "strict": "ぼたん",
+      "rescue": "ぼたん",
+      "water": 0.7348699639260303,
+      "ingredients": 3
+    },
+    {
+      "name": "さくら",
+      "targetHex": "#b04f80",
+      "color": [
+        176,
+        79,
+        128
+      ],
+      "hex": "#B04F80",
+      "targetDistance": 0,
+      "nearest": "さくら",
+      "nearestDistance": 0,
+      "runnerUp": "ぼたん",
+      "runnerUpDistance": 24,
+      "nearestOwned": true,
+      "strict": "さくら",
+      "rescue": "さくら",
+      "water": 0.31799417469960894,
+      "ingredients": 7
+    },
+    {
+      "name": "なでしこ",
+      "targetHex": "#b04f67",
+      "color": [
+        176,
+        79,
+        103
+      ],
+      "hex": "#B04F67",
+      "targetDistance": 0,
+      "nearest": "なでしこ",
+      "nearestDistance": 0,
+      "runnerUp": "さくら",
+      "runnerUpDistance": 25,
+      "nearestOwned": true,
+      "strict": "なでしこ",
+      "rescue": "なでしこ",
+      "water": 0.15577481975576576,
+      "ingredients": 5
+    },
+    {
+      "name": "たこやきいろ",
+      "targetHex": "#a9683a",
+      "color": [
+        169,
+        104,
+        58
+      ],
+      "hex": "#A9683A",
+      "targetDistance": 0,
+      "nearest": "たこやきいろ",
+      "nearestDistance": 0,
+      "runnerUp": "りすいろ",
+      "runnerUpDistance": 10.63014581273465,
+      "nearestOwned": true,
+      "strict": "たこやきいろ",
+      "rescue": "たこやきいろ",
+      "water": 0.42300805466988056,
+      "ingredients": 4
+    },
+    {
+      "name": "こげたたこやきいろ",
+      "targetHex": "#734727",
+      "color": [
+        115,
+        71,
+        39
+      ],
+      "hex": "#734727",
+      "targetDistance": 0,
+      "nearest": "こげたたこやきいろ",
+      "nearestDistance": 0,
+      "runnerUp": "くりいろ",
+      "runnerUpDistance": 12.083045973594572,
+      "nearestOwned": true,
+      "strict": "こげたたこやきいろ",
+      "rescue": "こげたたこやきいろ",
+      "water": 0.16947339074781687,
+      "ingredients": 7
+    },
+    {
+      "name": "からあげいろ",
+      "targetHex": "#d98a2b",
+      "color": [
+        217,
+        138,
+        43
+      ],
+      "hex": "#D98A2B",
+      "targetDistance": 0,
+      "nearest": "からあげいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あめいろ",
+      "runnerUpDistance": 12,
+      "nearestOwned": true,
+      "strict": "からあげいろ",
+      "rescue": "からあげいろ",
+      "water": 0.45874860773794346,
+      "ingredients": 5
+    },
+    {
+      "name": "たいやきいろ",
+      "targetHex": "#c97b2e",
+      "color": [
+        201,
+        123,
+        46
+      ],
+      "hex": "#C97B2E",
+      "targetDistance": 0,
+      "nearest": "たいやきいろ",
+      "nearestDistance": 0,
+      "runnerUp": "みたらしだんごいろ",
+      "runnerUpDistance": 8.94427190999916,
+      "nearestOwned": true,
+      "strict": "たいやきいろ",
+      "rescue": "たいやきいろ",
+      "water": 0.11753906085208096,
+      "ingredients": 6
+    },
+    {
+      "name": "ラーメンいろ",
+      "targetHex": "#e0a840",
+      "color": [
+        224,
+        168,
+        64
+      ],
+      "hex": "#E0A840",
+      "targetDistance": 0,
+      "nearest": "ラーメンいろ",
+      "nearestDistance": 0,
+      "runnerUp": "どらやきいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "ラーメンいろ",
+      "rescue": "ラーメンいろ",
+      "water": 0.037173726200724864,
+      "ingredients": 5
+    },
+    {
+      "name": "カレーいろ",
+      "targetHex": "#c8791f",
+      "color": [
+        200,
+        121,
+        31
+      ],
+      "hex": "#C8791F",
+      "targetDistance": 0,
+      "nearest": "カレーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "みたらしだんごいろ",
+      "runnerUpDistance": 14.89966442575134,
+      "nearestOwned": true,
+      "strict": "カレーいろ",
+      "rescue": "カレーいろ",
+      "water": 0.12796822963324792,
+      "ingredients": 5
+    },
+    {
+      "name": "なっとういろ",
+      "targetHex": "#b89a3c",
+      "color": [
+        184,
+        154,
+        60
+      ],
+      "hex": "#B89A3C",
+      "targetDistance": 0,
+      "nearest": "なっとういろ",
+      "nearestDistance": 0,
+      "runnerUp": "アンティークベージュ",
+      "runnerUpDistance": 14.45683229480096,
+      "nearestOwned": true,
+      "strict": "なっとういろ",
+      "rescue": "なっとういろ",
+      "water": 0.05659689111169427,
+      "ingredients": 5
+    },
+    {
+      "name": "しょうゆいろ",
+      "targetHex": "#37291c",
+      "color": [
+        55,
+        41,
+        28
+      ],
+      "hex": "#37291C",
+      "targetDistance": 0,
+      "nearest": "しょうゆいろ",
+      "nearestDistance": 0,
+      "runnerUp": "チョコレートいろ",
+      "runnerUpDistance": 19.748417658131498,
+      "nearestOwned": true,
+      "strict": "しょうゆいろ",
+      "rescue": "しょうゆいろ",
+      "water": 0.10075314921991703,
+      "ingredients": 6
+    },
+    {
+      "name": "みそしるいろ",
+      "targetHex": "#8a5a2e",
+      "color": [
+        138,
+        90,
+        46
+      ],
+      "hex": "#8A5A2E",
+      "targetDistance": 0,
+      "nearest": "みそしるいろ",
+      "nearestDistance": 0,
+      "runnerUp": "やきそばいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "みそしるいろ",
+      "rescue": "みそしるいろ",
+      "water": 0.23826179377378656,
+      "ingredients": 5
+    },
+    {
+      "name": "ぷりんいろ",
+      "targetHex": "#e8b262",
+      "color": [
+        232,
+        178,
+        98
+      ],
+      "hex": "#E8B262",
+      "targetDistance": 0,
+      "nearest": "ぷりんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "きゅうしょくいろ",
+      "runnerUpDistance": 8,
+      "nearestOwned": true,
+      "strict": "ぷりんいろ",
+      "rescue": "ぷりんいろ",
+      "water": 0.40505271387774144,
+      "ingredients": 5
+    },
+    {
+      "name": "わらびもちいろ",
+      "targetHex": "#c9a87c",
+      "color": [
+        201,
+        168,
+        124
+      ],
+      "hex": "#C9A87C",
+      "targetDistance": 0,
+      "nearest": "わらびもちいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぼうしいろ",
+      "runnerUpDistance": 16.822603841260726,
+      "nearestOwned": true,
+      "strict": "わらびもちいろ",
+      "rescue": "わらびもちいろ",
+      "water": 0.7249724863644631,
+      "ingredients": 4
+    },
+    {
+      "name": "だいふくいろ",
+      "targetHex": "#f5f3ec",
+      "color": [
+        245,
+        243,
+        236
+      ],
+      "hex": "#F5F3EC",
+      "targetDistance": 0,
+      "nearest": "だいふくいろ",
+      "nearestDistance": 0,
+      "runnerUp": "さっかーぼーるいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "だいふくいろ",
+      "rescue": "だいふくいろ",
+      "water": 0.09575804821528837,
+      "ingredients": 5
+    },
+    {
+      "name": "あんこいろ",
+      "targetHex": "#6b3226",
+      "color": [
+        107,
+        50,
+        38
+      ],
+      "hex": "#6B3226",
+      "targetDistance": 0,
+      "nearest": "あんこいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こげたやきいもいろ",
+      "runnerUpDistance": 8.246211251235321,
+      "nearestOwned": true,
+      "strict": "あんこいろ",
+      "rescue": "あんこいろ",
+      "water": 0.12032993096016813,
+      "ingredients": 6
+    },
+    {
+      "name": "きなこいろ",
+      "targetHex": "#d4a857",
+      "color": [
+        212,
+        168,
+        87
+      ],
+      "hex": "#D4A857",
+      "targetDistance": 0,
+      "nearest": "きなこいろ",
+      "nearestDistance": 0,
+      "runnerUp": "おでんいろ",
+      "runnerUpDistance": 12.08304597359457,
+      "nearestOwned": true,
+      "strict": "きなこいろ",
+      "rescue": "きなこいろ",
+      "water": 0.3052320025680889,
+      "ingredients": 5
+    },
+    {
+      "name": "ようかんいろ",
+      "targetHex": "#5c2a1f",
+      "color": [
+        92,
+        42,
+        31
+      ],
+      "hex": "#5C2A1F",
+      "targetDistance": 0,
+      "nearest": "ようかんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "えんじいろ",
+      "runnerUpDistance": 8.774964387392123,
+      "nearestOwned": true,
+      "strict": "ようかんいろ",
+      "rescue": "ようかんいろ",
+      "water": 0.10604959856214757,
+      "ingredients": 6
+    },
+    {
+      "name": "チョコレートいろ",
+      "targetHex": "#4a2e1a",
+      "color": [
+        74,
+        46,
+        26
+      ],
+      "hex": "#4A2E1A",
+      "targetDistance": 0,
+      "nearest": "チョコレートいろ",
+      "nearestDistance": 0,
+      "runnerUp": "オリーブブラウン",
+      "runnerUpDistance": 19.1049731745428,
+      "nearestOwned": true,
+      "strict": "チョコレートいろ",
+      "rescue": "チョコレートいろ",
+      "water": 0.005240715679151567,
+      "ingredients": 4
+    },
+    {
+      "name": "わたあめいろ",
+      "targetHex": "#f5b8d0",
+      "color": [
+        245,
+        184,
+        208
+      ],
+      "hex": "#F5B8D0",
+      "targetDistance": 0,
+      "nearest": "わたあめいろ",
+      "nearestDistance": 0,
+      "runnerUp": "パステルさくらいろ",
+      "runnerUpDistance": 11.575836902790225,
+      "nearestOwned": true,
+      "strict": "わたあめいろ",
+      "rescue": "わたあめいろ",
+      "water": 0,
+      "ingredients": 6
+    },
+    {
+      "name": "アイスクリームいろ",
+      "targetHex": "#f5ecd0",
+      "color": [
+        245,
+        236,
+        208
+      ],
+      "hex": "#F5ECD0",
+      "targetDistance": 0,
+      "nearest": "アイスクリームいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ひつじいろ",
+      "runnerUpDistance": 16.15549442140351,
+      "nearestOwned": true,
+      "strict": "アイスクリームいろ",
+      "rescue": "アイスクリームいろ",
+      "water": 0.3464985644508238,
+      "ingredients": 3
+    },
+    {
+      "name": "ソーダいろ",
+      "targetHex": "#3ab5e0",
+      "color": [
+        58,
+        181,
+        224
+      ],
+      "hex": "#3AB5E0",
+      "targetDistance": 0,
+      "nearest": "ソーダいろ",
+      "nearestDistance": 0,
+      "runnerUp": "プールいろ",
+      "runnerUpDistance": 15.524174696260024,
+      "nearestOwned": true,
+      "strict": "ソーダいろ",
+      "rescue": "ソーダいろ",
+      "water": 0.8306400900701992,
+      "ingredients": 4
+    },
+    {
+      "name": "ガムいろ",
+      "targetHex": "#f288b0",
+      "color": [
+        242,
+        136,
+        176
+      ],
+      "hex": "#F288B0",
+      "targetDistance": 0,
+      "nearest": "ガムいろ",
+      "nearestDistance": 0,
+      "runnerUp": "おりがみいろ",
+      "runnerUpDistance": 16.278820596099706,
+      "nearestOwned": true,
+      "strict": "ガムいろ",
+      "rescue": "ガムいろ",
+      "water": 0.2154312132821976,
+      "ingredients": 6
+    },
+    {
+      "name": "あめいろ",
+      "targetHex": "#d98a1f",
+      "color": [
+        217,
+        138,
+        31
+      ],
+      "hex": "#D98A1F",
+      "targetDistance": 0,
+      "nearest": "あめいろ",
+      "nearestDistance": 0,
+      "runnerUp": "からあげいろ",
+      "runnerUpDistance": 12,
+      "nearestOwned": true,
+      "strict": "あめいろ",
+      "rescue": "あめいろ",
+      "water": 0.005873487481148913,
+      "ingredients": 5
+    },
+    {
+      "name": "クッキーいろ",
+      "targetHex": "#c68a4e",
+      "color": [
+        198,
+        138,
+        78
+      ],
+      "hex": "#C68A4E",
+      "targetDistance": 0,
+      "nearest": "クッキーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "せんべいいろ",
+      "runnerUpDistance": 17.944358444926362,
+      "nearestOwned": true,
+      "strict": "クッキーいろ",
+      "rescue": "クッキーいろ",
+      "water": 0.002333218194544316,
+      "ingredients": 5
+    },
+    {
+      "name": "ホットケーキいろ",
+      "targetHex": "#e3a94a",
+      "color": [
+        227,
+        169,
+        74
+      ],
+      "hex": "#E3A94A",
+      "targetDistance": 0,
+      "nearest": "ホットケーキいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ラーメンいろ",
+      "runnerUpDistance": 10.488088481701517,
+      "nearestOwned": true,
+      "strict": "ホットケーキいろ",
+      "rescue": "ホットケーキいろ",
+      "water": 0.25368922415165235,
+      "ingredients": 6
+    },
+    {
+      "name": "こげたホットケーキいろ",
+      "targetHex": "#9a7332",
+      "color": [
+        154,
+        115,
+        50
+      ],
+      "hex": "#9A7332",
+      "targetDistance": 0,
+      "nearest": "こげたホットケーキいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あじがこゆいラーメンいろ",
+      "runnerUpDistance": 8.246211251235321,
+      "nearestOwned": true,
+      "strict": "こげたホットケーキいろ",
+      "rescue": "こげたホットケーキいろ",
+      "water": 0.17454699963280335,
+      "ingredients": 7
+    },
+    {
+      "name": "グラタンいろ",
+      "targetHex": "#f0c95a",
+      "color": [
+        240,
+        201,
+        90
+      ],
+      "hex": "#F0C95A",
+      "targetDistance": 0,
+      "nearest": "グラタンいろ",
+      "nearestDistance": 0,
+      "runnerUp": "カステラいろ",
+      "runnerUpDistance": 14.560219778561036,
+      "nearestOwned": true,
+      "strict": "グラタンいろ",
+      "rescue": "グラタンいろ",
+      "water": 0.7040134364227619,
+      "ingredients": 4
+    },
+    {
+      "name": "たまごやきいろ",
+      "targetHex": "#f7c948",
+      "color": [
+        247,
+        201,
+        72
+      ],
+      "hex": "#F7C948",
+      "targetDistance": 0,
+      "nearest": "たまごやきいろ",
+      "nearestDistance": 0,
+      "runnerUp": "カステラいろ",
+      "runnerUpDistance": 11.180339887498949,
+      "nearestOwned": true,
+      "strict": "たまごやきいろ",
+      "rescue": "たまごやきいろ",
+      "water": 0,
+      "ingredients": 5
+    },
+    {
+      "name": "おでんいろ",
+      "targetHex": "#c9a45a",
+      "color": [
+        201,
+        164,
+        90
+      ],
+      "hex": "#C9A45A",
+      "targetDistance": 0,
+      "nearest": "おでんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "らくだいろ",
+      "runnerUpDistance": 8.246211251235321,
+      "nearestOwned": true,
+      "strict": "おでんいろ",
+      "rescue": "おでんいろ",
+      "water": 0.025685058322269468,
+      "ingredients": 5
+    },
+    {
+      "name": "やきいもいろ",
+      "targetHex": "#a04a2e",
+      "color": [
+        160,
+        74,
+        46
+      ],
+      "hex": "#A04A2E",
+      "targetDistance": 0,
+      "nearest": "やきいもいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ホットドッグいろ",
+      "runnerUpDistance": 10.246950765959598,
+      "nearestOwned": true,
+      "strict": "やきいもいろ",
+      "rescue": "やきいもいろ",
+      "water": 0.027855988316272506,
+      "ingredients": 6
+    },
+    {
+      "name": "こげたやきいもいろ",
+      "targetHex": "#6d321e",
+      "color": [
+        109,
+        50,
+        30
+      ],
+      "hex": "#6D321E",
+      "targetDistance": 0,
+      "nearest": "こげたやきいもいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あんこいろ",
+      "runnerUpDistance": 8.246211251235321,
+      "nearestOwned": true,
+      "strict": "こげたやきいもいろ",
+      "rescue": "こげたやきいもいろ",
+      "water": 0.5934649895908591,
+      "ingredients": 5
+    },
+    {
+      "name": "ちくわいろ",
+      "targetHex": "#f2ddb8",
+      "color": [
+        242,
+        221,
+        184
+      ],
+      "hex": "#F2DDB8",
+      "targetDistance": 0,
+      "nearest": "ちくわいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ポップコーンいろ",
+      "runnerUpDistance": 11.40175425099138,
+      "nearestOwned": true,
+      "strict": "ちくわいろ",
+      "rescue": "ちくわいろ",
+      "water": 0,
+      "ingredients": 4
+    },
+    {
+      "name": "こむぎいろ",
+      "targetHex": "#e3c07a",
+      "color": [
+        227,
+        192,
+        122
+      ],
+      "hex": "#E3C07A",
+      "targetDistance": 0,
+      "nearest": "こむぎいろ",
+      "nearestDistance": 0,
+      "runnerUp": "さばくのいろ",
+      "runnerUpDistance": 12.96148139681572,
+      "nearestOwned": true,
+      "strict": "こむぎいろ",
+      "rescue": "こむぎいろ",
+      "water": 0.007133526862598955,
+      "ingredients": 4
+    },
+    {
+      "name": "おこのみやきいろ",
+      "targetHex": "#a8672e",
+      "color": [
+        168,
+        103,
+        46
+      ],
+      "hex": "#A8672E",
+      "targetDistance": 0,
+      "nearest": "おこのみやきいろ",
+      "nearestDistance": 0,
+      "runnerUp": "たこやきいろ",
+      "runnerUpDistance": 12.083045973594572,
+      "nearestOwned": true,
+      "strict": "おこのみやきいろ",
+      "rescue": "おこのみやきいろ",
+      "water": 0.159305139521021,
+      "ingredients": 6
+    },
+    {
+      "name": "やきそばいろ",
+      "targetHex": "#8a5e27",
+      "color": [
+        138,
+        94,
+        39
+      ],
+      "hex": "#8A5E27",
+      "targetDistance": 0,
+      "nearest": "やきそばいろ",
+      "nearestDistance": 0,
+      "runnerUp": "みそしるいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "やきそばいろ",
+      "rescue": "やきそばいろ",
+      "water": 0.007258998558623714,
+      "ingredients": 4
+    },
+    {
+      "name": "ぎょうざいろ",
+      "targetHex": "#c9903a",
+      "color": [
+        201,
+        144,
+        58
+      ],
+      "hex": "#C9903A",
+      "targetDistance": 0,
+      "nearest": "ぎょうざいろ",
+      "nearestDistance": 0,
+      "runnerUp": "なっとういろ",
+      "runnerUpDistance": 19.82422760159901,
+      "nearestOwned": true,
+      "strict": "ぎょうざいろ",
+      "rescue": "ぎょうざいろ",
+      "water": 0.021621784832328555,
+      "ingredients": 7
+    },
+    {
+      "name": "すしいろ",
+      "targetHex": "#f4f0e0",
+      "color": [
+        244,
+        240,
+        224
+      ],
+      "hex": "#F4F0E0",
+      "targetDistance": 0,
+      "nearest": "すしいろ",
+      "nearestDistance": 0,
+      "runnerUp": "だいこんいろ",
+      "runnerUpDistance": 8.831760866327848,
+      "nearestOwned": true,
+      "strict": "すしいろ",
+      "rescue": "すしいろ",
+      "water": 0.3543021286565716,
+      "ingredients": 4
+    },
+    {
+      "name": "ずんだいろ",
+      "targetHex": "#79b04a",
+      "color": [
+        121,
+        176,
+        74
+      ],
+      "hex": "#79B04A",
+      "targetDistance": 0,
+      "nearest": "ずんだいろ",
+      "nearestDistance": 0,
+      "runnerUp": "わかば",
+      "runnerUpDistance": 8.602325267042627,
+      "nearestOwned": true,
+      "strict": "ずんだいろ",
+      "rescue": "ずんだいろ",
+      "water": 0.8186793557042257,
+      "ingredients": 6
+    },
+    {
+      "name": "ういろういろ",
+      "targetHex": "#e8d5c0",
+      "color": [
+        232,
+        213,
+        192
+      ],
+      "hex": "#E8D5C0",
+      "targetDistance": 0,
+      "nearest": "ういろういろ",
+      "nearestDistance": 0,
+      "runnerUp": "らんどせるのなかみいろ",
+      "runnerUpDistance": 12.36931687685298,
+      "nearestOwned": true,
+      "strict": "ういろういろ",
+      "rescue": "ういろういろ",
+      "water": 0.030248957192525266,
+      "ingredients": 6
+    },
+    {
+      "name": "せんべいいろ",
+      "targetHex": "#c9975a",
+      "color": [
+        201,
+        151,
+        90
+      ],
+      "hex": "#C9975A",
+      "targetDistance": 0,
+      "nearest": "せんべいいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こいぬいろ",
+      "runnerUpDistance": 8.062257748298551,
+      "nearestOwned": true,
+      "strict": "せんべいいろ",
+      "rescue": "せんべいいろ",
+      "water": 0.06237078827218967,
+      "ingredients": 5
+    },
+    {
+      "name": "ポップコーンいろ",
+      "targetHex": "#f5e8b8",
+      "color": [
+        245,
+        232,
+        184
+      ],
+      "hex": "#F5E8B8",
+      "targetDistance": 0,
+      "nearest": "ポップコーンいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ちくわいろ",
+      "runnerUpDistance": 11.40175425099138,
+      "nearestOwned": true,
+      "strict": "ポップコーンいろ",
+      "rescue": "ポップコーンいろ",
+      "water": 0.7801500712067635,
+      "ingredients": 5
+    },
+    {
+      "name": "ホットドッグいろ",
+      "targetHex": "#a8452a",
+      "color": [
+        168,
+        69,
+        42
+      ],
+      "hex": "#A8452A",
+      "targetDistance": 0,
+      "nearest": "ホットドッグいろ",
+      "nearestDistance": 0,
+      "runnerUp": "やきいもいろ",
+      "runnerUpDistance": 10.246950765959598,
+      "nearestOwned": true,
+      "strict": "ホットドッグいろ",
+      "rescue": "ホットドッグいろ",
+      "water": 0.34238273413851855,
+      "ingredients": 4
+    },
+    {
+      "name": "はちみついろ",
+      "targetHex": "#e8a428",
+      "color": [
+        232,
+        164,
+        40
+      ],
+      "hex": "#E8A428",
+      "targetDistance": 0,
+      "nearest": "はちみついろ",
+      "nearestDistance": 0,
+      "runnerUp": "みかんいろ",
+      "runnerUpDistance": 22.494443758403985,
+      "nearestOwned": true,
+      "strict": "はちみついろ",
+      "rescue": "はちみついろ",
+      "water": 0.37601515973492833,
+      "ingredients": 4
+    },
+    {
+      "name": "バターいろ",
+      "targetHex": "#f2d878",
+      "color": [
+        242,
+        216,
+        120
+      ],
+      "hex": "#F2D878",
+      "targetDistance": 0,
+      "nearest": "バターいろ",
+      "nearestDistance": 0,
+      "runnerUp": "たいようのたまごいろ",
+      "runnerUpDistance": 19.052558883257653,
+      "nearestOwned": true,
+      "strict": "バターいろ",
+      "rescue": "バターいろ",
+      "water": 0.7073945996802097,
+      "ingredients": 4
+    },
+    {
+      "name": "チーズいろ",
+      "targetHex": "#f2c93e",
+      "color": [
+        242,
+        201,
+        62
+      ],
+      "hex": "#F2C93E",
+      "targetDistance": 0,
+      "nearest": "チーズいろ",
+      "nearestDistance": 0,
+      "runnerUp": "たまごやきいろ",
+      "runnerUpDistance": 11.180339887498949,
+      "nearestOwned": true,
+      "strict": "チーズいろ",
+      "rescue": "チーズいろ",
+      "water": 0.038136144847486037,
+      "ingredients": 5
+    },
+    {
+      "name": "ヨーグルトいろ",
+      "targetHex": "#faf9e8",
+      "color": [
+        250,
+        249,
+        232
+      ],
+      "hex": "#FAF9E8",
+      "targetDistance": 0,
+      "nearest": "ヨーグルトいろ",
+      "nearestDistance": 0,
+      "runnerUp": "おにぎりいろ",
+      "runnerUpDistance": 8.306623862918075,
+      "nearestOwned": true,
+      "strict": "ヨーグルトいろ",
+      "rescue": "ヨーグルトいろ",
+      "water": 0.10124501441876328,
+      "ingredients": 5
+    },
+    {
+      "name": "ぎゅうにゅういろ",
+      "targetHex": "#f6fcef",
+      "color": [
+        246,
+        252,
+        239
+      ],
+      "hex": "#F6FCEF",
+      "targetDistance": 0,
+      "nearest": "ぎゅうにゅういろ",
+      "nearestDistance": 0,
+      "runnerUp": "しろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "ぎゅうにゅういろ",
+      "rescue": "ぎゅうにゅういろ",
+      "water": 0.0992956468933635,
+      "ingredients": 5
+    },
+    {
+      "name": "こおりいろ",
+      "targetHex": "#d5eaf2",
+      "color": [
+        213,
+        234,
+        242
+      ],
+      "hex": "#D5EAF2",
+      "targetDistance": 0,
+      "nearest": "こおりいろ",
+      "nearestDistance": 0,
+      "runnerUp": "くらげいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "こおりいろ",
+      "rescue": "こおりいろ",
+      "water": 0.744942178628105,
+      "ingredients": 6
+    },
+    {
+      "name": "みかんいろ",
+      "targetHex": "#f5941f",
+      "color": [
+        245,
+        148,
+        31
+      ],
+      "hex": "#F5941F",
+      "targetDistance": 0,
+      "nearest": "みかんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "だいだい",
+      "runnerUpDistance": 12.84523257866513,
+      "nearestOwned": true,
+      "strict": "みかんいろ",
+      "rescue": "みかんいろ",
+      "water": 0.7280684257513453,
+      "ingredients": 5
+    },
+    {
+      "name": "なしいろ",
+      "targetHex": "#e8dfa0",
+      "color": [
+        232,
+        223,
+        160
+      ],
+      "hex": "#E8DFA0",
+      "targetDistance": 0,
+      "nearest": "なしいろ",
+      "nearestDistance": 0,
+      "runnerUp": "すなばいろ",
+      "runnerUpDistance": 11,
+      "nearestOwned": true,
+      "strict": "なしいろ",
+      "rescue": "なしいろ",
+      "water": 0.07797257009303284,
+      "ingredients": 4
+    },
+    {
+      "name": "くりいろ",
+      "targetHex": "#6b3e26",
+      "color": [
+        107,
+        62,
+        38
+      ],
+      "hex": "#6B3E26",
+      "targetDistance": 0,
+      "nearest": "くりいろ",
+      "nearestDistance": 0,
+      "runnerUp": "うまいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "くりいろ",
+      "rescue": "くりいろ",
+      "water": 0.7033934635388395,
+      "ingredients": 7
+    },
+    {
+      "name": "とうもろこしいろ",
+      "targetHex": "#f2d347",
+      "color": [
+        242,
+        211,
+        71
+      ],
+      "hex": "#F2D347",
+      "targetDistance": 0,
+      "nearest": "とうもろこしいろ",
+      "nearestDistance": 0,
+      "runnerUp": "にわとりいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "とうもろこしいろ",
+      "rescue": "とうもろこしいろ",
+      "water": 0.12631306720397625,
+      "ingredients": 5
+    },
+    {
+      "name": "ピーマンいろ",
+      "targetHex": "#4a8c3f",
+      "color": [
+        74,
+        140,
+        63
+      ],
+      "hex": "#4A8C3F",
+      "targetDistance": 0,
+      "nearest": "ピーマンいろ",
+      "nearestDistance": 0,
+      "runnerUp": "てんといろ",
+      "runnerUpDistance": 21.095023109728988,
+      "nearestOwned": true,
+      "strict": "ピーマンいろ",
+      "rescue": "ピーマンいろ",
+      "water": 0.03595586184333997,
+      "ingredients": 7
+    },
+    {
+      "name": "トマトいろ",
+      "targetHex": "#e33b2e",
+      "color": [
+        227,
+        59,
+        46
+      ],
+      "hex": "#E33B2E",
+      "targetDistance": 0,
+      "nearest": "トマトいろ",
+      "nearestDistance": 0,
+      "runnerUp": "てんとうむしいろ",
+      "runnerUpDistance": 8.54400374531753,
+      "nearestOwned": true,
+      "strict": "トマトいろ",
+      "rescue": "トマトいろ",
+      "water": 0.7254472982697189,
+      "ingredients": 4
+    },
+    {
+      "name": "まだあおいトマトいろ",
+      "targetHex": "#ec7a71",
+      "color": [
+        236,
+        122,
+        113
+      ],
+      "hex": "#EC7A71",
+      "targetDistance": 0,
+      "nearest": "まだあおいトマトいろ",
+      "nearestDistance": 0,
+      "runnerUp": "グレープフルーツいろ",
+      "runnerUpDistance": 12.884098726725126,
+      "nearestOwned": true,
+      "strict": "まだあおいトマトいろ",
+      "rescue": "まだあおいトマトいろ",
+      "water": 0.0007404244900681078,
+      "ingredients": 6
+    },
+    {
+      "name": "ブルーベリーいろ",
+      "targetHex": "#4a4a7a",
+      "color": [
+        74,
+        74,
+        122
+      ],
+      "hex": "#4A4A7A",
+      "targetDistance": 0,
+      "nearest": "ブルーベリーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "すみれちゃ",
+      "runnerUpDistance": 32.03123475609394,
+      "nearestOwned": true,
+      "strict": "ブルーベリーいろ",
+      "rescue": "ブルーベリーいろ",
+      "water": 0.2617775125801563,
+      "ingredients": 3
+    },
+    {
+      "name": "まだあおいバナナいろ",
+      "targetHex": "#f7ea7e",
+      "color": [
+        247,
+        234,
+        126
+      ],
+      "hex": "#F7EA7E",
+      "targetDistance": 0,
+      "nearest": "まだあおいバナナいろ",
+      "nearestDistance": 0,
+      "runnerUp": "クリームいろ",
+      "runnerUpDistance": 8.774964387392123,
+      "nearestOwned": true,
+      "strict": "まだあおいバナナいろ",
+      "rescue": "まだあおいバナナいろ",
+      "water": 0.625554610420201,
+      "ingredients": 5
+    },
+    {
+      "name": "パイナップルいろ",
+      "targetHex": "#f2c230",
+      "color": [
+        242,
+        194,
+        48
+      ],
+      "hex": "#F2C230",
+      "targetDistance": 0,
+      "nearest": "パイナップルいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あひるいろ",
+      "runnerUpDistance": 8,
+      "nearestOwned": true,
+      "strict": "パイナップルいろ",
+      "rescue": "パイナップルいろ",
+      "water": 0.31029148743038476,
+      "ingredients": 4
+    },
+    {
+      "name": "メロンいろ",
+      "targetHex": "#b8d98a",
+      "color": [
+        184,
+        217,
+        138
+      ],
+      "hex": "#B8D98A",
+      "targetDistance": 0,
+      "nearest": "メロンいろ",
+      "nearestDistance": 0,
+      "runnerUp": "パステルみどり",
+      "runnerUpDistance": 38.961519477556315,
+      "nearestOwned": true,
+      "strict": "メロンいろ",
+      "rescue": "メロンいろ",
+      "water": 0.5399158901083622,
+      "ingredients": 6
+    },
+    {
+      "name": "さくらんぼいろ",
+      "targetHex": "#d1263b",
+      "color": [
+        209,
+        38,
+        59
+      ],
+      "hex": "#D1263B",
+      "targetDistance": 0,
+      "nearest": "さくらんぼいろ",
+      "nearestDistance": 0,
+      "runnerUp": "らんどせるいろ",
+      "runnerUpDistance": 15.394804318340652,
+      "nearestOwned": true,
+      "strict": "さくらんぼいろ",
+      "rescue": "さくらんぼいろ",
+      "water": 0.6274396873662917,
+      "ingredients": 6
+    },
+    {
+      "name": "キウイいろ",
+      "targetHex": "#8bb33f",
+      "color": [
+        139,
+        179,
+        63
+      ],
+      "hex": "#8BB33F",
+      "targetDistance": 0,
+      "nearest": "キウイいろ",
+      "nearestDistance": 0,
+      "runnerUp": "わかば",
+      "runnerUpDistance": 19.6468827043885,
+      "nearestOwned": true,
+      "strict": "キウイいろ",
+      "rescue": "キウイいろ",
+      "water": 0.021176103518810125,
+      "ingredients": 5
+    },
+    {
+      "name": "アボカドいろ",
+      "targetHex": "#7a9a4a",
+      "color": [
+        122,
+        154,
+        74
+      ],
+      "hex": "#7A9A4A",
+      "targetDistance": 0,
+      "nearest": "アボカドいろ",
+      "nearestDistance": 0,
+      "runnerUp": "まっちゃいろ",
+      "runnerUpDistance": 12.041594578792294,
+      "nearestOwned": true,
+      "strict": "アボカドいろ",
+      "rescue": "アボカドいろ",
+      "water": 0.9824783324263989,
+      "ingredients": 7
+    },
+    {
+      "name": "なつめやしいろ",
+      "targetHex": "#7a3e1a",
+      "color": [
+        122,
+        62,
+        26
+      ],
+      "hex": "#7A3E1A",
+      "targetDistance": 0,
+      "nearest": "なつめやしいろ",
+      "nearestDistance": 0,
+      "runnerUp": "セピアいろ",
+      "runnerUpDistance": 11.789826122551595,
+      "nearestOwned": true,
+      "strict": "なつめやしいろ",
+      "rescue": "なつめやしいろ",
+      "water": 0.17261509783142925,
+      "ingredients": 7
+    },
+    {
+      "name": "すいかいろ",
+      "targetHex": "#ef4d5e",
+      "color": [
+        239,
+        77,
+        94
+      ],
+      "hex": "#EF4D5E",
+      "targetDistance": 0,
+      "nearest": "すいかいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ふうせんいろ",
+      "runnerUpDistance": 13.490737563232042,
+      "nearestOwned": true,
+      "strict": "すいかいろ",
+      "rescue": "すいかいろ",
+      "water": 0.2190819326947107,
+      "ingredients": 5
+    },
+    {
+      "name": "じゅくしたすいかいろ",
+      "targetHex": "#a33440",
+      "color": [
+        163,
+        52,
+        64
+      ],
+      "hex": "#A33440",
+      "targetDistance": 0,
+      "nearest": "じゅくしたすいかいろ",
+      "nearestDistance": 0,
+      "runnerUp": "じゅくしたいちごいろ",
+      "runnerUpDistance": 20.42057785666214,
+      "nearestOwned": true,
+      "strict": "じゅくしたすいかいろ",
+      "rescue": "じゅくしたすいかいろ",
+      "water": 0.41910375842548425,
+      "ingredients": 7
+    },
+    {
+      "name": "いちごいろ",
+      "targetHex": "#e8384a",
+      "color": [
+        232,
+        56,
+        74
+      ],
+      "hex": "#E8384A",
+      "targetDistance": 0,
+      "nearest": "いちごいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ふうせんいろ",
+      "runnerUpDistance": 22.090722034374522,
+      "nearestOwned": true,
+      "strict": "いちごいろ",
+      "rescue": "いちごいろ",
+      "water": 0.23524367782063033,
+      "ingredients": 6
+    },
+    {
+      "name": "じゅくしたいちごいろ",
+      "targetHex": "#9e2632",
+      "color": [
+        158,
+        38,
+        50
+      ],
+      "hex": "#9E2632",
+      "targetDistance": 0,
+      "nearest": "じゅくしたいちごいろ",
+      "nearestDistance": 0,
+      "runnerUp": "じゅくしたすいかいろ",
+      "runnerUpDistance": 20.42057785666214,
+      "nearestOwned": true,
+      "strict": "じゅくしたいちごいろ",
+      "rescue": "じゅくしたいちごいろ",
+      "water": 0.005554326849859955,
+      "ingredients": 5
+    },
+    {
+      "name": "すもものいろ",
+      "targetHex": "#c9538a",
+      "color": [
+        201,
+        83,
+        138
+      ],
+      "hex": "#C9538A",
+      "targetDistance": 0,
+      "nearest": "すもものいろ",
+      "nearestDistance": 0,
+      "runnerUp": "たこいろ",
+      "runnerUpDistance": 9,
+      "nearestOwned": true,
+      "strict": "すもものいろ",
+      "rescue": "すもものいろ",
+      "water": 0.09604585209502618,
+      "ingredients": 8
+    },
+    {
+      "name": "グレープフルーツいろ",
+      "targetHex": "#f2836a",
+      "color": [
+        242,
+        131,
+        106
+      ],
+      "hex": "#F2836A",
+      "targetDistance": 0,
+      "nearest": "グレープフルーツいろ",
+      "nearestDistance": 0,
+      "runnerUp": "さんごしょういろ",
+      "runnerUpDistance": 8.062257748298551,
+      "nearestOwned": true,
+      "strict": "グレープフルーツいろ",
+      "rescue": "グレープフルーツいろ",
+      "water": 0.09643138174200432,
+      "ingredients": 4
+    },
+    {
+      "name": "れんこんいろ",
+      "targetHex": "#ede0c8",
+      "color": [
+        237,
+        224,
+        200
+      ],
+      "hex": "#EDE0C8",
+      "targetDistance": 0,
+      "nearest": "れんこんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "やぎいろ",
+      "runnerUpDistance": 9.643650760992955,
+      "nearestOwned": true,
+      "strict": "れんこんいろ",
+      "rescue": "れんこんいろ",
+      "water": 0.031739907176233824,
+      "ingredients": 5
+    },
+    {
+      "name": "たまねぎいろ",
+      "targetHex": "#e8dce0",
+      "color": [
+        232,
+        220,
+        224
+      ],
+      "hex": "#E8DCE0",
+      "targetDistance": 0,
+      "nearest": "たまねぎいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぎんねず",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "たまねぎいろ",
+      "rescue": "たまねぎいろ",
+      "water": 0.09856165643449312,
+      "ingredients": 7
+    },
+    {
+      "name": "だいこんいろ",
+      "targetHex": "#f2f7e5",
+      "color": [
+        242,
+        247,
+        229
+      ],
+      "hex": "#F2F7E5",
+      "targetDistance": 0,
+      "nearest": "だいこんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "さっかーぼーるいろ",
+      "runnerUpDistance": 8.366600265340757,
+      "nearestOwned": true,
+      "strict": "だいこんいろ",
+      "rescue": "だいこんいろ",
+      "water": 0.17026621401284955,
+      "ingredients": 6
+    },
+    {
+      "name": "ほうれんそういろ",
+      "targetHex": "#2e6b2a",
+      "color": [
+        46,
+        107,
+        42
+      ],
+      "hex": "#2E6B2A",
+      "targetDistance": 0,
+      "nearest": "ほうれんそういろ",
+      "nearestDistance": 0,
+      "runnerUp": "カーキいろ",
+      "runnerUpDistance": 8.602325267042627,
+      "nearestOwned": true,
+      "strict": "ほうれんそういろ",
+      "rescue": "ほうれんそういろ",
+      "water": 0.004193613765528425,
+      "ingredients": 6
+    },
+    {
+      "name": "まめいろ",
+      "targetHex": "#8fb054",
+      "color": [
+        143,
+        176,
+        84
+      ],
+      "hex": "#8FB054",
+      "targetDistance": 0,
+      "nearest": "まめいろ",
+      "nearestDistance": 0,
+      "runnerUp": "わかば",
+      "runnerUpDistance": 15.811388300841898,
+      "nearestOwned": true,
+      "strict": "まめいろ",
+      "rescue": "まめいろ",
+      "water": 0.0032623586256522686,
+      "ingredients": 6
+    },
+    {
+      "name": "さつまいもいろ",
+      "targetHex": "#8a3a2a",
+      "color": [
+        138,
+        58,
+        42
+      ],
+      "hex": "#8A3A2A",
+      "targetDistance": 0,
+      "nearest": "さつまいもいろ",
+      "nearestDistance": 0,
+      "runnerUp": "セピアいろ",
+      "runnerUpDistance": 15.588457268119896,
+      "nearestOwned": true,
+      "strict": "さつまいもいろ",
+      "rescue": "さつまいもいろ",
+      "water": 0.18541403523695268,
+      "ingredients": 6
+    },
+    {
+      "name": "どろあそびしたきりんいろ",
+      "targetHex": "#9e7d32",
+      "color": [
+        158,
+        125,
+        50
+      ],
+      "hex": "#9E7D32",
+      "targetDistance": 0,
+      "nearest": "どろあそびしたきりんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あじがこゆいラーメンいろ",
+      "runnerUpDistance": 8.485281374238571,
+      "nearestOwned": true,
+      "strict": "どろあそびしたきりんいろ",
+      "rescue": "どろあそびしたきりんいろ",
+      "water": 0.1724316855511659,
+      "ingredients": 5
+    },
+    {
+      "name": "らいおんいろ",
+      "targetHex": "#d39f44",
+      "color": [
+        211,
+        159,
+        68
+      ],
+      "hex": "#D39F44",
+      "targetDistance": 0,
+      "nearest": "らいおんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "どらやきいろ",
+      "runnerUpDistance": 8.366600265340757,
+      "nearestOwned": true,
+      "strict": "らいおんいろ",
+      "rescue": "らいおんいろ",
+      "water": 0.008337105307728052,
+      "ingredients": 5
+    },
+    {
+      "name": "ぺんぎんいろ",
+      "targetHex": "#2a2a30",
+      "color": [
+        42,
+        42,
+        48
+      ],
+      "hex": "#2A2A30",
+      "targetDistance": 0,
+      "nearest": "ぺんぎんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こうもりいろ",
+      "runnerUpDistance": 8,
+      "nearestOwned": true,
+      "strict": "ぺんぎんいろ",
+      "rescue": "ぺんぎんいろ",
+      "water": 0.6006088025502244,
+      "ingredients": 6
+    },
+    {
+      "name": "せんたくしたぺんぎんいろ",
+      "targetHex": "#6e6e72",
+      "color": [
+        110,
+        110,
+        114
+      ],
+      "hex": "#6E6E72",
+      "targetDistance": 0,
+      "nearest": "せんたくしたぺんぎんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "のうねずみ",
+      "runnerUpDistance": 11.180339887498949,
+      "nearestOwned": true,
+      "strict": "せんたくしたぺんぎんいろ",
+      "rescue": "せんたくしたぺんぎんいろ",
+      "water": 0.8173159801494331,
+      "ingredients": 3
+    },
+    {
+      "name": "ふくろういろ",
+      "targetHex": "#8a6b4a",
+      "color": [
+        138,
+        107,
+        74
+      ],
+      "hex": "#8A6B4A",
+      "targetDistance": 0,
+      "nearest": "ふくろういろ",
+      "nearestDistance": 0,
+      "runnerUp": "はりねずみいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "ふくろういろ",
+      "rescue": "ふくろういろ",
+      "water": 0.07296050346781734,
+      "ingredients": 7
+    },
+    {
+      "name": "かばいろ",
+      "targetHex": "#8a7a8a",
+      "color": [
+        138,
+        122,
+        138
+      ],
+      "hex": "#8A7A8A",
+      "targetDistance": 0,
+      "nearest": "かばいろ",
+      "nearestDistance": 0,
+      "runnerUp": "モーブグレー",
+      "runnerUpDistance": 13.96424004376894,
+      "nearestOwned": true,
+      "strict": "かばいろ",
+      "rescue": "かばいろ",
+      "water": 0.18435164220398292,
+      "ingredients": 4
+    },
+    {
+      "name": "きつねいろ",
+      "targetHex": "#c9642e",
+      "color": [
+        201,
+        100,
+        46
+      ],
+      "hex": "#C9642E",
+      "targetDistance": 0,
+      "nearest": "きつねいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぶらんこいろ",
+      "runnerUpDistance": 8.18535277187245,
+      "nearestOwned": true,
+      "strict": "きつねいろ",
+      "rescue": "きつねいろ",
+      "water": 0.4058413210225319,
+      "ingredients": 5
+    },
+    {
+      "name": "うさぎいろ",
+      "targetHex": "#f9ecee",
+      "color": [
+        249,
+        236,
+        238
+      ],
+      "hex": "#F9ECEE",
+      "targetDistance": 0,
+      "nearest": "うさぎいろ",
+      "nearestDistance": 0,
+      "runnerUp": "だいふくいろ",
+      "runnerUpDistance": 8.306623862918075,
+      "nearestOwned": true,
+      "strict": "うさぎいろ",
+      "rescue": "うさぎいろ",
+      "water": 0.0992501887681824,
+      "ingredients": 4
+    },
+    {
+      "name": "ひよこいろ",
+      "targetHex": "#f5d93e",
+      "color": [
+        245,
+        217,
+        62
+      ],
+      "hex": "#F5D93E",
+      "targetDistance": 0,
+      "nearest": "ひよこいろ",
+      "nearestDistance": 0,
+      "runnerUp": "バナナいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "ひよこいろ",
+      "rescue": "ひよこいろ",
+      "water": 0.7537515879635451,
+      "ingredients": 5
+    },
+    {
+      "name": "てんとうむしいろ",
+      "targetHex": "#e0332e",
+      "color": [
+        224,
+        51,
+        46
+      ],
+      "hex": "#E0332E",
+      "targetDistance": 0,
+      "nearest": "てんとうむしいろ",
+      "nearestDistance": 0,
+      "runnerUp": "トマトいろ",
+      "runnerUpDistance": 8.54400374531753,
+      "nearestOwned": true,
+      "strict": "てんとうむしいろ",
+      "rescue": "てんとうむしいろ",
+      "water": 0.07911562829302968,
+      "ingredients": 4
+    },
+    {
+      "name": "ふらみんごいろ",
+      "targetHex": "#f2708c",
+      "color": [
+        242,
+        112,
+        140
+      ],
+      "hex": "#F2708C",
+      "targetDistance": 0,
+      "nearest": "ふらみんごいろ",
+      "nearestDistance": 0,
+      "runnerUp": "コーラルピンク",
+      "runnerUpDistance": 23.874672772626646,
+      "nearestOwned": true,
+      "strict": "ふらみんごいろ",
+      "rescue": "ふらみんごいろ",
+      "water": 0.29023615261779606,
+      "ingredients": 5
+    },
+    {
+      "name": "いるかいろ",
+      "targetHex": "#6a8a9a",
+      "color": [
+        106,
+        138,
+        154
+      ],
+      "hex": "#6A8A9A",
+      "targetDistance": 0,
+      "nearest": "いるかいろ",
+      "nearestDistance": 0,
+      "runnerUp": "みずたまりいろ",
+      "runnerUpDistance": 16.76305461424021,
+      "nearestOwned": true,
+      "strict": "いるかいろ",
+      "rescue": "いるかいろ",
+      "water": 0.05056319725312304,
+      "ingredients": 6
+    },
+    {
+      "name": "さめいろ",
+      "targetHex": "#6a7480",
+      "color": [
+        106,
+        116,
+        128
+      ],
+      "hex": "#6A7480",
+      "targetDistance": 0,
+      "nearest": "さめいろ",
+      "nearestDistance": 0,
+      "runnerUp": "せんたくしたぺんぎんいろ",
+      "runnerUpDistance": 15.748015748023622,
+      "nearestOwned": true,
+      "strict": "さめいろ",
+      "rescue": "さめいろ",
+      "water": 0.25110555534483864,
+      "ingredients": 6
+    },
+    {
+      "name": "ぞうさんいろ",
+      "targetHex": "#9a9a95",
+      "color": [
+        154,
+        154,
+        149
+      ],
+      "hex": "#9A9A95",
+      "targetDistance": 0,
+      "nearest": "ぞうさんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ねずみいろ",
+      "runnerUpDistance": 10.295630140987,
+      "nearestOwned": true,
+      "strict": "ぞうさんいろ",
+      "rescue": "ぞうさんいろ",
+      "water": 0.8460763415135444,
+      "ingredients": 3
+    },
+    {
+      "name": "どろあそびしたぞうさんいろ",
+      "targetHex": "#676964",
+      "color": [
+        103,
+        105,
+        100
+      ],
+      "hex": "#676964",
+      "targetDistance": 0,
+      "nearest": "どろあそびしたぞうさんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "のうねずみ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "どろあそびしたぞうさんいろ",
+      "rescue": "どろあそびしたぞうさんいろ",
+      "water": 0.06735327879781834,
+      "ingredients": 7
+    },
+    {
+      "name": "ひつじいろ",
+      "targetHex": "#eee8de",
+      "color": [
+        238,
+        232,
+        222
+      ],
+      "hex": "#EEE8DE",
+      "targetDistance": 0,
+      "nearest": "ひつじいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぱんだいろ",
+      "runnerUpDistance": 8.18535277187245,
+      "nearestOwned": true,
+      "strict": "ひつじいろ",
+      "rescue": "ひつじいろ",
+      "water": 0.008140663672238587,
+      "ingredients": 4
+    },
+    {
+      "name": "くまいろ",
+      "targetHex": "#7a5232",
+      "color": [
+        122,
+        82,
+        50
+      ],
+      "hex": "#7A5232",
+      "targetDistance": 0,
+      "nearest": "くまいろ",
+      "nearestDistance": 0,
+      "runnerUp": "たぬきいろ",
+      "runnerUpDistance": 15.620499351813312,
+      "nearestOwned": true,
+      "strict": "くまいろ",
+      "rescue": "くまいろ",
+      "water": 0.49032989736885874,
+      "ingredients": 7
+    },
+    {
+      "name": "とらいろ",
+      "targetHex": "#e8821f",
+      "color": [
+        232,
+        130,
+        31
+      ],
+      "hex": "#E8821F",
+      "targetDistance": 0,
+      "nearest": "とらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "にんじんいろ",
+      "runnerUpDistance": 10,
+      "nearestOwned": true,
+      "strict": "とらいろ",
+      "rescue": "とらいろ",
+      "water": 0.05687902378515871,
+      "ingredients": 6
+    },
+    {
+      "name": "しかいろ",
+      "targetHex": "#9a6a3e",
+      "color": [
+        154,
+        106,
+        62
+      ],
+      "hex": "#9A6A3E",
+      "targetDistance": 0,
+      "nearest": "しかいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ちゃいろ",
+      "runnerUpDistance": 13.416407864998739,
+      "nearestOwned": true,
+      "strict": "しかいろ",
+      "rescue": "しかいろ",
+      "water": 0.25736819334951705,
+      "ingredients": 6
+    },
+    {
+      "name": "りすいろ",
+      "targetHex": "#b0703a",
+      "color": [
+        176,
+        112,
+        58
+      ],
+      "hex": "#B0703A",
+      "targetDistance": 0,
+      "nearest": "りすいろ",
+      "nearestDistance": 0,
+      "runnerUp": "たこやきいろ",
+      "runnerUpDistance": 10.63014581273465,
+      "nearestOwned": true,
+      "strict": "りすいろ",
+      "rescue": "りすいろ",
+      "water": 0.4993568841605883,
+      "ingredients": 6
+    },
+    {
+      "name": "かめいろ",
+      "targetHex": "#5a7a4a",
+      "color": [
+        90,
+        122,
+        74
+      ],
+      "hex": "#5A7A4A",
+      "targetDistance": 0,
+      "nearest": "かめいろ",
+      "nearestDistance": 0,
+      "runnerUp": "てんといろ",
+      "runnerUpDistance": 16,
+      "nearestOwned": true,
+      "strict": "かめいろ",
+      "rescue": "かめいろ",
+      "water": 0,
+      "ingredients": 7
+    },
+    {
+      "name": "かにいろ",
+      "targetHex": "#d8402a",
+      "color": [
+        216,
+        64,
+        42
+      ],
+      "hex": "#D8402A",
+      "targetDistance": 0,
+      "nearest": "かにいろ",
+      "nearestDistance": 0,
+      "runnerUp": "トマトいろ",
+      "runnerUpDistance": 12.727922061357857,
+      "nearestOwned": true,
+      "strict": "かにいろ",
+      "rescue": "かにいろ",
+      "water": 0.16712792397872805,
+      "ingredients": 7
+    },
+    {
+      "name": "たこいろ",
+      "targetHex": "#c94a8a",
+      "color": [
+        201,
+        74,
+        138
+      ],
+      "hex": "#C94A8A",
+      "targetDistance": 0,
+      "nearest": "たこいろ",
+      "nearestDistance": 0,
+      "runnerUp": "すもものいろ",
+      "runnerUpDistance": 9,
+      "nearestOwned": true,
+      "strict": "たこいろ",
+      "rescue": "たこいろ",
+      "water": 0.07171102663658774,
+      "ingredients": 8
+    },
+    {
+      "name": "はむすたーいろ",
+      "targetHex": "#d9a66b",
+      "color": [
+        217,
+        166,
+        107
+      ],
+      "hex": "#D9A66B",
+      "targetDistance": 0,
+      "nearest": "はむすたーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こねこいろ",
+      "runnerUpDistance": 8.774964387392123,
+      "nearestOwned": true,
+      "strict": "はむすたーいろ",
+      "rescue": "はむすたーいろ",
+      "water": 0.5958807208017014,
+      "ingredients": 5
+    },
+    {
+      "name": "ぱんだいろ",
+      "targetHex": "#e7e5e1",
+      "color": [
+        231,
+        229,
+        225
+      ],
+      "hex": "#E7E5E1",
+      "targetDistance": 0,
+      "nearest": "ぱんだいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぎんねず",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "ぱんだいろ",
+      "rescue": "ぱんだいろ",
+      "water": 0.09334071636549196,
+      "ingredients": 6
+    },
+    {
+      "name": "せんたくしたぱんだいろ",
+      "targetHex": "#eeece7",
+      "color": [
+        238,
+        236,
+        231
+      ],
+      "hex": "#EEECE7",
+      "targetDistance": 0,
+      "nearest": "せんたくしたぱんだいろ",
+      "nearestDistance": 0,
+      "runnerUp": "さっかーぼーるいろ",
+      "runnerUpDistance": 9,
+      "nearestOwned": true,
+      "strict": "せんたくしたぱんだいろ",
+      "rescue": "せんたくしたぱんだいろ",
+      "water": 0.20154445568470164,
+      "ingredients": 6
+    },
+    {
+      "name": "こあらいろ",
+      "targetHex": "#a5aca3",
+      "color": [
+        165,
+        172,
+        163
+      ],
+      "hex": "#A5ACA3",
+      "targetDistance": 0,
+      "nearest": "こあらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "パステルはいいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "こあらいろ",
+      "rescue": "こあらいろ",
+      "water": 0.12004690463440765,
+      "ingredients": 6
+    },
+    {
+      "name": "たぬきいろ",
+      "targetHex": "#7a5c3e",
+      "color": [
+        122,
+        92,
+        62
+      ],
+      "hex": "#7A5C3E",
+      "targetDistance": 0,
+      "nearest": "たぬきいろ",
+      "nearestDistance": 0,
+      "runnerUp": "つちいろ",
+      "runnerUpDistance": 9.38083151964686,
+      "nearestOwned": true,
+      "strict": "たぬきいろ",
+      "rescue": "たぬきいろ",
+      "water": 0,
+      "ingredients": 5
+    },
+    {
+      "name": "こうもりいろ",
+      "targetHex": "#2a2230",
+      "color": [
+        42,
+        34,
+        48
+      ],
+      "hex": "#2A2230",
+      "targetDistance": 0,
+      "nearest": "こうもりいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぺんぎんいろ",
+      "runnerUpDistance": 8,
+      "nearestOwned": true,
+      "strict": "こうもりいろ",
+      "rescue": "こうもりいろ",
+      "water": 0.02644944405238009,
+      "ingredients": 6
+    },
+    {
+      "name": "はりねずみいろ",
+      "targetHex": "#8a6a52",
+      "color": [
+        138,
+        106,
+        82
+      ],
+      "hex": "#8A6A52",
+      "targetDistance": 0,
+      "nearest": "はりねずみいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ふくろういろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "はりねずみいろ",
+      "rescue": "はりねずみいろ",
+      "water": 0.14607135685017475,
+      "ingredients": 8
+    },
+    {
+      "name": "おうむいろ",
+      "targetHex": "#4aa848",
+      "color": [
+        74,
+        168,
+        72
+      ],
+      "hex": "#4AA848",
+      "targetDistance": 0,
+      "nearest": "おうむいろ",
+      "nearestDistance": 0,
+      "runnerUp": "しんりょくいろ",
+      "runnerUpDistance": 14.866068747318506,
+      "nearestOwned": true,
+      "strict": "おうむいろ",
+      "rescue": "おうむいろ",
+      "water": 0.09323577335250506,
+      "ingredients": 7
+    },
+    {
+      "name": "らくだいろ",
+      "targetHex": "#c59e56",
+      "color": [
+        197,
+        158,
+        86
+      ],
+      "hex": "#C59E56",
+      "targetDistance": 0,
+      "nearest": "らくだいろ",
+      "nearestDistance": 0,
+      "runnerUp": "おでんいろ",
+      "runnerUpDistance": 8.246211251235321,
+      "nearestOwned": true,
+      "strict": "らくだいろ",
+      "rescue": "らくだいろ",
+      "water": 0.07985627535384054,
+      "ingredients": 5
+    },
+    {
+      "name": "かんがるーいろ",
+      "targetHex": "#a87a4a",
+      "color": [
+        168,
+        122,
+        74
+      ],
+      "hex": "#A87A4A",
+      "targetDistance": 0,
+      "nearest": "かんがるーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "りすいろ",
+      "runnerUpDistance": 20.493901531919196,
+      "nearestOwned": true,
+      "strict": "かんがるーいろ",
+      "rescue": "かんがるーいろ",
+      "water": 0,
+      "ingredients": 5
+    },
+    {
+      "name": "いんこいろ",
+      "targetHex": "#5ab088",
+      "color": [
+        90,
+        176,
+        136
+      ],
+      "hex": "#5AB088",
+      "targetDistance": 0,
+      "nearest": "いんこいろ",
+      "nearestDistance": 0,
+      "runnerUp": "せいじ",
+      "runnerUpDistance": 13.601470508735444,
+      "nearestOwned": true,
+      "strict": "いんこいろ",
+      "rescue": "いんこいろ",
+      "water": 0.8110721040018162,
+      "ingredients": 7
+    },
+    {
+      "name": "やもりいろ",
+      "targetHex": "#7a9a6a",
+      "color": [
+        122,
+        154,
+        106
+      ],
+      "hex": "#7A9A6A",
+      "targetDistance": 0,
+      "nearest": "やもりいろ",
+      "nearestDistance": 0,
+      "runnerUp": "やまのいろ",
+      "runnerUpDistance": 16,
+      "nearestOwned": true,
+      "strict": "やもりいろ",
+      "rescue": "やもりいろ",
+      "water": 0.196447943620691,
+      "ingredients": 7
+    },
+    {
+      "name": "くらげいろ",
+      "targetHex": "#d6f1f6",
+      "color": [
+        214,
+        241,
+        246
+      ],
+      "hex": "#D6F1F6",
+      "targetDistance": 0,
+      "nearest": "くらげいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こおりいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "くらげいろ",
+      "rescue": "くらげいろ",
+      "water": 0.012501446190057322,
+      "ingredients": 5
+    },
+    {
+      "name": "もぐらいろ",
+      "targetHex": "#5a4a42",
+      "color": [
+        90,
+        74,
+        66
+      ],
+      "hex": "#5A4A42",
+      "targetDistance": 0,
+      "nearest": "もぐらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "かざんばいいろ",
+      "runnerUpDistance": 17.204650534085253,
+      "nearestOwned": true,
+      "strict": "もぐらいろ",
+      "rescue": "もぐらいろ",
+      "water": 0.6590151449857389,
+      "ingredients": 5
+    },
+    {
+      "name": "こいぬいろ",
+      "targetHex": "#cb9d5f",
+      "color": [
+        203,
+        157,
+        95
+      ],
+      "hex": "#CB9D5F",
+      "targetDistance": 0,
+      "nearest": "こいぬいろ",
+      "nearestDistance": 0,
+      "runnerUp": "せんべいいろ",
+      "runnerUpDistance": 8.062257748298551,
+      "nearestOwned": true,
+      "strict": "こいぬいろ",
+      "rescue": "こいぬいろ",
+      "water": 0.04006019512703642,
+      "ingredients": 4
+    },
+    {
+      "name": "どろあそびしたこいぬいろ",
+      "targetHex": "#89673d",
+      "color": [
+        137,
+        103,
+        61
+      ],
+      "hex": "#89673D",
+      "targetDistance": 0,
+      "nearest": "どろあそびしたこいぬいろ",
+      "nearestDistance": 0,
+      "runnerUp": "かたつむりいろ",
+      "runnerUpDistance": 8.306623862918075,
+      "nearestOwned": true,
+      "strict": "どろあそびしたこいぬいろ",
+      "rescue": "どろあそびしたこいぬいろ",
+      "water": 0.00025596627965569497,
+      "ingredients": 6
+    },
+    {
+      "name": "にわとりいろ",
+      "targetHex": "#f9d746",
+      "color": [
+        249,
+        215,
+        70
+      ],
+      "hex": "#F9D746",
+      "targetDistance": 0,
+      "nearest": "にわとりいろ",
+      "nearestDistance": 0,
+      "runnerUp": "とうもろこしいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "にわとりいろ",
+      "rescue": "にわとりいろ",
+      "water": 0.027757845432639476,
+      "ingredients": 3
+    },
+    {
+      "name": "やぎいろ",
+      "targetHex": "#e8e2d0",
+      "color": [
+        232,
+        226,
+        208
+      ],
+      "hex": "#E8E2D0",
+      "targetDistance": 0,
+      "nearest": "やぎいろ",
+      "nearestDistance": 0,
+      "runnerUp": "れんこんいろ",
+      "runnerUpDistance": 9.643650760992955,
+      "nearestOwned": true,
+      "strict": "やぎいろ",
+      "rescue": "やぎいろ",
+      "water": 0.3891405095241952,
+      "ingredients": 7
+    },
+    {
+      "name": "うまいろ",
+      "targetHex": "#67432b",
+      "color": [
+        103,
+        67,
+        43
+      ],
+      "hex": "#67432B",
+      "targetDistance": 0,
+      "nearest": "うまいろ",
+      "nearestDistance": 0,
+      "runnerUp": "くりいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "うまいろ",
+      "rescue": "うまいろ",
+      "water": 0.13691996284728297,
+      "ingredients": 5
+    },
+    {
+      "name": "ゆうやけいろ",
+      "targetHex": "#f2601f",
+      "color": [
+        242,
+        96,
+        31
+      ],
+      "hex": "#F2601F",
+      "targetDistance": 0,
+      "nearest": "ゆうやけいろ",
+      "nearestDistance": 0,
+      "runnerUp": "キャンプファイヤーいろ",
+      "runnerUpDistance": 8.246211251235321,
+      "nearestOwned": true,
+      "strict": "ゆうやけいろ",
+      "rescue": "ゆうやけいろ",
+      "water": 0.10462000333238392,
+      "ingredients": 5
+    },
+    {
+      "name": "あさもやのゆうやけいろ",
+      "targetHex": "#f69367",
+      "color": [
+        246,
+        147,
+        103
+      ],
+      "hex": "#F69367",
+      "targetDistance": 0,
+      "nearest": "あさもやのゆうやけいろ",
+      "nearestDistance": 0,
+      "runnerUp": "サーモンピンク",
+      "runnerUpDistance": 11.789826122551597,
+      "nearestOwned": true,
+      "strict": "あさもやのゆうやけいろ",
+      "rescue": "あさもやのゆうやけいろ",
+      "water": 0.02947040432598442,
+      "ingredients": 4
+    },
+    {
+      "name": "あまぞらいろ",
+      "targetHex": "#8a9aa8",
+      "color": [
+        138,
+        154,
+        168
+      ],
+      "hex": "#8A9AA8",
+      "targetDistance": 0,
+      "nearest": "あまぞらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "つゆぞらいろ",
+      "runnerUpDistance": 21.840329667841555,
+      "nearestOwned": true,
+      "strict": "あまぞらいろ",
+      "rescue": "あまぞらいろ",
+      "water": 0,
+      "ingredients": 8
+    },
+    {
+      "name": "はれのそらいろ",
+      "targetHex": "#4aa8e8",
+      "color": [
+        74,
+        168,
+        232
+      ],
+      "hex": "#4AA8E8",
+      "targetDistance": 0,
+      "nearest": "はれのそらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "おおぞらいろ",
+      "runnerUpDistance": 14.422205101855958,
+      "nearestOwned": true,
+      "strict": "はれのそらいろ",
+      "rescue": "はれのそらいろ",
+      "water": 0.07820550295902506,
+      "ingredients": 7
+    },
+    {
+      "name": "よぞらいろ",
+      "targetHex": "#1a2440",
+      "color": [
+        26,
+        36,
+        64
+      ],
+      "hex": "#1A2440",
+      "targetDistance": 0,
+      "nearest": "よぞらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "よふけのつきよいろ",
+      "runnerUpDistance": 8.485281374238571,
+      "nearestOwned": true,
+      "strict": "よぞらいろ",
+      "rescue": "よぞらいろ",
+      "water": 0.05043576414696872,
+      "ingredients": 6
+    },
+    {
+      "name": "あさぎりいろ",
+      "targetHex": "#dbe5e1",
+      "color": [
+        219,
+        229,
+        225
+      ],
+      "hex": "#DBE5E1",
+      "targetDistance": 0,
+      "nearest": "あさぎりいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぎんねず",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "あさぎりいろ",
+      "rescue": "あさぎりいろ",
+      "water": 0.02238154225051403,
+      "ingredients": 7
+    },
+    {
+      "name": "ほしぞらいろ",
+      "targetHex": "#1c2a52",
+      "color": [
+        28,
+        42,
+        82
+      ],
+      "hex": "#1C2A52",
+      "targetDistance": 0,
+      "nearest": "ほしぞらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こんいろ",
+      "runnerUpDistance": 17.720045146669353,
+      "nearestOwned": true,
+      "strict": "ほしぞらいろ",
+      "rescue": "ほしぞらいろ",
+      "water": 0.5123006256353283,
+      "ingredients": 6
+    },
+    {
+      "name": "よふけのほしぞらいろ",
+      "targetHex": "#141439",
+      "color": [
+        20,
+        20,
+        57
+      ],
+      "hex": "#141439",
+      "targetDistance": 0,
+      "nearest": "よふけのほしぞらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "しんかいのいろ",
+      "runnerUpDistance": 18.16590212458495,
+      "nearestOwned": true,
+      "strict": "よふけのほしぞらいろ",
+      "rescue": "よふけのほしぞらいろ",
+      "water": 0.472619610423329,
+      "ingredients": 4
+    },
+    {
+      "name": "こもれびいろ",
+      "targetHex": "#d9e0a0",
+      "color": [
+        217,
+        224,
+        160
+      ],
+      "hex": "#D9E0A0",
+      "targetDistance": 0,
+      "nearest": "こもれびいろ",
+      "nearestDistance": 0,
+      "runnerUp": "なしいろ",
+      "runnerUpDistance": 15.03329637837291,
+      "nearestOwned": true,
+      "strict": "こもれびいろ",
+      "rescue": "こもれびいろ",
+      "water": 0.18533070313984512,
+      "ingredients": 7
+    },
+    {
+      "name": "あさもやのこもれびいろ",
+      "targetHex": "#e5eabe",
+      "color": [
+        229,
+        234,
+        190
+      ],
+      "hex": "#E5EABE",
+      "targetDistance": 0,
+      "nearest": "あさもやのこもれびいろ",
+      "nearestDistance": 0,
+      "runnerUp": "うすいきいろ",
+      "runnerUpDistance": 8.774964387392123,
+      "nearestOwned": true,
+      "strict": "あさもやのこもれびいろ",
+      "rescue": "あさもやのこもれびいろ",
+      "water": 0.0794170569208163,
+      "ingredients": 5
+    },
+    {
+      "name": "しんりょくいろ",
+      "targetHex": "#4fa83a",
+      "color": [
+        79,
+        168,
+        58
+      ],
+      "hex": "#4FA83A",
+      "targetDistance": 0,
+      "nearest": "しんりょくいろ",
+      "nearestDistance": 0,
+      "runnerUp": "おうむいろ",
+      "runnerUpDistance": 14.866068747318506,
+      "nearestOwned": true,
+      "strict": "しんりょくいろ",
+      "rescue": "しんりょくいろ",
+      "water": 0.6128576958594671,
+      "ingredients": 7
+    },
+    {
+      "name": "こうよういろ",
+      "targetHex": "#d15c23",
+      "color": [
+        209,
+        92,
+        35
+      ],
+      "hex": "#D15C23",
+      "targetDistance": 0,
+      "nearest": "こうよういろ",
+      "nearestDistance": 0,
+      "runnerUp": "ピザいろ",
+      "runnerUpDistance": 12.206555615733702,
+      "nearestOwned": true,
+      "strict": "こうよういろ",
+      "rescue": "こうよういろ",
+      "water": 0.1672258715157222,
+      "ingredients": 5
+    },
+    {
+      "name": "なみのいろ",
+      "targetHex": "#2a8a9a",
+      "color": [
+        42,
+        138,
+        154
+      ],
+      "hex": "#2A8A9A",
+      "targetDistance": 0,
+      "nearest": "なみのいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こおりがとけたソーダいろ",
+      "runnerUpDistance": 11.445523142259596,
+      "nearestOwned": true,
+      "strict": "なみのいろ",
+      "rescue": "なみのいろ",
+      "water": 0.10203242461369524,
+      "ingredients": 8
+    },
+    {
+      "name": "まぐまいろ",
+      "targetHex": "#d92a1a",
+      "color": [
+        217,
+        42,
+        26
+      ],
+      "hex": "#D92A1A",
+      "targetDistance": 0,
+      "nearest": "まぐまいろ",
+      "nearestDistance": 0,
+      "runnerUp": "じてんしゃいろ",
+      "runnerUpDistance": 20.09975124224178,
+      "nearestOwned": true,
+      "strict": "まぐまいろ",
+      "rescue": "まぐまいろ",
+      "water": 0.0534401987868133,
+      "ingredients": 8
+    },
+    {
+      "name": "きりのいろ",
+      "targetHex": "#c9d2d5",
+      "color": [
+        201,
+        210,
+        213
+      ],
+      "hex": "#C9D2D5",
+      "targetDistance": 0,
+      "nearest": "きりのいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ランドリーいろ",
+      "runnerUpDistance": 12.688577540449518,
+      "nearestOwned": true,
+      "strict": "きりのいろ",
+      "rescue": "きりのいろ",
+      "water": 0.08876314951691108,
+      "ingredients": 7
+    },
+    {
+      "name": "つきよいろ",
+      "targetHex": "#2c3b5e",
+      "color": [
+        44,
+        59,
+        94
+      ],
+      "hex": "#2C3B5E",
+      "targetDistance": 0,
+      "nearest": "つきよいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こんいろ",
+      "runnerUpDistance": 23.3452350598575,
+      "nearestOwned": true,
+      "strict": "つきよいろ",
+      "rescue": "つきよいろ",
+      "water": 0.3088605567905172,
+      "ingredients": 8
+    },
+    {
+      "name": "よふけのつきよいろ",
+      "targetHex": "#202a40",
+      "color": [
+        32,
+        42,
+        64
+      ],
+      "hex": "#202A40",
+      "targetDistance": 0,
+      "nearest": "よふけのつきよいろ",
+      "nearestDistance": 0,
+      "runnerUp": "よぞらいろ",
+      "runnerUpDistance": 8.485281374238571,
+      "nearestOwned": true,
+      "strict": "よふけのつきよいろ",
+      "rescue": "よふけのつきよいろ",
+      "water": 0,
+      "ingredients": 7
+    },
+    {
+      "name": "もりのいろ",
+      "targetHex": "#2f6b3a",
+      "color": [
+        47,
+        107,
+        58
+      ],
+      "hex": "#2F6B3A",
+      "targetDistance": 0,
+      "nearest": "もりのいろ",
+      "nearestDistance": 0,
+      "runnerUp": "カーキいろ",
+      "runnerUpDistance": 14.866068747318508,
+      "nearestOwned": true,
+      "strict": "もりのいろ",
+      "rescue": "もりのいろ",
+      "water": 0.9194798583979719,
+      "ingredients": 6
+    },
+    {
+      "name": "つゆのしずくいろ",
+      "targetHex": "#ddecf0",
+      "color": [
+        221,
+        236,
+        240
+      ],
+      "hex": "#DDECF0",
+      "targetDistance": 0,
+      "nearest": "つゆのしずくいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あたらしいしゃぼんだまいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "つゆのしずくいろ",
+      "rescue": "つゆのしずくいろ",
+      "water": 0.5017404178971031,
+      "ingredients": 5
+    },
+    {
+      "name": "さんごしょういろ",
+      "targetHex": "#f07d65",
+      "color": [
+        240,
+        125,
+        101
+      ],
+      "hex": "#F07D65",
+      "targetDistance": 0,
+      "nearest": "さんごしょういろ",
+      "nearestDistance": 0,
+      "runnerUp": "グレープフルーツいろ",
+      "runnerUpDistance": 8.062257748298551,
+      "nearestOwned": true,
+      "strict": "さんごしょういろ",
+      "rescue": "さんごしょういろ",
+      "water": 0.2953579287892545,
+      "ingredients": 5
+    },
+    {
+      "name": "どうくついろ",
+      "targetHex": "#4a4238",
+      "color": [
+        74,
+        66,
+        56
+      ],
+      "hex": "#4A4238",
+      "targetDistance": 0,
+      "nearest": "どうくついろ",
+      "nearestDistance": 0,
+      "runnerUp": "すみいろ",
+      "runnerUpDistance": 16.278820596099706,
+      "nearestOwned": true,
+      "strict": "どうくついろ",
+      "rescue": "どうくついろ",
+      "water": 0.01463729981915094,
+      "ingredients": 6
+    },
+    {
+      "name": "かざんばいいろ",
+      "targetHex": "#5a5450",
+      "color": [
+        90,
+        84,
+        80
+      ],
+      "hex": "#5A5450",
+      "targetDistance": 0,
+      "nearest": "かざんばいいろ",
+      "nearestDistance": 0,
+      "runnerUp": "もぐらいろ",
+      "runnerUpDistance": 17.204650534085253,
+      "nearestOwned": true,
+      "strict": "かざんばいいろ",
+      "rescue": "かざんばいいろ",
+      "water": 0.8921818220918066,
+      "ingredients": 5
+    },
+    {
+      "name": "おおぞらいろ",
+      "targetHex": "#4a9ce0",
+      "color": [
+        74,
+        156,
+        224
+      ],
+      "hex": "#4A9CE0",
+      "targetDistance": 0,
+      "nearest": "おおぞらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "はれのそらいろ",
+      "runnerUpDistance": 14.422205101855958,
+      "nearestOwned": true,
+      "strict": "おおぞらいろ",
+      "rescue": "おおぞらいろ",
+      "water": 0.3296345731255133,
+      "ingredients": 6
+    },
+    {
+      "name": "しんかいのいろ",
+      "targetHex": "#0f2440",
+      "color": [
+        15,
+        36,
+        64
+      ],
+      "hex": "#0F2440",
+      "targetDistance": 0,
+      "nearest": "しんかいのいろ",
+      "nearestDistance": 0,
+      "runnerUp": "よぞらいろ",
+      "runnerUpDistance": 11,
+      "nearestOwned": true,
+      "strict": "しんかいのいろ",
+      "rescue": "しんかいのいろ",
+      "water": 0.5066828577035594,
+      "ingredients": 5
+    },
+    {
+      "name": "よふけのしんかいのいろ",
+      "targetHex": "#021932",
+      "color": [
+        2,
+        25,
+        50
+      ],
+      "hex": "#021932",
+      "targetDistance": 0,
+      "nearest": "よふけのしんかいのいろ",
+      "nearestDistance": 0,
+      "runnerUp": "よふけのほしぞらいろ",
+      "runnerUpDistance": 19.949937343260004,
+      "nearestOwned": true,
+      "strict": "よふけのしんかいのいろ",
+      "rescue": "よふけのしんかいのいろ",
+      "water": 0.1740086020412855,
+      "ingredients": 4
+    },
+    {
+      "name": "さばくのいろ",
+      "targetHex": "#d9b878",
+      "color": [
+        217,
+        184,
+        120
+      ],
+      "hex": "#D9B878",
+      "targetDistance": 0,
+      "nearest": "さばくのいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ぼうしいろ",
+      "runnerUpDistance": 12.12435565298214,
+      "nearestOwned": true,
+      "strict": "さばくのいろ",
+      "rescue": "さばくのいろ",
+      "water": 0.09988105634706711,
+      "ingredients": 4
+    },
+    {
+      "name": "ひょうがいろ",
+      "targetHex": "#c8e4ee",
+      "color": [
+        200,
+        228,
+        238
+      ],
+      "hex": "#C8E4EE",
+      "targetDistance": 0,
+      "nearest": "ひょうがいろ",
+      "nearestDistance": 0,
+      "runnerUp": "しゃぼんだまいろ",
+      "runnerUpDistance": 8.062257748298551,
+      "nearestOwned": true,
+      "strict": "ひょうがいろ",
+      "rescue": "ひょうがいろ",
+      "water": 0.001217688790988177,
+      "ingredients": 6
+    },
+    {
+      "name": "たきのいろ",
+      "targetHex": "#bde0ea",
+      "color": [
+        189,
+        224,
+        234
+      ],
+      "hex": "#BDE0EA",
+      "targetDistance": 0,
+      "nearest": "たきのいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ひょうがいろ",
+      "runnerUpDistance": 12.36931687685298,
+      "nearestOwned": true,
+      "strict": "たきのいろ",
+      "rescue": "たきのいろ",
+      "water": 0.00042814709362573925,
+      "ingredients": 6
+    },
+    {
+      "name": "やまのいろ",
+      "targetHex": "#7a8a6a",
+      "color": [
+        122,
+        138,
+        106
+      ],
+      "hex": "#7A8A6A",
+      "targetDistance": 0,
+      "nearest": "やまのいろ",
+      "nearestDistance": 0,
+      "runnerUp": "オリーブグレー",
+      "runnerUpDistance": 12.727922061357857,
+      "nearestOwned": true,
+      "strict": "やまのいろ",
+      "rescue": "やまのいろ",
+      "water": 0.74783187520341,
+      "ingredients": 5
+    },
+    {
+      "name": "らんどせるいろ",
+      "targetHex": "#c9282e",
+      "color": [
+        201,
+        40,
+        46
+      ],
+      "hex": "#C9282E",
+      "targetDistance": 0,
+      "nearest": "らんどせるいろ",
+      "nearestDistance": 0,
+      "runnerUp": "さくらんぼいろ",
+      "runnerUpDistance": 15.394804318340652,
+      "nearestOwned": true,
+      "strict": "らんどせるいろ",
+      "rescue": "らんどせるいろ",
+      "water": 0.06485154574952011,
+      "ingredients": 6
+    },
+    {
+      "name": "つかいこんだらんどせるいろ",
+      "targetHex": "#891b1f",
+      "color": [
+        137,
+        27,
+        31
+      ],
+      "hex": "#891B1F",
+      "targetDistance": 0,
+      "nearest": "つかいこんだらんどせるいろ",
+      "nearestDistance": 0,
+      "runnerUp": "つかいこんだじてんしゃいろ",
+      "runnerUpDistance": 11,
+      "nearestOwned": true,
+      "strict": "つかいこんだらんどせるいろ",
+      "rescue": "つかいこんだらんどせるいろ",
+      "water": 0.5784218203825877,
+      "ingredients": 5
+    },
+    {
+      "name": "こくばんいろ",
+      "targetHex": "#1f4a2e",
+      "color": [
+        31,
+        74,
+        46
+      ],
+      "hex": "#1F4A2E",
+      "targetDistance": 0,
+      "nearest": "こくばんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "しんりんいろ",
+      "runnerUpDistance": 11.090536506409416,
+      "nearestOwned": true,
+      "strict": "こくばんいろ",
+      "rescue": "こくばんいろ",
+      "water": 0.3554415402468294,
+      "ingredients": 4
+    },
+    {
+      "name": "ふうせんいろ",
+      "targetHex": "#f2405c",
+      "color": [
+        242,
+        64,
+        92
+      ],
+      "hex": "#F2405C",
+      "targetDistance": 0,
+      "nearest": "ふうせんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "すいかいろ",
+      "runnerUpDistance": 13.490737563232042,
+      "nearestOwned": true,
+      "strict": "ふうせんいろ",
+      "rescue": "ふうせんいろ",
+      "water": 0.44791905212164285,
+      "ingredients": 5
+    },
+    {
+      "name": "しゃぼんだまいろ",
+      "targetHex": "#cdeaf0",
+      "color": [
+        205,
+        234,
+        240
+      ],
+      "hex": "#CDEAF0",
+      "targetDistance": 0,
+      "nearest": "しゃぼんだまいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ひょうがいろ",
+      "runnerUpDistance": 8.062257748298551,
+      "nearestOwned": true,
+      "strict": "しゃぼんだまいろ",
+      "rescue": "しゃぼんだまいろ",
+      "water": 0.22328914886826834,
+      "ingredients": 6
+    },
+    {
+      "name": "あたらしいしゃぼんだまいろ",
+      "targetHex": "#def0f7",
+      "color": [
+        222,
+        240,
+        247
+      ],
+      "hex": "#DEF0F7",
+      "targetDistance": 0,
+      "nearest": "あたらしいしゃぼんだまいろ",
+      "nearestDistance": 0,
+      "runnerUp": "くらげいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "あたらしいしゃぼんだまいろ",
+      "rescue": "あたらしいしゃぼんだまいろ",
+      "water": 0.15064487557082254,
+      "ingredients": 7
+    },
+    {
+      "name": "おばけいろ",
+      "targetHex": "#edf0f2",
+      "color": [
+        237,
+        240,
+        242
+      ],
+      "hex": "#EDF0F2",
+      "targetDistance": 0,
+      "nearest": "おばけいろ",
+      "nearestDistance": 0,
+      "runnerUp": "さっかーぼーるいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "おばけいろ",
+      "rescue": "おばけいろ",
+      "water": 0.6576554207458554,
+      "ingredients": 5
+    },
+    {
+      "name": "みずたまりいろ",
+      "targetHex": "#7a8a95",
+      "color": [
+        122,
+        138,
+        149
+      ],
+      "hex": "#7A8A95",
+      "targetDistance": 0,
+      "nearest": "みずたまりいろ",
+      "nearestDistance": 0,
+      "runnerUp": "いるかいろ",
+      "runnerUpDistance": 16.76305461424021,
+      "nearestOwned": true,
+      "strict": "みずたまりいろ",
+      "rescue": "みずたまりいろ",
+      "water": 0.600171764895444,
+      "ingredients": 7
+    },
+    {
+      "name": "どろんこいろ",
+      "targetHex": "#5a4530",
+      "color": [
+        90,
+        69,
+        48
+      ],
+      "hex": "#5A4530",
+      "targetDistance": 0,
+      "nearest": "どろんこいろ",
+      "nearestDistance": 0,
+      "runnerUp": "うまいろ",
+      "runnerUpDistance": 14.07124727947029,
+      "nearestOwned": true,
+      "strict": "どろんこいろ",
+      "rescue": "どろんこいろ",
+      "water": 0.01575457267795801,
+      "ingredients": 6
+    },
+    {
+      "name": "プールいろ",
+      "targetHex": "#3ec4e0",
+      "color": [
+        62,
+        196,
+        224
+      ],
+      "hex": "#3EC4E0",
+      "targetDistance": 0,
+      "nearest": "プールいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ソーダいろ",
+      "runnerUpDistance": 15.524174696260024,
+      "nearestOwned": true,
+      "strict": "プールいろ",
+      "rescue": "プールいろ",
+      "water": 0.1373974833715622,
+      "ingredients": 6
+    },
+    {
+      "name": "はなびらいろ",
+      "targetHex": "#f7c9d8",
+      "color": [
+        247,
+        201,
+        216
+      ],
+      "hex": "#F7C9D8",
+      "targetDistance": 0,
+      "nearest": "はなびらいろ",
+      "nearestDistance": 0,
+      "runnerUp": "けしごむいろ",
+      "runnerUpDistance": 14.317821063276355,
+      "nearestOwned": true,
+      "strict": "はなびらいろ",
+      "rescue": "はなびらいろ",
+      "water": 0.41496505093346747,
+      "ingredients": 5
+    },
+    {
+      "name": "てるてるぼうずいろ",
+      "targetHex": "#fffffa",
+      "color": [
+        255,
+        255,
+        250
+      ],
+      "hex": "#FFFFFA",
+      "targetDistance": 0,
+      "nearest": "てるてるぼうずいろ",
+      "nearestDistance": 0,
+      "runnerUp": "しろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "てるてるぼうずいろ",
+      "rescue": "てるてるぼうずいろ",
+      "water": 0.014667662233114241,
+      "ingredients": 2
+    },
+    {
+      "name": "おりがみいろ",
+      "targetHex": "#f28ba0",
+      "color": [
+        242,
+        139,
+        160
+      ],
+      "hex": "#F28BA0",
+      "targetDistance": 0,
+      "nearest": "おりがみいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ガムいろ",
+      "runnerUpDistance": 16.278820596099706,
+      "nearestOwned": true,
+      "strict": "おりがみいろ",
+      "rescue": "おりがみいろ",
+      "water": 0.24981785045934699,
+      "ingredients": 6
+    },
+    {
+      "name": "くつしたいろ",
+      "targetHex": "#e0574a",
+      "color": [
+        224,
+        87,
+        74
+      ],
+      "hex": "#E0574A",
+      "targetDistance": 0,
+      "nearest": "くつしたいろ",
+      "nearestDistance": 0,
+      "runnerUp": "スパイスブラウン",
+      "runnerUpDistance": 17.291616465790582,
+      "nearestOwned": true,
+      "strict": "くつしたいろ",
+      "rescue": "くつしたいろ",
+      "water": 0.26672244816560625,
+      "ingredients": 5
+    },
+    {
+      "name": "ランドリーいろ",
+      "targetHex": "#c7d8e0",
+      "color": [
+        199,
+        216,
+        224
+      ],
+      "hex": "#C7D8E0",
+      "targetDistance": 0,
+      "nearest": "ランドリーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "きりのいろ",
+      "runnerUpDistance": 12.688577540449518,
+      "nearestOwned": true,
+      "strict": "ランドリーいろ",
+      "rescue": "ランドリーいろ",
+      "water": 0.9230320150833204,
+      "ingredients": 8
+    },
+    {
+      "name": "ゆきだるまいろ",
+      "targetHex": "#f5f8fb",
+      "color": [
+        245,
+        248,
+        251
+      ],
+      "hex": "#F5F8FB",
+      "targetDistance": 0,
+      "nearest": "ゆきだるまいろ",
+      "nearestDistance": 0,
+      "runnerUp": "あたらしいゆきだるまいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "ゆきだるまいろ",
+      "rescue": "ゆきだるまいろ",
+      "water": 0.08852941219934808,
+      "ingredients": 5
+    },
+    {
+      "name": "あたらしいゆきだるまいろ",
+      "targetHex": "#fcf9ff",
+      "color": [
+        252,
+        249,
+        255
+      ],
+      "hex": "#FCF9FF",
+      "targetDistance": 0,
+      "nearest": "あたらしいゆきだるまいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ゆきだるまいろ",
+      "runnerUpDistance": 8.12403840463596,
+      "nearestOwned": true,
+      "strict": "あたらしいゆきだるまいろ",
+      "rescue": "あたらしいゆきだるまいろ",
+      "water": 0.12490272850031033,
+      "ingredients": 3
+    },
+    {
+      "name": "ぞうきんいろ",
+      "targetHex": "#9c9488",
+      "color": [
+        156,
+        148,
+        136
+      ],
+      "hex": "#9C9488",
+      "targetDistance": 0,
+      "nearest": "ぞうきんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ねずみいろ",
+      "runnerUpDistance": 10.72380529476361,
+      "nearestOwned": true,
+      "strict": "ぞうきんいろ",
+      "rescue": "ぞうきんいろ",
+      "water": 0.02711131516944694,
+      "ingredients": 7
+    },
+    {
+      "name": "ふとんいろ",
+      "targetHex": "#cfe0e8",
+      "color": [
+        207,
+        224,
+        232
+      ],
+      "hex": "#CFE0E8",
+      "targetDistance": 0,
+      "nearest": "ふとんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ひょうがいろ",
+      "runnerUpDistance": 10.04987562112089,
+      "nearestOwned": true,
+      "strict": "ふとんいろ",
+      "rescue": "ふとんいろ",
+      "water": 0.21445589272935234,
+      "ingredients": 7
+    },
+    {
+      "name": "つかいこんだくれよんいろ",
+      "targetHex": "#9e3d27",
+      "color": [
+        158,
+        61,
+        39
+      ],
+      "hex": "#9E3D27",
+      "targetDistance": 0,
+      "nearest": "つかいこんだくれよんいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ホットドッグいろ",
+      "runnerUpDistance": 13.152946437965907,
+      "nearestOwned": true,
+      "strict": "つかいこんだくれよんいろ",
+      "rescue": "つかいこんだくれよんいろ",
+      "water": 0.0697246481983529,
+      "ingredients": 7
+    },
+    {
+      "name": "けしごむいろ",
+      "targetHex": "#f1c4cc",
+      "color": [
+        241,
+        196,
+        204
+      ],
+      "hex": "#F1C4CC",
+      "targetDistance": 0,
+      "nearest": "けしごむいろ",
+      "nearestDistance": 0,
+      "runnerUp": "うすいあか",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "けしごむいろ",
+      "rescue": "けしごむいろ",
+      "water": 0,
+      "ingredients": 6
+    },
+    {
+      "name": "じてんしゃいろ",
+      "targetHex": "#d9282e",
+      "color": [
+        217,
+        40,
+        46
+      ],
+      "hex": "#D9282E",
+      "targetDistance": 0,
+      "nearest": "じてんしゃいろ",
+      "nearestDistance": 0,
+      "runnerUp": "てんとうむしいろ",
+      "runnerUpDistance": 13.038404810405298,
+      "nearestOwned": true,
+      "strict": "じてんしゃいろ",
+      "rescue": "じてんしゃいろ",
+      "water": 0.669894949514419,
+      "ingredients": 5
+    },
+    {
+      "name": "つかいこんだじてんしゃいろ",
+      "targetHex": "#941b1f",
+      "color": [
+        148,
+        27,
+        31
+      ],
+      "hex": "#941B1F",
+      "targetDistance": 0,
+      "nearest": "つかいこんだじてんしゃいろ",
+      "nearestDistance": 0,
+      "runnerUp": "つかいこんだらんどせるいろ",
+      "runnerUpDistance": 11,
+      "nearestOwned": true,
+      "strict": "つかいこんだじてんしゃいろ",
+      "rescue": "つかいこんだじてんしゃいろ",
+      "water": 0.10196950959782805,
+      "ingredients": 5
+    },
+    {
+      "name": "さっかーぼーるいろ",
+      "targetHex": "#edf4eb",
+      "color": [
+        237,
+        244,
+        235
+      ],
+      "hex": "#EDF4EB",
+      "targetDistance": 0,
+      "nearest": "さっかーぼーるいろ",
+      "nearestDistance": 0,
+      "runnerUp": "おばけいろ",
+      "runnerUpDistance": 8.06225774829855,
+      "nearestOwned": true,
+      "strict": "さっかーぼーるいろ",
+      "rescue": "さっかーぼーるいろ",
+      "water": 0.10769069187993964,
+      "ingredients": 6
+    },
+    {
+      "name": "おりがみつるいろ",
+      "targetHex": "#f5a8c0",
+      "color": [
+        245,
+        168,
+        192
+      ],
+      "hex": "#F5A8C0",
+      "targetDistance": 0,
+      "nearest": "おりがみつるいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ほっぺいろ",
+      "runnerUpDistance": 16.031219541881395,
+      "nearestOwned": true,
+      "strict": "おりがみつるいろ",
+      "rescue": "おりがみつるいろ",
+      "water": 0.017292155781544,
+      "ingredients": 4
+    },
+    {
+      "name": "くつのいろ",
+      "targetHex": "#8a5a38",
+      "color": [
+        138,
+        90,
+        56
+      ],
+      "hex": "#8A5A38",
+      "targetDistance": 0,
+      "nearest": "くつのいろ",
+      "nearestDistance": 0,
+      "runnerUp": "みそしるいろ",
+      "runnerUpDistance": 10,
+      "nearestOwned": true,
+      "strict": "くつのいろ",
+      "rescue": "くつのいろ",
+      "water": 0.04677387219605876,
+      "ingredients": 6
+    },
+    {
+      "name": "かさいろ",
+      "targetHex": "#eebd15",
+      "color": [
+        238,
+        189,
+        21
+      ],
+      "hex": "#EEBD15",
+      "targetDistance": 0,
+      "nearest": "かさいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ひまわりいろ",
+      "runnerUpDistance": 11.313708498984761,
+      "nearestOwned": true,
+      "strict": "かさいろ",
+      "rescue": "かさいろ",
+      "water": 0.3784405930728614,
+      "ingredients": 3
+    },
+    {
+      "name": "ぼうしいろ",
+      "targetHex": "#d2b171",
+      "color": [
+        210,
+        177,
+        113
+      ],
+      "hex": "#D2B171",
+      "targetDistance": 0,
+      "nearest": "ぼうしいろ",
+      "nearestDistance": 0,
+      "runnerUp": "さばくのいろ",
+      "runnerUpDistance": 12.12435565298214,
+      "nearestOwned": true,
+      "strict": "ぼうしいろ",
+      "rescue": "ぼうしいろ",
+      "water": 0.6206191097677219,
+      "ingredients": 3
+    },
+    {
+      "name": "てんといろ",
+      "targetHex": "#4a7a4a",
+      "color": [
+        74,
+        122,
+        74
+      ],
+      "hex": "#4A7A4A",
+      "targetDistance": 0,
+      "nearest": "てんといろ",
+      "nearestDistance": 0,
+      "runnerUp": "かめいろ",
+      "runnerUpDistance": 16,
+      "nearestOwned": true,
+      "strict": "てんといろ",
+      "rescue": "てんといろ",
+      "water": 0.7243288087157999,
+      "ingredients": 5
+    },
+    {
+      "name": "キャンプファイヤーいろ",
+      "targetHex": "#f66623",
+      "color": [
+        246,
+        102,
+        35
+      ],
+      "hex": "#F66623",
+      "targetDistance": 0,
+      "nearest": "キャンプファイヤーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ゆうやけいろ",
+      "runnerUpDistance": 8.246211251235321,
+      "nearestOwned": true,
+      "strict": "キャンプファイヤーいろ",
+      "rescue": "キャンプファイヤーいろ",
+      "water": 0.11191927068732725,
+      "ingredients": 4
+    },
+    {
+      "name": "ふでばこいろ",
+      "targetHex": "#3a6ea8",
+      "color": [
+        58,
+        110,
+        168
+      ],
+      "hex": "#3A6EA8",
+      "targetDistance": 0,
+      "nearest": "ふでばこいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こおりがとけたソーダいろ",
+      "runnerUpDistance": 26.43860813280457,
+      "nearestOwned": true,
+      "strict": "ふでばこいろ",
+      "rescue": "ふでばこいろ",
+      "water": 0.02890247297473252,
+      "ingredients": 5
+    },
+    {
+      "name": "らんどせるのなかみいろ",
+      "targetHex": "#e0d0b8",
+      "color": [
+        224,
+        208,
+        184
+      ],
+      "hex": "#E0D0B8",
+      "targetDistance": 0,
+      "nearest": "らんどせるのなかみいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ういろういろ",
+      "runnerUpDistance": 12.36931687685298,
+      "nearestOwned": true,
+      "strict": "らんどせるのなかみいろ",
+      "rescue": "らんどせるのなかみいろ",
+      "water": 0.18376746484307896,
+      "ingredients": 5
+    },
+    {
+      "name": "じょうろいろ",
+      "targetHex": "#5a9a6a",
+      "color": [
+        90,
+        154,
+        106
+      ],
+      "hex": "#5A9A6A",
+      "targetDistance": 0,
+      "nearest": "じょうろいろ",
+      "nearestDistance": 0,
+      "runnerUp": "わかくさ",
+      "runnerUpDistance": 24.779023386727737,
+      "nearestOwned": true,
+      "strict": "じょうろいろ",
+      "rescue": "じょうろいろ",
+      "water": 0.27940222960241146,
+      "ingredients": 7
+    },
+    {
+      "name": "すなばいろ",
+      "targetHex": "#e8d4a0",
+      "color": [
+        232,
+        212,
+        160
+      ],
+      "hex": "#E8D4A0",
+      "targetDistance": 0,
+      "nearest": "すなばいろ",
+      "nearestDistance": 0,
+      "runnerUp": "なしいろ",
+      "runnerUpDistance": 11,
+      "nearestOwned": true,
+      "strict": "すなばいろ",
+      "rescue": "すなばいろ",
+      "water": 0,
+      "ingredients": 6
+    },
+    {
+      "name": "ぶらんこいろ",
+      "targetHex": "#cc6b31",
+      "color": [
+        204,
+        107,
+        49
+      ],
+      "hex": "#CC6B31",
+      "targetDistance": 0,
+      "nearest": "ぶらんこいろ",
+      "nearestDistance": 0,
+      "runnerUp": "きつねいろ",
+      "runnerUpDistance": 8.18535277187245,
+      "nearestOwned": true,
+      "strict": "ぶらんこいろ",
+      "rescue": "ぶらんこいろ",
+      "water": 0.06982329427505524,
+      "ingredients": 6
+    },
+    {
+      "name": "じゃんぐるじむいろ",
+      "targetHex": "#7a8a3a",
+      "color": [
+        122,
+        138,
+        58
+      ],
+      "hex": "#7A8A3A",
+      "targetDistance": 0,
+      "nearest": "じゃんぐるじむいろ",
+      "nearestDistance": 0,
+      "runnerUp": "まっちゃいろ",
+      "runnerUpDistance": 17.46424919657298,
+      "nearestOwned": true,
+      "strict": "じゃんぐるじむいろ",
+      "rescue": "じゃんぐるじむいろ",
+      "water": 0.4320644764881581,
+      "ingredients": 4
+    },
+    {
+      "name": "まっちゃいろ",
+      "targetHex": "#7a9b3e",
+      "color": [
+        122,
+        155,
+        62
+      ],
+      "hex": "#7A9B3E",
+      "targetDistance": 0,
+      "nearest": "まっちゃいろ",
+      "nearestDistance": 0,
+      "runnerUp": "アボカドいろ",
+      "runnerUpDistance": 12.041594578792294,
+      "nearestOwned": true,
+      "strict": "まっちゃいろ",
+      "rescue": "まっちゃいろ",
+      "water": 0,
+      "ingredients": 6
+    },
+    {
+      "name": "ちょこをいれたまっちゃいろ",
+      "targetHex": "#556d2b",
+      "color": [
+        85,
+        109,
+        43
+      ],
+      "hex": "#556D2B",
+      "targetDistance": 0,
+      "nearest": "ちょこをいれたまっちゃいろ",
+      "nearestDistance": 0,
+      "runnerUp": "カーキいろ",
+      "runnerUpDistance": 32.61901286060018,
+      "nearestOwned": true,
+      "strict": "ちょこをいれたまっちゃいろ",
+      "rescue": "ちょこをいれたまっちゃいろ",
+      "water": 0.8740157868587412,
+      "ingredients": 4
+    },
+    {
+      "name": "ミルクをいれたまっちゃいろ",
+      "targetHex": "#a2b978",
+      "color": [
+        162,
+        185,
+        120
+      ],
+      "hex": "#A2B978",
+      "targetDistance": 0,
+      "nearest": "ミルクをいれたまっちゃいろ",
+      "nearestDistance": 0,
+      "runnerUp": "ピスタチオいろ",
+      "runnerUpDistance": 40.01249804748511,
+      "nearestOwned": true,
+      "strict": "ミルクをいれたまっちゃいろ",
+      "rescue": "ミルクをいれたまっちゃいろ",
+      "water": 0.6256908419034101,
+      "ingredients": 5
+    },
+    {
+      "name": "あじがこゆいラーメンいろ",
+      "targetHex": "#9e772c",
+      "color": [
+        158,
+        119,
+        44
+      ],
+      "hex": "#9E772C",
+      "targetDistance": 0,
+      "nearest": "あじがこゆいラーメンいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こげたホットケーキいろ",
+      "runnerUpDistance": 8.246211251235321,
+      "nearestOwned": true,
+      "strict": "あじがこゆいラーメンいろ",
+      "rescue": "あじがこゆいラーメンいろ",
+      "water": 0.00325254366500303,
+      "ingredients": 5
+    },
+    {
+      "name": "スープをうすめたラーメンいろ",
+      "targetHex": "#f0c077",
+      "color": [
+        240,
+        192,
+        119
+      ],
+      "hex": "#F0C077",
+      "targetDistance": 0,
+      "nearest": "スープをうすめたラーメンいろ",
+      "nearestDistance": 0,
+      "runnerUp": "こむぎいろ",
+      "runnerUpDistance": 13.341664064126334,
+      "nearestOwned": true,
+      "strict": "スープをうすめたラーメンいろ",
+      "rescue": "スープをうすめたラーメンいろ",
+      "water": 0.035823931224178526,
+      "ingredients": 4
+    },
+    {
+      "name": "あじがこゆいみそしるいろ",
+      "targetHex": "#613f22",
+      "color": [
+        97,
+        63,
+        34
+      ],
+      "hex": "#613F22",
+      "targetDistance": 0,
+      "nearest": "あじがこゆいみそしるいろ",
+      "nearestDistance": 0,
+      "runnerUp": "キャラメルいろ",
+      "runnerUpDistance": 8.306623862918075,
+      "nearestOwned": true,
+      "strict": "あじがこゆいみそしるいろ",
+      "rescue": "あじがこゆいみそしるいろ",
+      "water": 0.10243638458938903,
+      "ingredients": 6
+    },
+    {
+      "name": "おゆをたしたみそしるいろ",
+      "targetHex": "#ad8c6d",
+      "color": [
+        173,
+        140,
+        109
+      ],
+      "hex": "#AD8C6D",
+      "targetDistance": 0,
+      "nearest": "おゆをたしたみそしるいろ",
+      "nearestDistance": 0,
+      "runnerUp": "アンティークゴールド",
+      "runnerUpDistance": 22.226110770892873,
+      "nearestOwned": true,
+      "strict": "おゆをたしたみそしるいろ",
+      "rescue": "おゆをたしたみそしるいろ",
+      "water": 0.1903321899741512,
+      "ingredients": 5
+    },
+    {
+      "name": "いちやねかせたカレーいろ",
+      "targetHex": "#8c5516",
+      "color": [
+        140,
+        85,
+        22
+      ],
+      "hex": "#8C5516",
+      "targetDistance": 0,
+      "nearest": "いちやねかせたカレーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "やきそばいろ",
+      "runnerUpDistance": 19.339079605813716,
+      "nearestOwned": true,
+      "strict": "いちやねかせたカレーいろ",
+      "rescue": "いちやねかせたカレーいろ",
+      "water": 0.418922914073824,
+      "ingredients": 5
+    },
+    {
+      "name": "クリームをいれたカレーいろ",
+      "targetHex": "#d9a162",
+      "color": [
+        217,
+        161,
+        98
+      ],
+      "hex": "#D9A162",
+      "targetDistance": 0,
+      "nearest": "クリームをいれたカレーいろ",
+      "nearestDistance": 0,
+      "runnerUp": "はむすたーいろ",
+      "runnerUpDistance": 10.295630140987,
+      "nearestOwned": true,
+      "strict": "クリームをいれたカレーいろ",
+      "rescue": "クリームをいれたカレーいろ",
+      "water": 0.24371206199650303,
+      "ingredients": 6
+    },
+    {
+      "name": "こおりがとけたソーダいろ",
+      "targetHex": "#297f9d",
+      "color": [
+        41,
+        127,
+        157
+      ],
+      "hex": "#297F9D",
+      "targetDistance": 0,
+      "nearest": "こおりがとけたソーダいろ",
+      "nearestDistance": 0,
+      "runnerUp": "なみのいろ",
+      "runnerUpDistance": 11.445523142259596,
+      "nearestOwned": true,
+      "strict": "こおりがとけたソーダいろ",
+      "rescue": "こおりがとけたソーダいろ",
+      "water": 0.7532834971388802,
+      "ingredients": 7
+    },
+    {
+      "name": "かきごおりにしたソーダいろ",
+      "targetHex": "#75cbe9",
+      "color": [
+        117,
+        203,
+        233
+      ],
+      "hex": "#75CBE9",
+      "targetDistance": 0,
+      "nearest": "かきごおりにしたソーダいろ",
+      "nearestDistance": 0,
+      "runnerUp": "どうくつのいずみいろ",
+      "runnerUpDistance": 22.158519806160335,
+      "nearestOwned": true,
+      "strict": "かきごおりにしたソーダいろ",
+      "rescue": "かきごおりにしたソーダいろ",
+      "water": 0,
+      "ingredients": 6
+    }
+  ]
+}

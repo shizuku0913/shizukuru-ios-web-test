@@ -1,0 +1,7 @@
+Shizukuru v10.8.30
+- Fixed yellow + magenta drifting toward purple in the pigment touch-test engine.
+- Root cause: generic RGB->RYB maps Y and M to an equal R/Y/B midpoint; pigment strength then tipped that gray midpoint toward magenta/purple.
+- Added one generalized CMY subtractive bridge for cyan/magenta/yellow two-pigment pairs.
+- The bridge borrows only part of the subtractive target (max 0.68) and fades smoothly away from 1:1.
+- It does not affect red/green, red/cyan, yellow/blue, or 3+ pigment dulling behavior.
+- Red+green gray-brown undertone, pigment strengths, and 0.52 dulling onset remain unchanged.

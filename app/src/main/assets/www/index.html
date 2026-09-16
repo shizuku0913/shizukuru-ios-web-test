@@ -12621,15 +12621,9 @@ function canvasToPngBlob(canvas){
 }
 
 function hasNativeDrawingExport(){
-  return !!((window.ShizukuruIOSFiles &&
-    typeof window.ShizukuruIOSFiles.savePng==='function' &&
-    typeof window.ShizukuruIOSFiles.sharePng==='function') ||
-    (window.ShizukuruAndroidFiles &&
+  return !!(window.ShizukuruAndroidFiles &&
     typeof window.ShizukuruAndroidFiles.savePng==='function' &&
-    typeof window.ShizukuruAndroidFiles.sharePng==='function'));
-}
-function shizukuruNativeFiles(){
-  return window.ShizukuruIOSFiles || window.ShizukuruAndroidFiles || null;
+    typeof window.ShizukuruAndroidFiles.sharePng==='function');
 }
 
 function blobToDataUrl(blob){
@@ -12763,9 +12757,8 @@ function requestNativeDrawingExport(operation,dataUrl,filename){
     },30000);
     nativeDrawingExportPending={operation,resolve,reject,timer};
     try{
-      const nativeFiles=shizukuruNativeFiles();
-      if(operation==='save')nativeFiles?.savePng(dataUrl,filename);
-      else nativeFiles?.sharePng(dataUrl,filename);
+      if(operation==='save')window.ShizukuruAndroidFiles.savePng(dataUrl,filename);
+      else window.ShizukuruAndroidFiles.sharePng(dataUrl,filename);
     }catch(error){
       nativeDrawingExportPending=null;
       clearTimeout(timer);

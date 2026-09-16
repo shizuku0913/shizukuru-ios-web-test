@@ -1,0 +1,7 @@
+v10.11.9-RC2-code12 — NullNode official-site link
+
+- Added “Official website” to the drawing-mode Settings menu.
+- Opens https://nullnode.studio/shizukuru/ in the device browser.
+- Added a native allow-listed external-link bridge; only HTTPS links under nullnode.studio are accepted.
+- Added labels for all 16 supported app languages.
+- Existing parent gate, support purchase, drawing, color engine, and billing behavior are unchanged.

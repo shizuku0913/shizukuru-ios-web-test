@@ -1,0 +1,6 @@
+Shizukuru v10.8.29
+- Added a complementary-pigment undertone framework after the existing RYB + pigment-strength + hue-spread stages.
+- First calibrated pair: red + green at near-equal balance now trends toward muted gray-brown instead of near-black/neutral gray.
+- Effect fades smoothly as the ratio moves away from 1:1.
+- Green + magenta and all other pairs are intentionally unchanged pending observation.
+- Pigment strengths, 0.52 multi-hue dulling onset, pinch fix, water behavior, and official-color data are unchanged.

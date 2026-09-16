@@ -1,0 +1,1 @@
+import fs from 'node:fs';import {reproductionRecipes} from './test/production-mixing-utils.js';fs.writeFileSync('OLD-RECIPES.json',JSON.stringify(reproductionRecipes));

@@ -1,0 +1,8 @@
+Shizukuru Mixing Lab v10.8.35 — Official 350 Color Audit
+
+- v10.8.34 mixing engine is frozen unchanged.
+- Added an automated audit covering all 350 official encyclopedia colors.
+- Verifies all official centers, calibrated radii, and perceptual gates.
+- Generates OFFICIAL-COLOR-350-AUDIT.json and OFFICIAL-COLOR-350-AUDIT.md.
+- Reports closest official-color centers, calibrated-radius overlaps, and hue-suspicious overlaps for focused review.
+- Diagnostic only: no official-color thresholds or mixing coefficients are changed in this build.

@@ -1,0 +1,5 @@
+Shizukuru v10.8.26
+- Added comparison-only RYB pigment-strength experiment.
+- Initial strengths: red 1.00, yellow 0.90, blue 1.18, green 1.04, cyan 1.08, magenta 1.10.
+- White and black stay 1.00 because dedicated appearance profiles already handle them.
+- Production mixing and 350-color recipes remain unchanged.

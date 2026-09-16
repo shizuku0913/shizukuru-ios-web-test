@@ -1,0 +1,5 @@
+Shizukuru v10.8.32
+- Added green + magenta complement undertone calibration.
+- Near 1:1, the previously clean blue-violet is softened toward a cool gray-violet.
+- The effect is deliberately lighter/weaker than red + cyan so the blue-violet trace remains visible.
+- Red+green, red+cyan, CMY bridge, pigment strengths, 0.52 multi-hue dulling, water, and pinch behavior are unchanged.

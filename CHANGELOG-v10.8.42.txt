@@ -1,0 +1,8 @@
+Shizukuru v10.8.42
+- Promoted the audited conditional official-color rescue into the production completion path.
+- Rescue runs only when strict official recognition returns null.
+- Requires nearest official to be at least 2.0x closer than runner-up.
+- Preserves all DeltaE, hue, chroma, and achromatic/chromatic guards.
+- Allows at most +1.25 RGB distance beyond the adaptive radius, capped at 8.75.
+- Audited practical tolerance improves from 78.38% to 82.69% (204 additional correct discoveries) with 0 new wrong discoveries in the 4,736-case practical perturbation suite.
+- Mixing engine, official 350 data, and strict classifier are unchanged.

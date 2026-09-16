@@ -1,0 +1,7 @@
+Shizukuru v10.11.3 — Gift interval adjustment
+
+- Gift threshold range changed from 300–600 completed colors to 300–500.
+- Existing gift progress is preserved when the configured range changes.
+- Existing A and pending state are kept; B is clamped into the new range instead of resetting the cycle.
+- If existing progress has already passed the new maximum, the next completed color can trigger the gift.
+- No changes to official colors, mixing, discovery, encyclopedia, translations, drawing, or gift content.

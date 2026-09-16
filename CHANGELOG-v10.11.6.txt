@@ -1,0 +1,8 @@
+Shizukuru Mixing Lab v10.11.6 — Executable Secret Recipe Fix
+
+- Re-audited all 350 official-color secret recipes using the exact paint-drop counts and 0–5 water-drop units shown in the UI.
+- Replaced 175 secret recipes whose displayed instructions did not strictly reproduce their intended official color under the production RYB engine.
+- Fixed 「せんたくしたぺんぎんいろ」: 黒×5 / 白×2 / 水×4.
+- Added an executable-recipe regression test that requires all 350 displayed recipes to strict-recognize as their intended official colors.
+- Mixing, recognition thresholds, drawing, persistence, gifts, audio, and other gameplay behavior are unchanged.
+- Existing regression suite: 148/148 passed.

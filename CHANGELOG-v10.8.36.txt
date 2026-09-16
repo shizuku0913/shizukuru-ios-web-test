@@ -1,0 +1,6 @@
+Shizukuru v10.8.36 — official 350 collision audit refinement
+
+- No production mixing-engine or official-discovery behavior changed.
+- Corrects the diagnostic audit to use the actual formal RGB cap (7.5) together with per-color calibrated radii.
+- Adds midpoint double-pass analysis for overlapping official-color regions.
+- Keeps nearest-official-first production behavior unchanged.

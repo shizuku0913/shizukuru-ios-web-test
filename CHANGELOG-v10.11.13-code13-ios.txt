@@ -1,0 +1,10 @@
+v10.11.13-RC2-code13 — iOS Phase 1 from latest child-lock sync build
+
+- Based directly on v10.11.13-RC2-code12-child-lock-sync-fix.
+- Preserves Android lock confirmation and Web-state synchronization.
+- Adds iOS WKWebView host and Swift native bridge.
+- iOS lock requests confirm back through window.ShizukuruDrawLock.syncNativeState().
+- Adds iOS Photos save and native share sheet.
+- Adds allow-listed nullnode.studio external-link handling.
+- Android implementation remains intact.
+- Native iOS drawing and Apple support purchase are deferred.

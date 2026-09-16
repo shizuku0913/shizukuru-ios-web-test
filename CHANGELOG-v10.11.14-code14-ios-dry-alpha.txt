@@ -1,0 +1,9 @@
+Shizukuru Mixing Lab v10.11.14 RC2 code14 — iOS dry-alpha phase 2
+
+- iOS/Safari Web-canvas drawing now matches Android native behavior for dry paint.
+- Water-free paint (wet <= 0.08) uses alpha 1.0 both in the live core preview and final canvas commit.
+- Wet paint keeps the existing watercolor transparency/halo formula unchanged.
+- No mixing-engine, color-detection, recipe, encyclopedia, persistence, or Android-native drawing changes.
+
+Reason:
+Android native drawing already had the dry-paint alpha fix in syncNativeBrush(), but Safari cannot use ShizukuruAndroidDrawing and therefore fell back to the Web canvas path, where the old .94 base alpha remained in prepareStrokeLayers() and commitStrokeLayers().

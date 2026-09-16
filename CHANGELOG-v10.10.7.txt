@@ -1,0 +1,6 @@
+v10.10.7
+- Corrected 15 official color targets whose displayed color did not match their names.
+- Re-optimized only those 15 official reproduction recipes against the unchanged production mixing engine.
+- Kept 350 official names and discovery architecture unchanged.
+- Updated characterization tests for the intentionally changed official truth set.
+- 133/133 automated tests pass; 350/350 strict+rescue recognition; 0 wrong recognitions.

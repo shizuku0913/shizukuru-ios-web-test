@@ -1,0 +1,5 @@
+Shizukuru Mixing Lab v10.8.15
+
+- a変数（ギフト到達値）のランダム範囲を 500–800 から 300–600 に変更。
+- アプリ実行や自動テストに不要な、過去の監査メモ・CSV・探索用一時スクリプト/結果を整理。
+- Androidプロジェクト、GitHub Actions、自動テスト、waterless fixture は保持。

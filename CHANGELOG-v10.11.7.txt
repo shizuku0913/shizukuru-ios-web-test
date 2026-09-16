@@ -1,0 +1,9 @@
+v10.11.7 RC2 code10 - Google Play support purchase bridge
+
+- Added Google Play Billing Library 7.1.1.
+- Added non-consumable one-time support product bridge: shizukuru_support_300.
+- Existing parent-area support button now opens the Google Play purchase flow.
+- Purchased state is restored automatically from Google Play on startup/reconnect.
+- Purchases are acknowledged and never consumed, so the support purchase remains one-time.
+- Existing UI switches to the supported/thank-you state through the current JS event hook.
+- Added regression test v10117-support-purchase-billing-bridge.test.mjs.

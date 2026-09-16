@@ -1,0 +1,6 @@
+Shizukuru v10.8.28
+- Fixed pinch-in paint emission regression introduced by v10.8.27.
+- Root cause: live sourcePaints is a Map, while the new pigment-strength layer assumed Array.map().
+- reweightSources now accepts Map/array/iterable sources via Array.from().
+- Pinch threshold, timing, and drop lifecycle are unchanged.
+- Pigment strengths and hue-spread dulling onset 0.52 are unchanged.

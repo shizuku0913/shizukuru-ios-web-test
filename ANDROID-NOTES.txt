@@ -1,0 +1,11 @@
+Implementation notes
+====================
+START_URL:
+https://appassets.androidplatform.net/assets/www/index.html
+
+WebViewAssetLoader maps Android app assets to a secure local HTTPS origin.
+This is preferred over file:///android_asset for stable origin-based DOM storage.
+
+Package / applicationId must remain:
+jp.shizukuru.mixinglab
+if you want Android to treat later builds as updates to the same app.

@@ -1,0 +1,9 @@
+Shizukuru v10.8.96 — i18n Japanese connection
+
+- Based on v10.8.95 i18n shadow foundation.
+- Japanese translation keys remain in the isolated www/i18n/ja.js module.
+- Added one narrow translation-provider seam in the existing LanguageManager.translate path.
+- When Japanese is active, LanguageManager resolves known keys through ShizukuruI18nNext.
+- The bootstrap performs one existing applyTranslations pass after module registration.
+- No new language selector UI, localStorage writes, MutationObserver, or event listeners were added by the new module.
+- English and further language activation are intentionally deferred.
