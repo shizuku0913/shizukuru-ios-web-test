@@ -1902,27 +1902,6 @@ html,body{height:var(--shizuku-viewport-height)}
   color:#9a7b4d;
   font-weight:800;
 }
-/* v10.11.18 code18: iPhone Safari atelier geometry parity.
-   WebKit can resolve aspect-ratio + auto height + padding in the dish flex item
-   differently from Android. Pin the measured dish to the same explicit square
-   on portrait iPhone-sized viewports. Mixing/rendering behavior is unchanged. */
-@supports (-webkit-touch-callout:none){
-  @media (orientation:portrait) and (max-width:430px){
-    body:not(.draw-mode-open) .dish{
-      width:var(--shizuku-dish-size);
-      height:var(--shizuku-dish-size);
-      min-width:0;
-      min-height:0;
-      box-sizing:border-box;
-      aspect-ratio:1 / 1;
-    }
-    body:not(.draw-mode-open) .dish>canvas{
-      width:100%;
-      height:100%;
-      aspect-ratio:1 / 1;
-    }
-  }
-}
 </style>
 <script id="safe-storage-bootstrap">
 const safeStorage=(()=>{
