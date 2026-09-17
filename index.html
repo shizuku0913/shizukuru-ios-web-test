@@ -759,9 +759,9 @@ h1{font-size:1.05rem;margin:0;font-weight:900;letter-spacing:.02em}
 }
 .dish:before{content:"";position:absolute;inset:-4%;border-radius:50%;z-index:-1;pointer-events:none;opacity:var(--harmony-air,0);background:radial-gradient(circle at 50% 50%,var(--harmony-color,rgba(255,255,255,0)) 0,rgba(255,255,255,0) 68%);filter:blur(15px);transform:scale(var(--harmony-breath,1));transition:opacity .3s ease,transform .28s ease}
 .dish:after{content:"";position:absolute;inset:5%;border-radius:50%;border:2px solid rgba(130,105,80,.08);pointer-events:none}
-/* v10.11.30: mix ring box follows the rendered dish border-box exactly. */
+/* v10.11.31: ring uses the dish local coordinate box; do not resize the SVG beyond its parent. */
 /* dev3 Birth & Rebirth */
-.mix-ring{position:absolute;left:-15px;top:-15px;width:calc(100% + 30px);height:calc(100% + 30px);inset:auto;display:block;z-index:4;pointer-events:none;overflow:visible;opacity:0;transition:opacity .35s ease}
+.mix-ring{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:4;pointer-events:none;overflow:visible;opacity:0;transition:opacity .35s ease}
 .mix-ring.visible{opacity:.72}.mix-ring.complete{opacity:.92}.mix-ring.absorb{animation:ringAbsorb .78s cubic-bezier(.2,.72,.2,1) forwards}
 .mix-ring-track,.mix-ring-progress{fill:none;vector-effect:non-scaling-stroke}.mix-ring-track{stroke:rgba(119,102,84,.22);stroke-width:1.9}.mix-ring-progress{stroke:var(--ring-color,rgba(243,167,63,.72));stroke-width:3.0;stroke-linecap:round;stroke-dasharray:301.593;stroke-dashoffset:301.593;filter:drop-shadow(0 0 3px var(--ring-glow,rgba(243,167,63,.18)));transition:stroke-dashoffset .15s linear,stroke .4s ease}
 .mix-ring.visible .mix-ring-progress{animation:ringBreath 2.8s ease-in-out infinite}
@@ -13295,9 +13295,12 @@ window.ShizukuV831Manifest=Object.freeze({
     // v10.3.0: on portrait tablets, keep the palette-side cue near the
     // physical left edge of the play area, matching the phone composition.
     // Landscape keeps its already-approved placement.
-    const cueLeft=portraitTabletQuery.matches
-      ? 18
-      : dishRect.left-paletteRect.left-thumbW*.58;
+    // v10.11.31: keep the lower-left pinch cue anchored to the viewport edge
+    // on every portrait phone/tablet. Vertical placement still follows the dish.
+    const viewportLeft=18;
+    const cueLeft=splitQuery.matches
+      ? dishRect.left-paletteRect.left-thumbW*.58
+      : viewportLeft-paletteRect.left;
     thumbCue.style.left=`${Math.round(cueLeft)}px`;
     thumbCue.style.top=`${Math.round(dishRect.top-paletteRect.top-thumbH*.72)}px`;
   };
