@@ -1,28 +1,41 @@
-// Shizukuru v10.10.0 — optional language registry.
-// Optional packs are imported only when selected, so adding languages does not increase startup parsing cost.
+// Shizukuru v10.11.32 — iOS-safe optional language registry.
+// WKWebView file:// can reject dynamic import() for local optional modules on some iOS builds.
+// iOS therefore resolves the same 12 packs from static module imports; Android remains lazy-loaded.
+import * as esPack from './packs/es.js';
+import * as frPack from './packs/fr.js';
+import * as dePack from './packs/de.js';
+import * as itPack from './packs/it.js';
+import * as ptBRPack from './packs/pt-BR.js';
+import * as zhTWPack from './packs/zh-TW.js';
+import * as thPack from './packs/th.js';
+import * as idPack from './packs/id.js';
+import * as viPack from './packs/vi.js';
+import * as ruPack from './packs/ru.js';
+import * as arPack from './packs/ar.js';
+import * as hiPack from './packs/hi.js';
+
 const OPTIONAL = Object.freeze({
-  es: () => import('./packs/es.js'),
-  fr: () => import('./packs/fr.js'),
-  de: () => import('./packs/de.js'),
-  it: () => import('./packs/it.js'),
-  'pt-BR': () => import('./packs/pt-BR.js'),
-  'zh-TW': () => import('./packs/zh-TW.js'),
-  th: () => import('./packs/th.js'),
-  id: () => import('./packs/id.js'),
-  vi: () => import('./packs/vi.js'),
-  ru: () => import('./packs/ru.js'),
-  ar: () => import('./packs/ar.js'),
-  hi: () => import('./packs/hi.js')
+  'es': esPack,
+  'fr': frPack,
+  'de': dePack,
+  'it': itPack,
+  'pt-BR': ptBRPack,
+  'zh-TW': zhTWPack,
+  'th': thPack,
+  'id': idPack,
+  'vi': viPack,
+  'ru': ruPack,
+  'ar': arPack,
+  'hi': hiPack
 });
 
 export function installLanguageRegistry(i18n) {
   const loaded = new Set(i18n.availableLanguages());
   const activate = async code => {
     if (loaded.has(code)) return true;
-    const loader = OPTIONAL[code];
-    if (!loader) return false;
+    const mod = OPTIONAL[code];
+    if (!mod) return false;
     try {
-      const mod = await loader();
       if (!mod.dictionary || !mod.officialNames) return false;
       if (!i18n.registerLanguage(code, mod.dictionary)) return false;
       window.ShizukuruOptionalOfficialNames ||= Object.create(null);
