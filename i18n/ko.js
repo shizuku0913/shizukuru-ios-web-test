@@ -262,6 +262,7 @@ export const ko = Object.freeze({
   "detail.secret.title": "🔐 비밀 레시피",
   "detail.secret.note": "발견한 색에만 살짝 남겨 둔 작은 레시피",
   "detail.secret.count": "×{count}",
+  "detail.secret.waterName": "물",
   "detail.secret.water": "💧 물 ×{count}",
   "detail.secret.noWater": "💧 물 없음",
   "detail.forgetAria": "3초 동안 길게 눌러 이 발견 잊기",

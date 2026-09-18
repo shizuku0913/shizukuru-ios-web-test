@@ -262,6 +262,7 @@ export const en = Object.freeze({
   "detail.secret.title": "🔐 Secret recipe",
   "detail.secret.note": "A little recipe kept only for colors you have discovered",
   "detail.secret.count": "×{count}",
+  "detail.secret.waterName": "Water",
   "detail.secret.water": "💧 Water ×{count}",
   "detail.secret.noWater": "💧 No water",
   "detail.forgetAria": "Hold for 3 seconds to forget this discovery",

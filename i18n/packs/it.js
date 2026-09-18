@@ -261,6 +261,7 @@ export const dictionary = Object.freeze({
   "detail.secret.title": "🔐 Ricetta segreta",
   "detail.secret.note": "Una piccola ricetta conservata solo per i colori che hai scoperto",
   "detail.secret.count": "×{count}",
+  "detail.secret.waterName": "Acqua",
   "detail.secret.water": "💧 Acqua ×{count}",
   "detail.secret.noWater": "💧 Senza acqua",
   "detail.forgetAria": "Tieni premuto per 3 secondi per dimenticare questa scoperta",

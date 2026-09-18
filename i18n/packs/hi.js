@@ -261,6 +261,7 @@ export const dictionary = Object.freeze({
   "detail.secret.title": "🔐 गुप्त रेसिपी",
   "detail.secret.note": "एक छोटी रेसिपी जो केवल खोजे गए रंगों के लिए रखी जाती है",
   "detail.secret.count": "×{count}",
+  "detail.secret.waterName": "पानी",
   "detail.secret.water": "💧 पानी ×{count}",
   "detail.secret.noWater": "💧 पानी नहीं",
   "detail.forgetAria": "इस खोज को भूलने के लिए 3 सेकंड दबाए रखें",

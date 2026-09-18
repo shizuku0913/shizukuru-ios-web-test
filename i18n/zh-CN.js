@@ -262,6 +262,7 @@ export const zhCN = Object.freeze({
   "detail.secret.title": "🔐 秘密配方",
   "detail.secret.note": "只为已经发现的颜色悄悄留下的小配方",
   "detail.secret.count": "×{count}",
+  "detail.secret.waterName": "水",
   "detail.secret.water": "💧 水 ×{count}",
   "detail.secret.noWater": "💧 不加水",
   "detail.forgetAria": "长按3秒忘记这次发现",
