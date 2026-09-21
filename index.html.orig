@@ -759,6 +759,7 @@ h1{font-size:1.05rem;margin:0;font-weight:900;letter-spacing:.02em}
 }
 .dish:before{content:"";position:absolute;inset:-4%;border-radius:50%;z-index:-1;pointer-events:none;opacity:var(--harmony-air,0);background:radial-gradient(circle at 50% 50%,var(--harmony-color,rgba(255,255,255,0)) 0,rgba(255,255,255,0) 68%);filter:blur(15px);transform:scale(var(--harmony-breath,1));transition:opacity .3s ease,transform .28s ease}
 .dish:after{content:"";position:absolute;inset:5%;border-radius:50%;border:2px solid rgba(130,105,80,.08);pointer-events:none}
+/* v10.11.31: ring uses the dish local coordinate box; do not resize the SVG beyond its parent. */
 /* dev3 Birth & Rebirth */
 .mix-ring{position:absolute;inset:0;width:100%;height:100%;display:block;z-index:4;pointer-events:none;overflow:visible;opacity:0;transition:opacity .35s ease}
 .mix-ring.visible{opacity:.72}.mix-ring.complete{opacity:.92}.mix-ring.absorb{animation:ringAbsorb .78s cubic-bezier(.2,.72,.2,1) forwards}
@@ -3767,27 +3768,9 @@ window.ShizukuSound=(()=>{
     if(!enabled){stopMixing();clearTimeout(arrivalTimer);for(const source of activeOneShots)stopSource(source);activeOneShots.clear();completionSource=null;lastCompletionEndsAt=0}
   }
   function setMasterVolume(v){volume=clamp(v,0,1);if(master&&ctx)master.gain.setTargetAtTime(volume,ctx.currentTime,.02)}
-  async function suspendForBackground(){
-    // code53: when the app is no longer visible, there is no reason to keep
-    // WebAudio's render thread alive. Cancel in-flight sounds first so a stale
-    // effect cannot resume when the child returns to the app, then suspend the
-    // context. Normal foreground playback still goes through unlock(), which
-    // already awaits ctx.resume() before scheduling the next sound.
-    stopMixing();
-    clearTimeout(arrivalTimer);arrivalTimer=0;
-    for(const source of activeOneShots){
-      try{source.stop()}catch(_){}
-      try{source.disconnect();source.__shizukuGain?.disconnect()}catch(_){}
-    }
-    activeOneShots.clear();
-    completionSource=null;lastCompletionEndsAt=0;
-    if(ctx&&ctx.state==='running'){
-      try{await ctx.suspend()}catch(error){console.warn('[ShizukuSound] background suspend failed:',error)}
-    }
-  }
   document.addEventListener('pointerdown',()=>unlock(),{once:true,capture:true});
   document.addEventListener('keydown',()=>unlock(),{once:true,capture:true});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)suspendForBackground()});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stopMixing()});
   return Object.freeze({unlock,setEnabled,setMasterVolume,familyFromHex,playPaintDrop,playWaterDrop,startMixing,updateMixing,stopMixing,playCompletion,playColorComplete,playWash,playNewColorDiscovery,playRegisterColor,playShizukuAppearance});
 })();
 
@@ -6788,19 +6771,6 @@ const ShizukuEntity={
   }
 };
 const FIRST_FRIEND_CHANCE=.045;
-// v10.11.51 RELEASE: normal encounter probability restored.
-const FORCE_SHIZUKURU_SPAWN_FOR_TEST=false;
-// v10.11.51 RELEASE: random variant selection restored.
-const FORCE_SHIZUKURU_VARIANT_CYCLE_FOR_TEST=false;
-let shizukuruVariantTestIndex=0;
-function chooseShizukuruDesign(){
-  if(FORCE_SHIZUKURU_VARIANT_CYCLE_FOR_TEST){
-    const cycle=['ribbon','star','aqua','heart','sleep','fluffy','leaf','standard'];
-    return cycle[(shizukuruVariantTestIndex++)%cycle.length];
-  }
-  const r=Math.random();
-  return r<.05?'ribbon':(r<.10?'star':(r<.15?'aqua':(r<.20?'heart':(r<.25?'sleep':(r<.30?'fluffy':(r<.35?'leaf':'standard'))))));
-}
 
 
 // Living World Phase 1-1.5「Paint Portal」
@@ -6809,9 +6779,6 @@ let paintPortalPulseAt=0;
 let paintPortalPulseStrength=0;
 let paintPortalReadyForPeek=false;
 let paintPortalPeek=null;
-// v10.11.41: remember the exact Shizukuru design(s) that returned to this completed color.
-// Portal reappearance reuses these instead of drawing a new variant.
-let returnedShizukuruDesigns=null;
 let shizukuVisitLocked=false;
 
 function setShizukuVisitLock(locked){
@@ -6861,8 +6828,7 @@ const PortalPeekController={
     const s=this.session;
     if(force){
       if(firstFriend||paintPortalPeek)return false;
-      const remembered=Array.isArray(returnedShizukuruDesigns)&&returnedShizukuruDesigns.length?returnedShizukuruDesigns:null;
-      ShizukuSound.playShizukuAppearance();paintPortalPeek={bornAt:now,doublePeek:remembered?remembered.length>1:Math.random()<.16,design:remembered?remembered[0]:chooseShizukuruDesign(),design2:remembered?.[1]||'standard'};
+      ShizukuSound.playShizukuAppearance();paintPortalPeek={bornAt:now,doublePeek:Math.random()<.16};
       paintPortalReadyForPeek=false;
       this.reset();
       pulsePaintPortal(.68,now);
@@ -6874,8 +6840,7 @@ const PortalPeekController={
     const playedEnough=s.interactions>=s.requiredInteractions||s.movement>=s.requiredMovement;
     const deadlineReached=now>=s.deadlineAt;
     if((waited&&playedEnough)||deadlineReached){
-      const remembered=Array.isArray(returnedShizukuruDesigns)&&returnedShizukuruDesigns.length?returnedShizukuruDesigns:null;
-      ShizukuSound.playShizukuAppearance();paintPortalPeek={bornAt:now,doublePeek:remembered?remembered.length>1:Math.random()<.12,design:remembered?remembered[0]:chooseShizukuruDesign(),design2:remembered?.[1]||'standard'};
+      ShizukuSound.playShizukuAppearance();paintPortalPeek={bornAt:now,doublePeek:Math.random()<.12};
       paintPortalReadyForPeek=false;
       this.reset();
       pulsePaintPortal(.68,now);
@@ -7016,7 +6981,6 @@ function inviteFirstFriend(now=performance.now()){
   pulsePaintPortal(1.0,now);
   const returnStyle=Math.random()<.08?'pop':(Math.random()<.38?'edge':'back');
   const friendCount=Math.random()<.16?1:0;
-  const design=chooseShizukuruDesign(),companionDesign=friendCount?chooseShizukuruDesign():'standard';
   const entity=ShizukuEntity.create({memory,personality,behavior,friendCount});
   ShizukuSound.playShizukuAppearance();
   firstFriend={
@@ -7032,7 +6996,7 @@ function inviteFirstFriend(now=performance.now()){
     likesCurrentColor:colorTasteScore(currentColor,memory.colorTaste)>.18,
     longAbsence:!!memory.lastVisitAt&&(Date.now()-memory.lastVisitAt)>1000*60*60*24*2,
     worldTime:LIVING_WORLD_CLOCK.now(),
-    friendCount,design,companionDesign,touchRippleDone:false,portalEntryPulseDone:false,portalExitPulseDone:false,collectPulseDone:false,colorReceived:false
+    friendCount,touchRippleDone:false,portalEntryPulseDone:false,portalExitPulseDone:false,collectPulseDone:false,colorReceived:false
   };
   dirty=true;request();
 }
@@ -7050,10 +7014,6 @@ function firstFriendPhase(now){
     elapsed+=duration;
   }
   commitShizukuMemory(f,targetColor,f.colorReceived?f.behavior:null);
-  // v10.11.41: the completed color remembers who went back into it.
-  // A later portal peek must be the same individual(s), not a fresh variant roll.
-  returnedShizukuruDesigns=[f.design||'standard'];
-  if(f.friendCount>0)returnedShizukuruDesigns.push(f.companionDesign||'standard');
   firstFriend=null;
   paintPortalReadyForPeek=true;
   setShizukuVisitLock(false);
@@ -7076,145 +7036,38 @@ function drawShizukuTouchRipple(f,phase,sx,sy){
   ctx.restore();
 }
 function drawShizukuCompanions(f,phase,now,x,y,alpha,unit){
-  if(!f.friendCount||(['waiting','enter'].includes(phase.name)&&phase.t<.42))return;
+  if(!f.friendCount||['waiting','enter'].includes(phase.name)&&phase.t<.42)return;
   const rr=10.8*unit;
   const appear=phase.name==='enter'?smoothstep(.42,.86,phase.t):phase.name==='leave'?(1-smoothstep(.35,1,phase.t)):1;
   const side=f.orbitDirection||1;
   const fx=x*canvas.width/GRID+side*18*unit;
   const fy=y*canvas.height/GRID-4*unit+Math.sin(now*.0045+f.seed)*1.4*unit;
-  ctx.save();ctx.translate(fx,fy);ctx.globalAlpha=alpha*appear*.88;ctx.rotate(-side*.08);
-  // v10.11.30: companion uses the same official brushless Shizukuru artwork; never fall back to the old blue blob when ready.
-  if(SHIZUKU_OFFICIAL.readyPlain){
-    const design=f.companionDesign||'standard',isStandard=design==='standard',surprise=isStandard&&officialShizukuruSurprised(now,f.seed+17),sleepy=isStandard&&!surprise&&officialShizukuruSleepy(now,f.seed+17),smile=isStandard&&!surprise&&!sleepy&&officialShizukuruSmiling(now,f.seed+17),blink=!surprise&&!sleepy&&!smile&&officialShizukuruBlinkClosed(now,f.seed+17);
-    if(!drawOfficialShizukuruArtwork(rr,{withBrush:false,tintBrush:false,design,blink,surprise,smile,sleepy})){ctx.drawImage(SHIZUKU_OFFICIAL.plain,-rr,-rr,rr*2,rr*2);}
-  }else{
-    ctx.fillStyle='rgba(210,242,252,.96)';ctx.beginPath();ctx.arc(0,0,rr*.72,0,Math.PI*2);ctx.fill();
+  ctx.save();ctx.translate(fx,fy);ctx.globalAlpha=alpha*appear*.88;
+  ctx.rotate(-side*.08);
+  const grad=ctx.createRadialGradient(-rr*.28,-rr*.35,rr*.04,0,rr*.1,rr*1.15);
+  grad.addColorStop(0,'rgba(247,255,255,.98)');
+  grad.addColorStop(.28,'rgba(185,234,247,.97)');
+  grad.addColorStop(1,'rgba(74,151,193,.96)');
+  ctx.fillStyle=grad;ctx.beginPath();ctx.moveTo(0,-rr*1.1);
+  ctx.bezierCurveTo(rr*.18,-rr*.7,rr*.74,-rr*.25,rr*.7,rr*.3);
+  ctx.bezierCurveTo(rr*.66,rr*.8,rr*.30,rr*.98,0,rr*.98);
+  ctx.bezierCurveTo(-rr*.30,rr*.98,-rr*.66,rr*.8,-rr*.7,rr*.3);
+  ctx.bezierCurveTo(-rr*.74,-rr*.25,-rr*.18,-rr*.7,0,-rr*1.1);ctx.closePath();ctx.fill();
+  const memory=f.memory?.lastCarryColor;
+  if(Array.isArray(memory)){
+    ctx.globalAlpha*=.18;ctx.strokeStyle=`rgb(${memory[0]},${memory[1]},${memory[2]})`;
+    ctx.lineWidth=Math.max(1.2,rr*.08);ctx.beginPath();ctx.arc(0,rr*.1,rr*.68,.1*Math.PI,.72*Math.PI);ctx.stroke();
+    ctx.globalAlpha=alpha*appear*.88;
   }
+  for(const ex of [-rr*.23,rr*.23]){
+    ctx.fillStyle='rgba(255,255,255,.96)';ctx.beginPath();ctx.arc(ex,-rr*.01,rr*.13,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='rgba(38,78,98,.92)';ctx.beginPath();ctx.arc(ex,-rr*.005,rr*.075,0,Math.PI*2);ctx.fill();
+  }
+  ctx.strokeStyle='rgba(38,78,98,.75)';ctx.lineWidth=Math.max(1,rr*.05);ctx.lineCap='round';
+  ctx.beginPath();ctx.arc(0,rr*.27,rr*.16,.18*Math.PI,.82*Math.PI);ctx.stroke();
   ctx.restore();
 }
 const SHIZUKU_LIGHTWEIGHT_SHADOW=(navigator.deviceMemory&&navigator.deviceMemory<=4)||(navigator.hardwareConcurrency&&navigator.hardwareConcurrency<=4);
-// v10.11.54: Cache Living Shizukuru's soft ground shadow as a sprite.
-// The shadow geometry is static; position/rotation/body scale are still supplied by
-// the existing parent canvas transform, so the visual motion remains unchanged while
-// avoiding a Canvas blur filter on every animation frame.
-const __shizukuruShadowSpriteCache=new Map();
-function __getShizukuruShadowSprite(radius){
-  const rr=Math.max(.5,Math.round(radius*4)/4);
-  const key=`${rr}:${SHIZUKU_LIGHTWEIGHT_SHADOW?1:0}`;
-  let hit=__shizukuruShadowSpriteCache.get(key);
-  if(hit)return hit;
-  const blur=SHIZUKU_LIGHTWEIGHT_SHADOW?0:Math.max(1.5,rr*.12);
-  const rx=rr*(SHIZUKU_LIGHTWEIGHT_SHADOW?.68:.62);
-  const ry=rr*(SHIZUKU_LIGHTWEIGHT_SHADOW?.23:.19);
-  const cy=rr*.82;
-  const pad=Math.ceil(blur*3+2);
-  const left=-rx-pad,right=rx+pad,top=cy-ry-pad,bottom=cy+ry+pad;
-  const width=Math.max(1,Math.ceil(right-left));
-  const height=Math.max(1,Math.ceil(bottom-top));
-  const c=document.createElement('canvas');c.width=width;c.height=height;
-  const g=c.getContext('2d',{alpha:true});
-  g.save();g.translate(-left,-top);
-  if(!SHIZUKU_LIGHTWEIGHT_SHADOW)g.filter=`blur(${blur}px)`;
-  g.fillStyle=SHIZUKU_LIGHTWEIGHT_SHADOW?'rgba(48,66,75,.11)':'rgba(48,66,75,.18)';
-  g.beginPath();g.ellipse(0,cy,rx,ry,0,0,Math.PI*2);g.fill();g.restore();
-  hit=Object.freeze({canvas:c,left,top});
-  __shizukuruShadowSpriteCache.set(key,hit);
-  if(__shizukuruShadowSpriteCache.size>8)__shizukuruShadowSpriteCache.delete(__shizukuruShadowSpriteCache.keys().next().value);
-  return hit;
-}
-// v10.11.29: Official Shizukuru artwork layer. Existing Living Shizukuru motion/state logic stays intact.
-// v10.11.39: expression test overrides remain disabled; ribbon/star rare variants added.
-const FORCE_SHIZUKURU_BLINK_FOR_TEST=false;
-// Optional test override for the surprise expression.
-const FORCE_SHIZUKURU_SURPRISE_FOR_TEST=false;
-// Optional test override for the smile expression.
-const FORCE_SHIZUKURU_SMILE_FOR_TEST=false;
-// Optional test override for the sleepy expression.
-const FORCE_SHIZUKURU_SLEEPY_FOR_TEST=false;
-const SHIZUKU_OFFICIAL={brush:new Image(),plain:new Image(),brushBlink:new Image(),plainBlink:new Image(),brushSurprise:new Image(),plainSurprise:new Image(),brushSleepy:new Image(),plainSleepy:new Image(),brushMask:new Image(),readyBrush:false,readyPlain:false,readyBrushBlink:false,readyPlainBlink:false,readyBrushSurprise:false,readyPlainSurprise:false,readyBrushSleepy:false,readyPlainSleepy:false,readyMask:false,tintCanvas:document.createElement('canvas')};
-// v10.11.44: aqua/heart/sleep/fluffy/leaf blink assets use the exact same opaque backing as their normal frame.
-// This avoids a one-frame paint-color/black flicker when WebView swaps the normal and blink textures.
-// v10.11.45: the five newest 1536px variants must not swap a second full-size texture for a blink.
-// On Android WebView that texture swap could briefly present a black/garbled GPU frame.
-// Ribbon/star keep the proven blink path; aqua/heart/sleep/fluffy/leaf stay on their resident normal texture.
-const SHIZUKU_VARIANTS={ribbon:{normal:new Image(),blink:new Image(),ready:false,readyBlink:false,useBlinkTexture:true},star:{normal:new Image(),blink:new Image(),ready:false,readyBlink:false,useBlinkTexture:true},aqua:{normal:new Image(),blink:new Image(),ready:false,readyBlink:false,useBlinkTexture:true},heart:{normal:new Image(),blink:new Image(),ready:false,readyBlink:false,useBlinkTexture:true},sleep:{normal:new Image(),blink:new Image(),ready:false,readyBlink:false,useBlinkTexture:true},fluffy:{normal:new Image(),blink:new Image(),ready:false,readyBlink:false,useBlinkTexture:true},leaf:{normal:new Image(),blink:new Image(),ready:false,readyBlink:false,useBlinkTexture:true}};
-// Per-design visual scale. New five assets have more transparent margin than ribbon/star,
-// so compensate at draw time while keeping every source texture at max 512px.
-const SHIZUKU_VARIANT_LAYOUT={ribbon:{scale:1},star:{scale:1},aqua:{scale:1.18},heart:{scale:1.18},sleep:{scale:1.18},fluffy:{scale:1.22},leaf:{scale:1.25}};
-for(const [key,v] of Object.entries(SHIZUKU_VARIANTS)){v.normal.onload=()=>{v.ready=true;dirty=true;request()};v.blink.onload=()=>{v.readyBlink=true;dirty=true;request()};v.normal.src=`assets/shizukuru-${key}.png`;v.blink.src=`assets/shizukuru-${key}-blink.png`;}
-SHIZUKU_OFFICIAL.brush.onload=()=>{SHIZUKU_OFFICIAL.readyBrush=true;dirty=true;request()};
-SHIZUKU_OFFICIAL.plain.onload=()=>{SHIZUKU_OFFICIAL.readyPlain=true;dirty=true;request()};
-SHIZUKU_OFFICIAL.brushBlink.onload=()=>{SHIZUKU_OFFICIAL.readyBrushBlink=true;dirty=true;request()};
-SHIZUKU_OFFICIAL.plainBlink.onload=()=>{SHIZUKU_OFFICIAL.readyPlainBlink=true;dirty=true;request()};
-SHIZUKU_OFFICIAL.brushSurprise.onload=()=>{SHIZUKU_OFFICIAL.readyBrushSurprise=true;dirty=true;request()};
-SHIZUKU_OFFICIAL.plainSurprise.onload=()=>{SHIZUKU_OFFICIAL.readyPlainSurprise=true;dirty=true;request()};
-SHIZUKU_OFFICIAL.brushSleepy.onload=()=>{SHIZUKU_OFFICIAL.readyBrushSleepy=true;dirty=true;request()};
-SHIZUKU_OFFICIAL.plainSleepy.onload=()=>{SHIZUKU_OFFICIAL.readyPlainSleepy=true;dirty=true;request()};
-SHIZUKU_OFFICIAL.brushMask.onload=()=>{SHIZUKU_OFFICIAL.readyMask=true};
-SHIZUKU_OFFICIAL.brush.src='assets/shizukuru-official-brush.png';
-SHIZUKU_OFFICIAL.plain.src='assets/shizukuru-official-plain.png';
-SHIZUKU_OFFICIAL.brushBlink.src='assets/shizukuru-official-brush-blink.png';
-SHIZUKU_OFFICIAL.plainBlink.src='assets/shizukuru-official-plain-blink.png';
-SHIZUKU_OFFICIAL.brushSurprise.src='assets/shizukuru-official-brush-surprise.png';
-SHIZUKU_OFFICIAL.plainSurprise.src='assets/shizukuru-official-plain-surprise.png';
-SHIZUKU_OFFICIAL.brushSleepy.src='assets/shizukuru-official-brush-sleepy.png';
-SHIZUKU_OFFICIAL.plainSleepy.src='assets/shizukuru-official-plain-sleepy.png';
-SHIZUKU_OFFICIAL.brushMask.src='assets/shizukuru-brush-tip-mask.png';
-// v10.11.39: expressions remain intentionally random and not tied to behavior or situation.
-// Each Shizukuru gets independent pseudo-random windows so two characters do not emote in sync.
-function officialExpressionWindow(now,seed,{slotMs,durationMs,chance,salt}){
-  const slot=Math.floor((now+seed*97)/slotMs);
-  let x=(Math.imul((slot^(seed*131+salt))|0,1664525)+1013904223)|0;
-  x^=x>>>16;x=Math.imul(x,2246822507);x^=x>>>13;
-  const roll=(x>>>0)/4294967296;
-  if(roll>=chance)return false;
-  const local=(now+seed*97)%slotMs;
-  const room=Math.max(1,slotMs-durationMs-240);
-  const offset=120+(((x>>>8)>>>0)%room);
-  return local>=offset&&local<offset+durationMs;
-}
-function officialShizukuruBlinkClosed(now=performance.now(),seed=0){
-  if(FORCE_SHIZUKURU_BLINK_FOR_TEST)return ((now+seed*137)%1650)<180;
-  return officialExpressionWindow(now,seed,{slotMs:2600,durationMs:135,chance:.72,salt:11});
-}
-function officialShizukuruSurprised(now=performance.now(),seed=0){
-  if(FORCE_SHIZUKURU_SURPRISE_FOR_TEST)return ((now+seed*211)%3400)<520;
-  return officialExpressionWindow(now,seed,{slotMs:7200,durationMs:520,chance:.22,salt:29});
-}
-function officialShizukuruSmiling(now=performance.now(),seed=0){
-  if(FORCE_SHIZUKURU_SMILE_FOR_TEST)return ((now+seed*173)%4200)<720;
-  return officialExpressionWindow(now,seed,{slotMs:6100,durationMs:720,chance:.30,salt:47});
-}
-function officialShizukuruSleepy(now=performance.now(),seed=0){
-  if(FORCE_SHIZUKURU_SLEEPY_FOR_TEST)return ((now+seed*191)%5200)<1150;
-  return officialExpressionWindow(now,seed,{slotMs:9000,durationMs:1150,chance:.20,salt:71});
-}
-function drawOfficialShizukuruArtwork(rr,{withBrush=true,tintBrush=true,blink=false,surprise=false,smile=false,sleepy=false,design='standard'}={}){
-  if(design!=='standard'&&SHIZUKU_VARIANTS[design]){
-    const v=SHIZUKU_VARIANTS[design];if(!v.ready)return false;const art=(blink&&v.useBlinkTexture&&v.readyBlink)?v.blink:v.normal;
-    const layout=SHIZUKU_VARIANT_LAYOUT[design]||{scale:1};
-    const aspect=art.naturalWidth/Math.max(1,art.naturalHeight),h=rr*3.72*layout.scale,w=h*aspect;ctx.drawImage(art,-w/2,-h/2,w,h);return true;
-  }
-  const normal=withBrush?SHIZUKU_OFFICIAL.brush:SHIZUKU_OFFICIAL.plain;
-  const blinkArt=withBrush?SHIZUKU_OFFICIAL.brushBlink:SHIZUKU_OFFICIAL.plainBlink;
-  const surpriseArt=withBrush?SHIZUKU_OFFICIAL.brushSurprise:SHIZUKU_OFFICIAL.plainSurprise;
-  const blinkReady=withBrush?SHIZUKU_OFFICIAL.readyBrushBlink:SHIZUKU_OFFICIAL.readyPlainBlink;
-  const surpriseReady=withBrush?SHIZUKU_OFFICIAL.readyBrushSurprise:SHIZUKU_OFFICIAL.readyPlainSurprise;
-  const sleepyArt=withBrush?SHIZUKU_OFFICIAL.brushSleepy:SHIZUKU_OFFICIAL.plainSleepy;
-  const sleepyReady=withBrush?SHIZUKU_OFFICIAL.readyBrushSleepy:SHIZUKU_OFFICIAL.readyPlainSleepy;
-  // Priority: surprise > smile > blink. Smile deliberately reuses the approved closed-eye art,
-  // but holds it longer so it reads as a warm grin rather than a blink.
-  const art=(surprise&&surpriseReady)?surpriseArt:((sleepy&&sleepyReady)?sleepyArt:((smile&&blinkReady)?blinkArt:((blink&&blinkReady)?blinkArt:normal)));
-  const ready=withBrush?SHIZUKU_OFFICIAL.readyBrush:SHIZUKU_OFFICIAL.readyPlain;if(!ready)return false;
-  const aspect=art.naturalWidth/Math.max(1,art.naturalHeight),h=withBrush?rr*3.72:rr*2.62,w=h*aspect;
-  const ox=withBrush?-w*.055:0,oy=withBrush?-h*.035:0;ctx.drawImage(art,ox-w/2,oy-h/2,w,h);
-  if(withBrush&&tintBrush&&SHIZUKU_OFFICIAL.readyMask){
-    const tc=SHIZUKU_OFFICIAL.tintCanvas;if(tc.width!==art.naturalWidth||tc.height!==art.naturalHeight){tc.width=art.naturalWidth;tc.height=art.naturalHeight;}
-    const tctx=tc.getContext('2d');tctx.clearRect(0,0,tc.width,tc.height);tctx.drawImage(SHIZUKU_OFFICIAL.brushMask,0,0,tc.width,tc.height);
-    tctx.globalCompositeOperation='source-in';tctx.fillStyle=`rgb(${Math.round(targetColor[0])},${Math.round(targetColor[1])},${Math.round(targetColor[2])})`;tctx.fillRect(0,0,tc.width,tc.height);tctx.globalCompositeOperation='source-over';
-    ctx.save();ctx.globalAlpha*=.52;ctx.globalCompositeOperation='multiply';ctx.drawImage(tc,ox-w/2,oy-h/2,w,h);ctx.restore();
-  }return true;
-}
 function drawFirstFriendCore(now){
   const phase=firstFriendPhase(now);
   if(!firstFriend||!phase)return false;
@@ -7347,85 +7200,78 @@ function drawFirstFriendCore(now){
   const lookY=f.lookAtSky?lerp(clamp((completedDropY-y)/Math.max(1,completedHarmonyRadius)*p.look,-1,1),-1,clamp(f.lookAtSky,0,1)):clamp((completedDropY-y)/Math.max(1,completedHarmonyRadius)*p.look,-1,1);
   ctx.save();ctx.translate(px,py);ctx.globalAlpha=alpha;ctx.rotate(rotation+lean*(lookX>=0?1:-1));ctx.scale(bodyScale*p.scale,(2-bodyScale)*p.scale);
   ctx.save();
-  // v10.11.54: reuse the pre-blurred ground-shadow sprite instead of running
-  // ctx.filter=blur() on every Living Shizukuru animation frame.
-  const shadowSprite=__getShizukuruShadowSprite(rr);
-  ctx.drawImage(shadowSprite.canvas,shadowSprite.left,shadowSprite.top);
-  ctx.restore();
-  // Official first encounter: brush + curled tail; brush tip follows the completed color.
-  const isStandardDesign=(f.design||'standard')==='standard';
-  const officialSurprise=isStandardDesign&&officialShizukuruSurprised(now,f.seed);
-  const officialSleepy=isStandardDesign&&!officialSurprise&&officialShizukuruSleepy(now,f.seed);
-  const officialSmile=isStandardDesign&&!officialSurprise&&!officialSleepy&&officialShizukuruSmiling(now,f.seed);
-  if(!drawOfficialShizukuruArtwork(rr,{withBrush:true,tintBrush:true,design:f.design||'standard',blink:!officialSleepy&&!officialSmile&&officialShizukuruBlinkClosed(now,f.seed),surprise:officialSurprise,smile:officialSmile,sleepy:officialSleepy})){
-    const body=ctx.createRadialGradient(-rr*.30,-rr*.38,rr*.03,rr*.08,rr*.15,rr*1.25);
-    body.addColorStop(0,'rgba(245,255,255,.98)');body.addColorStop(.22,'rgba(169,229,247,.96)');
-    body.addColorStop(.68,'rgba(91,183,220,.96)');body.addColorStop(1,'rgba(54,128,176,.98)');
-    ctx.fillStyle=body;ctx.beginPath();ctx.moveTo(0,-rr*1.16);
-    ctx.bezierCurveTo(rr*.18,-rr*.76,rr*.82,-rr*.32,rr*.78,rr*.30);
-    ctx.bezierCurveTo(rr*.75,rr*.86,rr*.34,rr*1.04,0,rr*1.05);
-    ctx.bezierCurveTo(-rr*.34,rr*1.04,-rr*.75,rr*.86,-rr*.78,rr*.30);
-    ctx.bezierCurveTo(-rr*.82,-rr*.32,-rr*.18,-rr*.76,0,-rr*1.16);ctx.closePath();ctx.fill();
-    ctx.strokeStyle='rgba(255,255,255,.46)';ctx.lineWidth=Math.max(1,rr*.045);ctx.stroke();
-    // Tiny Memory: 前回持ち帰った色が、輪郭の一部にだけごく淡く残る。
-    if(f.rememberedCarryColor){
-      const [mr,mg,mb]=f.rememberedCarryColor;
-      const days=f.memory&&f.memory.lastVisitAt?Math.max(0,(Date.now()-f.memory.lastVisitAt)/(86400000)):0;
-      const memoryAlpha=.10*Math.max(.38,1-days/20);
-      ctx.save();ctx.globalAlpha=memoryAlpha;ctx.strokeStyle=`rgb(${mr},${mg},${mb})`;ctx.lineWidth=Math.max(1.5,rr*.085);ctx.lineCap='round';
-      ctx.beginPath();ctx.arc(0,rr*.12,rr*.79,.14*Math.PI,.72*Math.PI);ctx.stroke();ctx.restore();
-    }
-    if(f.reunion){
-      const [mr,mg,mb]=f.rememberedColor,glowPulse=.78+Math.sin(now*.007+f.seed)*.18;
-      ctx.save();ctx.globalCompositeOperation='screen';
-      const memoryGlow=ctx.createRadialGradient(0,rr*.38,0,0,rr*.38,rr*.34);
-      memoryGlow.addColorStop(0,`rgba(${mr},${mg},${mb},${.92*glowPulse})`);memoryGlow.addColorStop(.42,`rgba(${mr},${mg},${mb},${.46*glowPulse})`);memoryGlow.addColorStop(1,`rgba(${mr},${mg},${mb},0)`);
-      ctx.fillStyle=memoryGlow;ctx.beginPath();ctx.arc(0,rr*.38,rr*.34,0,Math.PI*2);ctx.fill();ctx.restore();
-    }
-    // v3.4.1 Body Carrier: 発光させず、身体の中に小さな色玉をひとつだけ宿す。
-    if(f.behavior==='body'&&['absorb','farewell','homePause','homeWobble','leave'].includes(phase.name)){
-      const fill=phase.name==='absorb'?smoothstep(.20,.72,phase.t):(f.colorReceived?1:0);
-      if(fill>0){
-        ctx.save();ctx.globalAlpha=.76*fill;
-        ctx.fillStyle=`rgb(${targetColor[0]},${targetColor[1]},${targetColor[2]})`;
-        ctx.beginPath();ctx.arc(0,rr*.22,rr*.17*fill,0,Math.PI*2);ctx.fill();
-        ctx.strokeStyle='rgba(255,255,255,.42)';ctx.lineWidth=Math.max(.7,rr*.025);ctx.stroke();ctx.restore();
-      }
-    }
-    if(f.behavior==='bottle'&&!['waiting','enter'].includes(phase.name)){
-      const fill=phase.name==='collect'?smoothstep(.36,.78,phase.t):(f.colorReceived?1:0);
-      ctx.save();ctx.translate(rr*.64,rr*.48);ctx.rotate(-.12);
-      ctx.fillStyle='rgba(255,255,255,.72)';ctx.strokeStyle='rgba(79,103,111,.66)';ctx.lineWidth=Math.max(1,rr*.045);ctx.beginPath();ctx.roundRect(-rr*.18,-rr*.25,rr*.36,rr*.48,rr*.08);ctx.fill();ctx.stroke();
-      if(fill>0){ctx.save();ctx.beginPath();ctx.roundRect(-rr*.15,rr*(.18-.30*fill),rr*.30,rr*.28*fill,rr*.05);ctx.clip();ctx.fillStyle=`rgba(${targetColor[0]},${targetColor[1]},${targetColor[2]},.92)`;ctx.fillRect(-rr*.2,-rr*.3,rr*.4,rr*.6);ctx.restore();}
-      ctx.fillStyle='rgba(91,70,52,.76)';ctx.fillRect(-rr*.11,-rr*.34,rr*.22,rr*.10);ctx.restore();
-    }
-    if(f.behavior==='leaf'&&!['waiting','enter'].includes(phase.name)){
-      const held=phase.name==='collect'?phase.t:(f.colorReceived?1:0);ctx.save();ctx.translate(rr*.61,rr*.48);ctx.rotate(-.45+held*.18);
-      ctx.fillStyle='rgba(104,169,91,.94)';ctx.beginPath();ctx.ellipse(0,0,rr*.27,rr*.15,-.2,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(66,126,67,.78)';ctx.lineWidth=Math.max(1,rr*.035);ctx.beginPath();ctx.moveTo(-rr*.22,rr*.05);ctx.lineTo(rr*.22,-rr*.05);ctx.stroke();
-      if(held>.45){ctx.fillStyle=`rgba(${targetColor[0]},${targetColor[1]},${targetColor[2]},.9)`;ctx.beginPath();ctx.arc(rr*.03,-rr*.015,rr*.075,0,Math.PI*2);ctx.fill();}ctx.restore();
-    }
-    if(f.personality==='shy'){
-      ctx.save();ctx.globalAlpha=.22;ctx.fillStyle='rgba(255,128,150,.9)';
-      ctx.beginPath();ctx.ellipse(-rr*.43,rr*.20,rr*.11,rr*.065,0,0,Math.PI*2);ctx.ellipse(rr*.43,rr*.20,rr*.11,rr*.065,0,0,Math.PI*2);ctx.fill();ctx.restore();
-    }
-    const eyeY=-rr*.03,eyeGap=rr*.27,eyeR=rr*.105;
-    const naturalBlink=Math.sin(now*.0021+f.seed*3)>.992;
-    const sleepy=phase.name==='sleepy',smiling=phase.name==='smile'||phase.name==='bigJump';
-    const eyeOpen=sleepy?.22:(naturalBlink?.08:1);
-    for(const ex of [-eyeGap,eyeGap]){
-      ctx.fillStyle='rgba(255,255,255,.96)';ctx.beginPath();ctx.ellipse(ex,eyeY,eyeR*1.34,eyeR*1.34*eyeOpen,0,0,Math.PI*2);ctx.fill();
-      if(eyeOpen>.25){ctx.fillStyle='rgba(37,78,99,.92)';ctx.beginPath();ctx.ellipse(ex+lookX*eyeR*.52,eyeY+lookY*eyeR*.38,eyeR,eyeR*eyeOpen,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(255,255,255,.92)';ctx.beginPath();ctx.arc(ex+lookX*eyeR*.52-eyeR*.27,eyeY+lookY*eyeR*.38-eyeR*.28,eyeR*.28,0,Math.PI*2);ctx.fill();}
-      else{ctx.strokeStyle='rgba(37,78,99,.78)';ctx.lineWidth=Math.max(1.2,rr*.052);ctx.beginPath();ctx.moveTo(ex-eyeR,eyeY);ctx.quadraticCurveTo(ex,eyeY+eyeR*.45,ex+eyeR,eyeY);ctx.stroke();}
-    }
-    ctx.strokeStyle='rgba(37,78,99,.76)';ctx.lineWidth=Math.max(1.2,rr*.055);ctx.lineCap='round';
-    ctx.beginPath();
-    if(smiling)ctx.arc(0,rr*.23,rr*.25,.10*Math.PI,.90*Math.PI);
-    else if(sleepy){ctx.moveTo(-rr*.12,rr*.30);ctx.quadraticCurveTo(0,rr*.34,rr*.12,rr*.30);}
-    else ctx.arc(0,rr*.28,rr*.19,.18*Math.PI,.82*Math.PI);
-    ctx.stroke();
-    ctx.fillStyle='rgba(255,255,255,.78)';ctx.beginPath();ctx.ellipse(-rr*.31,-rr*.50,rr*.17,rr*.075,-.48,0,Math.PI*2);ctx.fill();
-    ctx.fillStyle='rgba(255,255,255,.34)';ctx.beginPath();ctx.ellipse(rr*.22,-rr*.30,rr*.08,rr*.035,-.55,0,Math.PI*2);ctx.fill();
+  // v7.9.26: 小容量端末では毎フレームのCanvas blurを避ける。
+  // ぼかしなしでも柔らかく見える低アルファの楕円影へフォールバックする。
+  if(!SHIZUKU_LIGHTWEIGHT_SHADOW)ctx.filter=`blur(${Math.max(1.5,rr*.12)}px)`;
+  ctx.fillStyle=SHIZUKU_LIGHTWEIGHT_SHADOW?'rgba(48,66,75,.11)':'rgba(48,66,75,.18)';
+  ctx.beginPath();ctx.ellipse(0,rr*.82,rr*(SHIZUKU_LIGHTWEIGHT_SHADOW?.68:.62),rr*(SHIZUKU_LIGHTWEIGHT_SHADOW?.23:.19),0,0,Math.PI*2);ctx.fill();ctx.restore();
+  const body=ctx.createRadialGradient(-rr*.30,-rr*.38,rr*.03,rr*.08,rr*.15,rr*1.25);
+  body.addColorStop(0,'rgba(245,255,255,.98)');body.addColorStop(.22,'rgba(169,229,247,.96)');
+  body.addColorStop(.68,'rgba(91,183,220,.96)');body.addColorStop(1,'rgba(54,128,176,.98)');
+  ctx.fillStyle=body;ctx.beginPath();ctx.moveTo(0,-rr*1.16);
+  ctx.bezierCurveTo(rr*.18,-rr*.76,rr*.82,-rr*.32,rr*.78,rr*.30);
+  ctx.bezierCurveTo(rr*.75,rr*.86,rr*.34,rr*1.04,0,rr*1.05);
+  ctx.bezierCurveTo(-rr*.34,rr*1.04,-rr*.75,rr*.86,-rr*.78,rr*.30);
+  ctx.bezierCurveTo(-rr*.82,-rr*.32,-rr*.18,-rr*.76,0,-rr*1.16);ctx.closePath();ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,.46)';ctx.lineWidth=Math.max(1,rr*.045);ctx.stroke();
+  // Tiny Memory: 前回持ち帰った色が、輪郭の一部にだけごく淡く残る。
+  if(f.rememberedCarryColor){
+    const [mr,mg,mb]=f.rememberedCarryColor;
+    const days=f.memory&&f.memory.lastVisitAt?Math.max(0,(Date.now()-f.memory.lastVisitAt)/(86400000)):0;
+    const memoryAlpha=.10*Math.max(.38,1-days/20);
+    ctx.save();ctx.globalAlpha=memoryAlpha;ctx.strokeStyle=`rgb(${mr},${mg},${mb})`;ctx.lineWidth=Math.max(1.5,rr*.085);ctx.lineCap='round';
+    ctx.beginPath();ctx.arc(0,rr*.12,rr*.79,.14*Math.PI,.72*Math.PI);ctx.stroke();ctx.restore();
   }
+  if(f.reunion){
+    const [mr,mg,mb]=f.rememberedColor,glowPulse=.78+Math.sin(now*.007+f.seed)*.18;
+    ctx.save();ctx.globalCompositeOperation='screen';
+    const memoryGlow=ctx.createRadialGradient(0,rr*.38,0,0,rr*.38,rr*.34);
+    memoryGlow.addColorStop(0,`rgba(${mr},${mg},${mb},${.92*glowPulse})`);memoryGlow.addColorStop(.42,`rgba(${mr},${mg},${mb},${.46*glowPulse})`);memoryGlow.addColorStop(1,`rgba(${mr},${mg},${mb},0)`);
+    ctx.fillStyle=memoryGlow;ctx.beginPath();ctx.arc(0,rr*.38,rr*.34,0,Math.PI*2);ctx.fill();ctx.restore();
+  }
+  // v3.4.1 Body Carrier: 発光させず、身体の中に小さな色玉をひとつだけ宿す。
+  if(f.behavior==='body'&&['absorb','farewell','homePause','homeWobble','leave'].includes(phase.name)){
+    const fill=phase.name==='absorb'?smoothstep(.20,.72,phase.t):(f.colorReceived?1:0);
+    if(fill>0){
+      ctx.save();ctx.globalAlpha=.76*fill;
+      ctx.fillStyle=`rgb(${targetColor[0]},${targetColor[1]},${targetColor[2]})`;
+      ctx.beginPath();ctx.arc(0,rr*.22,rr*.17*fill,0,Math.PI*2);ctx.fill();
+      ctx.strokeStyle='rgba(255,255,255,.42)';ctx.lineWidth=Math.max(.7,rr*.025);ctx.stroke();ctx.restore();
+    }
+  }
+  if(f.behavior==='bottle'&&!['waiting','enter'].includes(phase.name)){
+    const fill=phase.name==='collect'?smoothstep(.36,.78,phase.t):(f.colorReceived?1:0);
+    ctx.save();ctx.translate(rr*.64,rr*.48);ctx.rotate(-.12);
+    ctx.fillStyle='rgba(255,255,255,.72)';ctx.strokeStyle='rgba(79,103,111,.66)';ctx.lineWidth=Math.max(1,rr*.045);ctx.beginPath();ctx.roundRect(-rr*.18,-rr*.25,rr*.36,rr*.48,rr*.08);ctx.fill();ctx.stroke();
+    if(fill>0){ctx.save();ctx.beginPath();ctx.roundRect(-rr*.15,rr*(.18-.30*fill),rr*.30,rr*.28*fill,rr*.05);ctx.clip();ctx.fillStyle=`rgba(${targetColor[0]},${targetColor[1]},${targetColor[2]},.92)`;ctx.fillRect(-rr*.2,-rr*.3,rr*.4,rr*.6);ctx.restore();}
+    ctx.fillStyle='rgba(91,70,52,.76)';ctx.fillRect(-rr*.11,-rr*.34,rr*.22,rr*.10);ctx.restore();
+  }
+  if(f.behavior==='leaf'&&!['waiting','enter'].includes(phase.name)){
+    const held=phase.name==='collect'?phase.t:(f.colorReceived?1:0);ctx.save();ctx.translate(rr*.61,rr*.48);ctx.rotate(-.45+held*.18);
+    ctx.fillStyle='rgba(104,169,91,.94)';ctx.beginPath();ctx.ellipse(0,0,rr*.27,rr*.15,-.2,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(66,126,67,.78)';ctx.lineWidth=Math.max(1,rr*.035);ctx.beginPath();ctx.moveTo(-rr*.22,rr*.05);ctx.lineTo(rr*.22,-rr*.05);ctx.stroke();
+    if(held>.45){ctx.fillStyle=`rgba(${targetColor[0]},${targetColor[1]},${targetColor[2]},.9)`;ctx.beginPath();ctx.arc(rr*.03,-rr*.015,rr*.075,0,Math.PI*2);ctx.fill();}ctx.restore();
+  }
+  if(f.personality==='shy'){
+    ctx.save();ctx.globalAlpha=.22;ctx.fillStyle='rgba(255,128,150,.9)';
+    ctx.beginPath();ctx.ellipse(-rr*.43,rr*.20,rr*.11,rr*.065,0,0,Math.PI*2);ctx.ellipse(rr*.43,rr*.20,rr*.11,rr*.065,0,0,Math.PI*2);ctx.fill();ctx.restore();
+  }
+  const eyeY=-rr*.03,eyeGap=rr*.27,eyeR=rr*.105;
+  const naturalBlink=Math.sin(now*.0021+f.seed*3)>.992;
+  const sleepy=phase.name==='sleepy',smiling=phase.name==='smile'||phase.name==='bigJump';
+  const eyeOpen=sleepy?.22:(naturalBlink?.08:1);
+  for(const ex of [-eyeGap,eyeGap]){
+    ctx.fillStyle='rgba(255,255,255,.96)';ctx.beginPath();ctx.ellipse(ex,eyeY,eyeR*1.34,eyeR*1.34*eyeOpen,0,0,Math.PI*2);ctx.fill();
+    if(eyeOpen>.25){ctx.fillStyle='rgba(37,78,99,.92)';ctx.beginPath();ctx.ellipse(ex+lookX*eyeR*.52,eyeY+lookY*eyeR*.38,eyeR,eyeR*eyeOpen,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(255,255,255,.92)';ctx.beginPath();ctx.arc(ex+lookX*eyeR*.52-eyeR*.27,eyeY+lookY*eyeR*.38-eyeR*.28,eyeR*.28,0,Math.PI*2);ctx.fill();}
+    else{ctx.strokeStyle='rgba(37,78,99,.78)';ctx.lineWidth=Math.max(1.2,rr*.052);ctx.beginPath();ctx.moveTo(ex-eyeR,eyeY);ctx.quadraticCurveTo(ex,eyeY+eyeR*.45,ex+eyeR,eyeY);ctx.stroke();}
+  }
+  ctx.strokeStyle='rgba(37,78,99,.76)';ctx.lineWidth=Math.max(1.2,rr*.055);ctx.lineCap='round';
+  ctx.beginPath();
+  if(smiling)ctx.arc(0,rr*.23,rr*.25,.10*Math.PI,.90*Math.PI);
+  else if(sleepy){ctx.moveTo(-rr*.12,rr*.30);ctx.quadraticCurveTo(0,rr*.34,rr*.12,rr*.30);}
+  else ctx.arc(0,rr*.28,rr*.19,.18*Math.PI,.82*Math.PI);
+  ctx.stroke();
+  ctx.fillStyle='rgba(255,255,255,.78)';ctx.beginPath();ctx.ellipse(-rr*.31,-rr*.50,rr*.17,rr*.075,-.48,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,.34)';ctx.beginPath();ctx.ellipse(rr*.22,-rr*.30,rr*.08,rr*.035,-.55,0,Math.PI*2);ctx.fill();
   drawShizukuCompanions(f,phase,now,x,y,alpha,unit);
     if(phase.name==='question'){
     ctx.save();ctx.globalAlpha=.82*(1-Math.abs(phase.t-.5)*.45);ctx.fillStyle='rgba(54,104,132,.88)';
@@ -7445,28 +7291,18 @@ function drawPaintPortalPeek(now=performance.now()){
   const rr=completedHarmonyRadius*unit;
   ctx.save();ctx.translate(x,y);
   ctx.globalAlpha=appear*.92;
-  // v10.11.43: Portal Peek is slightly smaller so variant silhouettes remain readable without excessive clipping.
-  // The official artwork's eyes sit lower than the old procedural face, so lift the art farther
-  // through the portal. Cheeks/mouth/body remain hidden inside the completed color.
-  ctx.beginPath();ctx.ellipse(0,rr*.02,rr*.64,rr*.43,0,Math.PI,Math.PI*2);ctx.clip();
-  const headY=rr*.40-appear*rr*1.22;
-  // Reappearance after the mascot has returned to the completed color: clean brushless form.
-  if(SHIZUKU_OFFICIAL.readyPlain){
-    const drawPeek=(design,ox,scale,seed)=>{const isStandard=design==='standard',surprise=isStandard&&officialShizukuruSurprised(now,seed),sleepy=isStandard&&!surprise&&officialShizukuruSleepy(now,seed),smile=isStandard&&!surprise&&!sleepy&&officialShizukuruSmiling(now,seed),blink=!surprise&&!sleepy&&!smile&&officialShizukuruBlinkClosed(now,seed);ctx.save();ctx.translate(ox,headY);ctx.scale(scale,scale);drawOfficialShizukuruArtwork(rr*.46,{withBrush:false,tintBrush:false,design,blink,surprise,smile,sleepy});ctx.restore();};
-    drawPeek(paintPortalPeek.design||'standard',paintPortalPeek.doublePeek?-rr*.18:0,paintPortalPeek.doublePeek?.82:1,31);
-    if(paintPortalPeek.doublePeek)drawPeek(paintPortalPeek.design2||'standard',rr*.22,.72,47);
-  }else{
-    const drawFace=(ox,scale=1)=>{
-      ctx.save();ctx.translate(ox,headY);ctx.scale(scale,scale);
-      const grad=ctx.createRadialGradient(-rr*.12,-rr*.18,0,0,0,rr*.55);
-      grad.addColorStop(0,'rgba(239,253,255,.98)');grad.addColorStop(1,'rgba(72,157,201,.98)');
-      ctx.fillStyle=grad;ctx.beginPath();ctx.arc(0,0,rr*.31,Math.PI,0);ctx.lineTo(rr*.31,rr*.22);ctx.lineTo(-rr*.31,rr*.22);ctx.closePath();ctx.fill();
-      for(const ex of [-rr*.105,rr*.105]){ctx.fillStyle='rgba(255,255,255,.98)';ctx.beginPath();ctx.arc(ex,-rr*.015,rr*.065,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(35,75,96,.94)';ctx.beginPath();ctx.arc(ex,-rr*.01,rr*.035,0,Math.PI*2);ctx.fill();}
-      ctx.restore();
-    };
-    drawFace(paintPortalPeek.doublePeek?-rr*.18:0,paintPortalPeek.doublePeek?.82:1);
-    if(paintPortalPeek.doublePeek)drawFace(rr*.22,.72);
-  }
+  ctx.beginPath();ctx.ellipse(0,0,rr*.56,rr*.24,0,Math.PI,Math.PI*2);ctx.clip();
+  const headY=rr*.18-appear*rr*.28;
+  const drawFace=(ox,scale=1)=>{
+    ctx.save();ctx.translate(ox,headY);ctx.scale(scale,scale);
+    const grad=ctx.createRadialGradient(-rr*.12,-rr*.18,0,0,0,rr*.55);
+    grad.addColorStop(0,'rgba(239,253,255,.98)');grad.addColorStop(1,'rgba(72,157,201,.98)');
+    ctx.fillStyle=grad;ctx.beginPath();ctx.arc(0,0,rr*.31,Math.PI,0);ctx.lineTo(rr*.31,rr*.22);ctx.lineTo(-rr*.31,rr*.22);ctx.closePath();ctx.fill();
+    for(const ex of [-rr*.105,rr*.105]){ctx.fillStyle='rgba(255,255,255,.98)';ctx.beginPath();ctx.arc(ex,-rr*.015,rr*.065,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(35,75,96,.94)';ctx.beginPath();ctx.arc(ex,-rr*.01,rr*.035,0,Math.PI*2);ctx.fill();}
+    ctx.restore();
+  };
+  drawFace(paintPortalPeek.doublePeek?-rr*.18:0,paintPortalPeek.doublePeek?.82:1);
+  if(paintPortalPeek.doublePeek)drawFace(rr*.22,.72);
   ctx.restore();
   dirty=true;request();return true;
 }
@@ -7956,7 +7792,6 @@ const PaintDropLifecycle=Object.freeze({
       setShizukuVisitLock(false);
       paintPortalReadyForPeek=false;
       paintPortalPeek=null;
-      returnedShizukuruDesigns=null;
       resetPortalPeekWindow();
       MixingVarianceMonitor.invalidate();
     }
@@ -8842,7 +8677,7 @@ const CompletionLifecycle={
   beginVisuals(now){
     harmonyPulseStartedAt=now;
     rebirthStartedAt=harmonyPulseStartedAt;
-    if(FORCE_SHIZUKURU_SPAWN_FOR_TEST||Math.random()<FIRST_FRIEND_CHANCE)inviteFirstFriend(harmonyPulseStartedAt);
+    if(Math.random()<FIRST_FRIEND_CHANCE)inviteFirstFriend(harmonyPulseStartedAt);
     harmonyTarget=1;
     mixRing.classList.add('complete');
     mixRingProgress.style.strokeDashoffset='0';
@@ -9465,11 +9300,7 @@ function renderFrame(){return __deepProfileRun('render',()=>{
   const presenceOuterSq=presenceOuter*presenceOuter;
   const pointerOuterSq=24*24;
   const frameBreathSpeed=lerp(.00072,lerp(.00155,.00102,frameWet),worldAwake)*settledCalm*gestureCalm*trustCalm;
-  // v10.11.28: keep the full paint shading while the child is interacting, but
-  // stop the effectively invisible pixel-level breathing after release. This
-  // avoids keeping the expensive grid renderer awake for no visible benefit.
-  const __interactivePaintBreath=!!pointer||presencePointer.active;
-  const frameBreathAmp=lerp(.0015,lerp(.0038,.0105,frameWet),worldAwake)*idle*completeBreathScale*comfort*trustBreath*surpriseBreath*(__interactivePaintBreath?1:0);
+  const frameBreathAmp=lerp(.0015,lerp(.0038,.0105,frameWet),worldAwake)*idle*completeBreathScale*comfort*trustBreath*surpriseBreath;
   const frameSharedPhase=now*lerp(.00124,.00102,frameWet);
   const frameSpecPower=lerp(24,10,frameWet);
   const __renderTier=PerformanceGovernor.tier();
@@ -9625,9 +9456,7 @@ function renderFrame(){return __deepProfileRun('render',()=>{
   PerformanceGovernor.recordFrame(lastFrameMs,performance.now());
   updateUIThrottled(now);
   const hasLivingPaint=isComplete||freshDrops.some(d=>!d.disturbed)||activeCellCount>0;
-  // v10.11.28: post-release paint breathing no longer keeps the frame loop alive.
-  // Harmony/completion and all other active effects still request frames normally.
-  const paintBreathingActive=hasLivingPaint&&(!!pointer||presencePointer.active);
+  const paintBreathingActive=hasLivingPaint&&(!!pointer||presencePointer.active||worldAwake>.018||performance.now()-lastTouchAt<WORLD_SLEEP_AFTER_MS+10500);
   const frameState=RenderFrameState.create({
     now:performance.now(),
     paintBreathingActive,
@@ -10162,31 +9991,29 @@ function updateUI(){return __deepProfileRun('updateUI',()=>{
     if(!d.disturbed&&d.encounter>.12){hasMeetingFresh=true;break;}
   }
   document.documentElement.style.setProperty('--progress',`${Math.round(mixProgress*100)}%`);
-  let nextStatus='';
-  if(completeStartedAt&&!isComplete)nextStatus=`Rebirth ・ ${atelierI18n('atelier.status.rebirth',null,'新しい色が、ひとつに生まれ変わっています')}`;
-  else if(harmonyCarryMode&&!isComplete)nextStatus=`Paint form ・ ${atelierI18n('atelier.status.paintForm',null,'触れられたしずくは、15滴分の絵の具姿を保っています')}`;
-  else if(isCelebrating&&settlementStartedAt)nextStatus=`Rebirth ・ ${atelierI18n('atelier.status.firstBreath',null,'生まれた色が、最初の呼吸をしています')}`;
-  else if(isCelebrating)nextStatus=`Color Settlement ・ ${atelierI18n('atelier.status.settling',null,'中央へ集まり、落ち着いています')}`;
-  else if(isComplete)nextStatus=`Color Settlement ・ ${atelierI18n('atelier.status.settled',{ms:lastFrameMs.toFixed(1)},`この色がここに落ち着きました ・ ${lastFrameMs.toFixed(1)} ms`)}`;
+  if(completeStartedAt&&!isComplete)status.textContent=`Rebirth ・ ${atelierI18n('atelier.status.rebirth',null,'新しい色が、ひとつに生まれ変わっています')}`;
+  else if(harmonyCarryMode&&!isComplete)status.textContent=`Paint form ・ ${atelierI18n('atelier.status.paintForm',null,'触れられたしずくは、15滴分の絵の具姿を保っています')}`;
+  else if(isCelebrating&&settlementStartedAt)status.textContent=`Rebirth ・ ${atelierI18n('atelier.status.firstBreath',null,'生まれた色が、最初の呼吸をしています')}`;
+  else if(isCelebrating)status.textContent=`Color Settlement ・ ${atelierI18n('atelier.status.settling',null,'中央へ集まり、落ち着いています')}`;
+  else if(isComplete)status.textContent=`Color Settlement ・ ${atelierI18n('atelier.status.settled',{ms:lastFrameMs.toFixed(1)},`この色がここに落ち着きました ・ ${lastFrameMs.toFixed(1)} ms`)}`;
   else if(paintState==='fresh'&&hasPendingFresh){
-    nextStatus=`Birth ・ ${hasMeetingFresh?atelierI18n('atelier.status.birthMeeting',null,'生まれた色同士が、互いの気配を感じています'):atelierI18n('atelier.status.birthQuiet',null,'生まれた色が、静かに呼吸しています')}`;
+    status.textContent=`Birth ・ ${hasMeetingFresh?atelierI18n('atelier.status.birthMeeting',null,'生まれた色同士が、互いの気配を感じています'):atelierI18n('atelier.status.birthQuiet',null,'生まれた色が、静かに呼吸しています')}`;
   }
-  else if(waterBusy)nextStatus=`Water ・ ${atelierI18n('atelier.status.waterFalling',null,'ぽとん。水が色へ向かっています')}`;
-  else if(waterFull)nextStatus=`Water ・ ${atelierI18n('atelier.status.waterFull',null,'水をたっぷり含んで、みずみずしい絵の具です')}`;
-  else if(wetPct>3)nextStatus=`Water ・ ${atelierI18n('atelier.status.waterFeel',{feel:waterFeel},`${waterFeel}な絵の具になりました`)}`;
-  else if(greetingStartedAt&&performance.now()-greetingStartedAt<GREETING_MS)nextStatus=`Trust ・ ${atelierI18n('atelier.status.hello',null,'最初の「こんにちは」')}`;
-  else if(performance.now()<surpriseUntil)nextStatus=`Trust ・ ${atelierI18n('atelier.status.surprised',null,'少し驚いたけれど、もう安心へ戻っています')}`;
-  else if(trustLevel>.68&&performance.now()<trustGlowUntil)nextStatus=`Trust ・ ${atelierI18n('atelier.status.trustGlow',null,'世界があなたの触れ方を覚えています')}`;
-  else if(trustLevel>.34&&resonanceReleasedAt&&resonanceEnergy>.002)nextStatus=`Trust ・ ${atelierI18n('atelier.status.dialogue',null,'やさしい対話が世界になじんでいます')}`;
-  else if(performance.now()-lastTouchAt>WORLD_SLEEP_AFTER_MS)nextStatus=`Trust ・ ${atelierI18n('atelier.status.sleep',null,'安心して、世界は静かに休んでいます')}`;
+  else if(waterBusy)status.textContent=`Water ・ ${atelierI18n('atelier.status.waterFalling',null,'ぽとん。水が色へ向かっています')}`;
+  else if(waterFull)status.textContent=`Water ・ ${atelierI18n('atelier.status.waterFull',null,'水をたっぷり含んで、みずみずしい絵の具です')}`;
+  else if(wetPct>3)status.textContent=`Water ・ ${atelierI18n('atelier.status.waterFeel',{feel:waterFeel},`${waterFeel}な絵の具になりました`)}`;
+  else if(greetingStartedAt&&performance.now()-greetingStartedAt<GREETING_MS)status.textContent=`Trust ・ ${atelierI18n('atelier.status.hello',null,'最初の「こんにちは」')}`;
+  else if(performance.now()<surpriseUntil)status.textContent=`Trust ・ ${atelierI18n('atelier.status.surprised',null,'少し驚いたけれど、もう安心へ戻っています')}`;
+  else if(trustLevel>.68&&performance.now()<trustGlowUntil)status.textContent=`Trust ・ ${atelierI18n('atelier.status.trustGlow',null,'世界があなたの触れ方を覚えています')}`;
+  else if(trustLevel>.34&&resonanceReleasedAt&&resonanceEnergy>.002)status.textContent=`Trust ・ ${atelierI18n('atelier.status.dialogue',null,'やさしい対話が世界になじんでいます')}`;
+  else if(performance.now()-lastTouchAt>WORLD_SLEEP_AFTER_MS)status.textContent=`Trust ・ ${atelierI18n('atelier.status.sleep',null,'安心して、世界は静かに休んでいます')}`;
   else if(resonanceReleasedAt&&resonanceEnergy>.002){
     const gestureKey=lastGestureKind==='circle'?'atelier.gesture.circle':lastGestureKind==='slow'?'atelier.gesture.slow':lastGestureKind==='hold'?'atelier.gesture.hold':lastGestureKind==='fast'?'atelier.gesture.fast':'atelier.gesture.touch';
     const gestureFallback=lastGestureKind==='circle'?'くるくるした対話':lastGestureKind==='slow'?'やさしく撫でた記憶':lastGestureKind==='hold'?'長く触れた安心':lastGestureKind==='fast'?'元気な動き':'触れた記憶';
-    nextStatus=`Trust ・ ${atelierI18n('atelier.status.gesture',{gesture:atelierI18n(gestureKey,null,gestureFallback)},`${gestureFallback}がなじんでいます`)}`;
+    status.textContent=`Trust ・ ${atelierI18n('atelier.status.gesture',{gesture:atelierI18n(gestureKey,null,gestureFallback)},`${gestureFallback}がなじんでいます`)}`;
   }
-  else if(sourcePaints.size<2)nextStatus=`Trust ・ ${trustLevel>.18?atelierI18n('atelier.status.returned',null,'また来てくれたことに、世界がそっと応えます'):atelierI18n('atelier.status.notice',null,'指を近づけると世界がそっと気づきます')}`;
-  else nextStatus='';
-  if(status.textContent!==nextStatus)status.textContent=nextStatus;
+  else if(sourcePaints.size<2)status.textContent=`Trust ・ ${trustLevel>.18?atelierI18n('atelier.status.returned',null,'また来てくれたことに、世界がそっと応えます'):atelierI18n('atelier.status.notice',null,'指を近づけると世界がそっと気づきます')}`;
+  else status.textContent='';
 });}
 
 
@@ -10196,27 +10023,22 @@ function updateUI(){return __deepProfileRun('updateUI',()=>{
 // cheaper *visual shading* path; mixing, recognition, recipes, persistence,
 // moisture and paint simulation remain untouched.
 const PerformanceGovernor=(()=>{
-  // v10.11.28: thermal-aware recovery. Downgrade quickly when frames become
-  // expensive, but recover slowly because a phone does not shed accumulated
-  // heat in the few seconds that the old governor used for promotion.
   const state={
     tier:'full',activeFps:60,emaFrameMs:16.7,samples:0,slowStreak:0,severeStreak:0,
-    stableStreak:0,downgrades:0,recoveries:0,heatStrikes:0,lastChangeAt:0
+    stableStreak:0,downgrades:0,recoveries:0,lastChangeAt:0
   };
-  const recoveryMultiplier=()=>Math.min(4,Math.pow(2,Math.max(0,state.heatStrikes-1)));
   const applyTier=(tier,now=performance.now())=>{
     if(state.tier===tier)return;
     const previous=state.tier;state.tier=tier;
     state.activeFps=tier==='safe'?30:tier==='balanced'?45:60;
     state.lastChangeAt=now;
-    if(previous==='full'&&tier==='balanced'){state.downgrades++;state.heatStrikes++;}
-    else if(previous==='balanced'&&tier==='safe')state.downgrades++;
+    if((previous==='full'&&tier==='balanced')||(previous==='balanced'&&tier==='safe'))state.downgrades++;
     if((previous==='safe'&&tier==='balanced')||(previous==='balanced'&&tier==='full'))state.recoveries++;
   };
   const recordFrame=(elapsed,now=performance.now())=>{
     if(!Number.isFinite(elapsed)||elapsed<=0||elapsed>250)return;
     state.samples++;const alpha=state.samples<12?.20:.08;
-    state.emaFrameMs+=(elapsed-state.emaFrameMs)*alpha;
+    state.emaFrameMs+= (elapsed-state.emaFrameMs)*alpha;
     const slow=elapsed>24||state.emaFrameMs>21.5;
     const severe=elapsed>32||state.emaFrameMs>27;
     const stable=elapsed<18.5&&state.emaFrameMs<18.8;
@@ -10226,19 +10048,14 @@ const PerformanceGovernor=(()=>{
     if(state.tier==='full'&&state.slowStreak>=24){
       applyTier('balanced',now);state.slowStreak=state.severeStreak=state.stableStreak=0;return;
     }
+    // SAFE requires sustained trouble after BALANCED; a single GC pause cannot trigger it.
     if(state.tier==='balanced'&&(state.severeStreak>=18||state.slowStreak>=90)){
       applyTier('safe',now);state.slowStreak=state.severeStreak=state.stableStreak=0;return;
     }
-    const mult=recoveryMultiplier();
-    // SAFE -> BALANCED: at least 30 s of cooling; repeated heat events extend
-    // this to 60/120 s. Stable frames alone can no longer cause a quick bounce.
-    if(state.tier==='safe'&&state.stableStreak>=240&&now-state.lastChangeAt>30000*mult){
+    if(state.tier==='safe'&&state.stableStreak>=180&&now-state.lastChangeAt>7000){
       applyTier('balanced',now);state.slowStreak=state.severeStreak=state.stableStreak=0;return;
     }
-    // BALANCED -> FULL is deliberately slower: 60/120/240 s depending on the
-    // session's heat history. This keeps visual quality high when genuinely cool
-    // without oscillating back to FULL while the device is still heat-soaked.
-    if(state.tier==='balanced'&&state.stableStreak>=360&&now-state.lastChangeAt>60000*mult){
+    if(state.tier==='balanced'&&state.stableStreak>=180&&now-state.lastChangeAt>4000){
       applyTier('full',now);state.slowStreak=state.severeStreak=state.stableStreak=0;
     }
   };
@@ -10248,14 +10065,13 @@ const PerformanceGovernor=(()=>{
     status:()=>Object.freeze({
       tier:state.tier,activeFps:state.activeFps,emaFrameMs:Number(state.emaFrameMs.toFixed(2)),
       samples:state.samples,slowStreak:state.slowStreak,severeStreak:state.severeStreak,
-      stableStreak:state.stableStreak,downgrades:state.downgrades,recoveries:state.recoveries,
-      heatStrikes:state.heatStrikes,recoveryMultiplier:recoveryMultiplier(),lastChangeAt:state.lastChangeAt
+      stableStreak:state.stableStreak,downgrades:state.downgrades,recoveries:state.recoveries,lastChangeAt:state.lastChangeAt
     })
   });
 })();
 
 window.ShizukuPerformance=Object.freeze({
-  version:'10.11.28-thermal-governor',
+  version:'10.11.11-thermal-guard',
   status:()=>PerformanceGovernor.status(),
   cacheStatus:()=>Object.freeze({freshPaint:__freshPaintSpriteCache.size,waterDrop:__waterDropSpriteCache.size})
 });
@@ -10827,7 +10643,7 @@ const ResetLifecycle={
     MixLifecycle.clearCompletionState(resetNow);
   },
   clearWorldState(resetNow){
-    firstFriend=null;paintPortalPeek=null;returnedShizukuruDesigns=null;paintPortalReadyForPeek=false;resetPortalPeekWindow();paintPortalPulseAt=0;paintPortalPulseStrength=0;
+    firstFriend=null;paintPortalPeek=null;paintPortalReadyForPeek=false;resetPortalPeekWindow();paintPortalPulseAt=0;paintPortalPulseStrength=0;
     harmonyLevel=0;harmonyTarget=0;harmonyPulseStartedAt=0;relaxUntil=0;elasticUntil=0;lastBrushSpeed=0;hasGestureSnapshot=false;gestureDistance=0;lastTouchAt=resetNow;dryingPausedUntil=0;
     lastEncounterAt=resetNow;encounterEnergy=0;resonanceReleasedAt=0;resonanceEnergy=0;presencePointer.active=false;
     worldAwake=0;greetingStartedAt=0;rebirthStartedAt=0;shizukuLastDangerAt=resetNow;safeReturnStartedAt=0;
@@ -13169,14 +12985,32 @@ function applyDrawLockUI(){
   drawLockButton.textContent=appText(drawLocked?'lock.unlock':'lock.lock');
   drawLockButton.setAttribute('aria-label',appText(drawLocked?'lock.unlockAria':'lock.lockAria'));
 }
+function shizukuruNativePlatform(){
+  if(window.ShizukuruIOSLock&&typeof window.ShizukuruIOSLock.setLocked==='function')return 'ios';
+  if(window.ShizukuruAndroidLock&&typeof window.ShizukuruAndroidLock.setLocked==='function')return 'android';
+  return 'web';
+}
 function setNativeNavigationLock(locked){
   try{
+    if(window.ShizukuruIOSLock&&typeof window.ShizukuruIOSLock.setLocked==='function'){
+      window.ShizukuruIOSLock.setLocked(Boolean(locked));
+      return true;
+    }
     if(window.ShizukuruAndroidLock&&typeof window.ShizukuruAndroidLock.setLocked==='function'){
       window.ShizukuruAndroidLock.setLocked(Boolean(locked));
       return true;
     }
   }catch(_error){}
   return false;
+}
+function nativeLockPendingHint(){
+  return shizukuruNativePlatform()==='ios' ? 'お子さま用ロックを有効にしています…' : 'Androidの確認画面でロックを許可してください';
+}
+function nativeLockEnabledHint(){
+  return shizukuruNativePlatform()==='ios' ? '🔒 お子さま用ロックを有効にしました' : '🔒 Android操作をロックしました';
+}
+function nativeLockHoldingHint(){
+  return shizukuruNativePlatform()==='ios' ? '🔒 お子さま用ロック中' : '🔒 Android操作ロック中';
 }
 function setDrawParentLock(next,{announce=true}={}){
   const target=Boolean(next);
@@ -13186,7 +13020,7 @@ function setDrawParentLock(next,{announce=true}={}){
   // Android's pinning dialog is authoritative.  Do not switch the Web UI into
   // the locked state until the native Activity confirms Lock Task mode.
   if(target&&setNativeNavigationLock(true)){
-    if(announce)showDrawLockHint('Androidの確認画面でロックを許可してください');
+    if(announce)showDrawLockHint(nativeLockPendingHint());
     setDrawSettingsOpen(false);
     return;
   }
@@ -13195,7 +13029,7 @@ function setDrawParentLock(next,{announce=true}={}){
   applyDrawLockUI();
   if(!target)setNativeNavigationLock(false);
   pulseDrawLockMark();
-  if(announce)showDrawLockHint(drawLocked?'🔒 Android操作をロックしました':'🔓 ロックを解除しました');
+  if(announce)showDrawLockHint(drawLocked?nativeLockEnabledHint():'🔓 ロックを解除しました');
   if(drawLocked)setDrawSettingsOpen(false);
 }
 function cancelDrawUnlockHold(){
@@ -13219,7 +13053,7 @@ function endDrawUnlockHold(){
   if(!drawLocked){cancelDrawUnlockHold();return}
   const elapsed=drawUnlockStartedAt?performance.now()-drawUnlockStartedAt:0;
   cancelDrawUnlockHold();
-  if(!drawUnlockDidFire){applyDrawLockUI();showDrawLockHint(elapsed>180?'🔓 解除するには2.4秒長押し':'🔒 Android操作ロック中');}
+  if(!drawUnlockDidFire){applyDrawLockUI();showDrawLockHint(elapsed>180?'🔓 解除するには2.4秒長押し':nativeLockHoldingHint());}
 }
 
 drawLockButton.addEventListener('click',event=>{
@@ -13241,7 +13075,7 @@ window.ShizukuruDrawLock={
     drawLocked=next;
     applyDrawLockUI();
     pulseDrawLockMark();
-    showDrawLockHint(next?'🔒 Android操作をロックしました':'ロックを開始しませんでした');
+    showDrawLockHint(next?nativeLockEnabledHint():'ロックを開始しませんでした');
   }
 };
 applyDrawLockUI();
@@ -13461,6 +13295,8 @@ window.ShizukuV831Manifest=Object.freeze({
     // v10.3.0: on portrait tablets, keep the palette-side cue near the
     // physical left edge of the play area, matching the phone composition.
     // Landscape keeps its already-approved placement.
+    // v10.11.31: keep the lower-left pinch cue anchored to the viewport edge
+    // on every portrait phone/tablet. Vertical placement still follows the dish.
     const viewportLeft=18;
     const cueLeft=splitQuery.matches
       ? dishRect.left-paletteRect.left-thumbW*.58
@@ -13559,7 +13395,11 @@ window.ShizukuV831Manifest=Object.freeze({
       const verticalPadding=parseFloat(cs.paddingTop||0)+parseFloat(cs.paddingBottom||0);
       const usableH=Math.max(0,palette.clientHeight-verticalPadding-2);
       const designTarget=Math.min(382,vp.width*.72,vp.height*.42);
-      /* Viewport-driven composition shared across Android/iOS; no OS branch. */
+
+      /* v10.11.30: balanced viewport-driven composition (OS-agnostic).
+         Keep the dish visually substantial on short portrait screens while
+         reserving a proportional tube-to-dish breathing gap. The same measured
+         rule is used on iOS and Android; no OS/user-agent branch is involved. */
       let compositionCap=usableH;
       const tube=document.getElementById('masterBottle');
       if(tube){
@@ -13942,7 +13782,7 @@ window.ShizukuV831Manifest=Object.freeze({
       'ency.tab.all':'すべて','ency.tab.official':'📖 公式色','ency.tab.mine':'✨ 自分の色','ency.tab.provisional':'🧪 研究中','ency.tab.gift':'🎁 贈り物',
       'aria.encyTabs':'図鑑の項目を選ぶ','aria.familyJump':'色系統へ移動',
       'hint.close':'ヒントを閉じる','hint.kicker':'👣 公式色に近い色ができた！','hint.current':'いまの色','hint.target':'めざす色',
-      'detail.close':'詳細を閉じる','detail.kind.official':'📖 公式色図鑑','detail.recipe':'絵の具の配合','detail.secret.title':'🔐 ひみつのレシピ','detail.secret.note':'見つけた色だけに、そっと残る作り方','detail.secret.count':'×{count}','detail.secret.waterName':'水','detail.secret.water':'💧 水 ×{count}','detail.secret.noWater':'💧 水なし',
+      'detail.close':'詳細を閉じる','detail.kind.official':'📖 公式色図鑑','detail.recipe':'絵の具の配合','detail.secret.title':'🔐 ひみつのレシピ','detail.secret.note':'見つけた色だけに、そっと残る作り方','detail.secret.count':'×{count}','detail.secret.water':'💧 水 ×{count}','detail.secret.noWater':'💧 水なし',
       'detail.forgetAria':'3秒長押しでこの発見をわすれる',
       'reset.body':'発見した公式色、近い色の足あと、わたしの発見色がすべて消えます。\nこの操作は元に戻せません。',
       'gift.resetTitle':'贈り物を最初からにする？','gift.resetBody':'受け取った贈り物と、次の贈り物までの回数を初期化します。\n色図鑑や描いた作品は消えません。',
@@ -13990,7 +13830,7 @@ window.ShizukuV831Manifest=Object.freeze({
       'research.old.veryLittle':'ほんの少し','research.old.little':'少し','research.old.more':'もう少し',
       'research.old.increase':'増やす','research.old.reduce':'抑える',
       'research.old.lighten':'白を少し足して明るくする','research.old.darken':'黒をほんの少し足して落ち着かせる',
-      'detail.recipe':'絵の具の配合','detail.secret.title':'🔐 ひみつのレシピ','detail.secret.note':'見つけた色だけに、そっと残る作り方','detail.secret.count':'×{count}','detail.secret.waterName':'水','detail.secret.water':'💧 水 ×{count}','detail.secret.noWater':'💧 水なし','detail.forgotStatus':'この色との出会いを、いったんわすれました',
+      'detail.recipe':'絵の具の配合','detail.secret.title':'🔐 ひみつのレシピ','detail.secret.note':'見つけた色だけに、そっと残る作り方','detail.secret.count':'×{count}','detail.secret.water':'💧 水 ×{count}','detail.secret.noWater':'💧 水なし','detail.forgotStatus':'この色との出会いを、いったんわすれました',
       'detail.forgot':'わすれました','common.done':'完了',
       'palette.bookColor':'図鑑の色','palette.addBook':'{name}：共通容器へ入れる','palette.emptyBook':'図鑑から色を選ぶ空きスロット',
       'palette.addedBookAria':'{name}。図鑑から追加した色','palette.emptyBookAria':'図鑑色の空きスロット',
@@ -14244,7 +14084,7 @@ window.ShizukuV831Manifest=Object.freeze({
       'ency.tab.all':'All','ency.tab.official':'📖 Official','ency.tab.mine':'✨ My Colors','ency.tab.provisional':'🧪 Under Study','ency.tab.gift':'🎁 Gifts',
       'aria.encyTabs':'Choose a Color Book section','aria.familyJump':'Jump to a color family',
       'hint.close':'Close hint','hint.kicker':'👣 You made a color close to an official color!','hint.current':'Current color','hint.target':'Target color',
-      'detail.close':'Close details','detail.kind.official':'📖 Official Color','detail.recipe':'Paint mixture','detail.secret.title':'🔐 Secret recipe','detail.secret.note':'A little recipe kept only for colors you have discovered','detail.secret.count':'×{count}','detail.secret.waterName':'Water','detail.secret.water':'💧 Water ×{count}','detail.secret.noWater':'💧 No water',
+      'detail.close':'Close details','detail.kind.official':'📖 Official Color','detail.recipe':'Paint mixture','detail.secret.title':'🔐 Secret recipe','detail.secret.note':'A little recipe kept only for colors you have discovered','detail.secret.count':'×{count}','detail.secret.water':'💧 Water ×{count}','detail.secret.noWater':'💧 No water',
       'detail.forgetAria':'Hold for 3 seconds to forget this discovery',
       'reset.body':'All official discoveries, near-color trails, and your own discovered colors will be erased.\nThis cannot be undone.',
       'gift.resetTitle':'Start gifts over?','gift.resetBody':'Received gifts and the count toward the next gift will be reset.\nYour Color Book and drawings will not be erased.',
@@ -14292,7 +14132,7 @@ window.ShizukuV831Manifest=Object.freeze({
       'research.old.veryLittle':'just a touch','research.old.little':'a little','research.old.more':'a bit more',
       'research.old.increase':'Add more {tone}','research.old.reduce':'Tone down the {tone}',
       'research.old.lighten':'Add a little white to make it lighter','research.old.darken':'Add just a touch of black to calm it down',
-      'detail.recipe':'Paint mixture','detail.secret.title':'🔐 Secret recipe','detail.secret.note':'A little recipe kept only for colors you have discovered','detail.secret.count':'×{count}','detail.secret.waterName':'Water','detail.secret.water':'💧 Water ×{count}','detail.secret.noWater':'💧 No water','detail.forgotStatus':'This meeting with the color has been forgotten for now.',
+      'detail.recipe':'Paint mixture','detail.secret.title':'🔐 Secret recipe','detail.secret.note':'A little recipe kept only for colors you have discovered','detail.secret.count':'×{count}','detail.secret.water':'💧 Water ×{count}','detail.secret.noWater':'💧 No water','detail.forgotStatus':'This meeting with the color has been forgotten for now.',
       'detail.forgot':'Forgotten','common.done':'Done',
       'palette.bookColor':'Color Book color','palette.addBook':'{name}: put into the shared bottle','palette.emptyBook':'Empty slot — choose a Color Book color',
       'palette.addedBookAria':'{name}, added from the Color Book','palette.emptyBookAria':'Empty Color Book color slot',
@@ -15450,11 +15290,8 @@ window.ShizukuV831Manifest=Object.freeze({
           break;
         }
       }else{
-        const nodes=[...mutation.addedNodes,...mutation.removedNodes];
-        relevant=nodes.some(node=>node instanceof Element &&
-          (node.matches('.discovery-card,.color-save-card') ||
-           node.querySelector?.('.discovery-card,.color-save-card')));
-        if(relevant)break;
+        relevant=true;
+        break;
       }
     }
     if(relevant)requestAnimationFrame(sync);
@@ -16349,6 +16186,7 @@ window.ShizukuruDevelopmentSettings=Object.freeze({
 
   const VERSION='1.3.0';
   const QUIET_DELAY_MS=180;
+  const POLL_INTERVAL_MS=120;
   let ready=false;
   let readyGiftId=null;
   let quietSince=0;
@@ -16407,11 +16245,6 @@ window.ShizukuruDevelopmentSettings=Object.freeze({
     return snapshot();
   };
 
-  const scheduleEvaluate=(delay=QUIET_DELAY_MS)=>{
-    if(pollTimer)window.clearTimeout(pollTimer);
-    pollTimer=window.setTimeout(()=>{pollTimer=0;evaluate();},Math.max(16,delay));
-  };
-
   const evaluate=()=>{
     const gift=reservedGift();
     if(!gift){
@@ -16425,9 +16258,7 @@ window.ShizukuruDevelopmentSettings=Object.freeze({
       return snapshot();
     }
     if(!quietSince)quietSince=Date.now();
-    const quietFor=Date.now()-quietSince;
-    if(quietFor>=QUIET_DELAY_MS)setReady(gift);
-    else scheduleEvaluate(QUIET_DELAY_MS-quietFor);
+    if(Date.now()-quietSince>=QUIET_DELAY_MS)setReady(gift);
     return snapshot();
   };
 
@@ -16440,6 +16271,7 @@ window.ShizukuruDevelopmentSettings=Object.freeze({
       attributeFilter:['class','aria-hidden','open'],
       childList:true
     });
+    pollTimer=window.setInterval(evaluate,POLL_INTERVAL_MS);
     window.addEventListener('focus',evaluate,{passive:true});
     window.addEventListener('shizukuru-gift-reserved',evaluate,{passive:true});
     document.addEventListener('visibilitychange',()=>{if(!document.hidden)evaluate()});
@@ -16448,7 +16280,7 @@ window.ShizukuruDevelopmentSettings=Object.freeze({
   };
 
   const stop=()=>{
-    if(pollTimer)window.clearTimeout(pollTimer);
+    if(pollTimer)window.clearInterval(pollTimer);
     pollTimer=0;
     observer?.disconnect();
     observer=null;
