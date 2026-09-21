@@ -1,4 +1,4 @@
-const CACHE_NAME='shizukuru-pwa-v10.11.23-code23';
+const CACHE_NAME='shizukuru-pwa-v10.8.24';
 const APP_SHELL=[
   './',
   './index.html',
