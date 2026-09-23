@@ -1,5 +1,11 @@
 // Shizukuru v10.10.0 — it language pack.
 export const dictionary = Object.freeze({
+  "capacity.research.full": "I colori in studio sono al completo.",
+  "capacity.my.full": "I tuoi colori personali sono al completo.",
+  "capacity.choice.copy": "Per conservare il nuovo colore, riordina prima un colore dal Libro dei colori.",
+  "capacity.choice.cleanup": "Riordina il Libro dei colori",
+  "capacity.choice.discard": "Non conservare questo colore",
+
   "nav.draw": "Disegna",
   "nav.encyclopedia": "Libro dei colori",
   "action.paint": "Colore",

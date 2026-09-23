@@ -1,5 +1,11 @@
 // Shizukuru v10.10.0 — th language pack.
 export const dictionary = Object.freeze({
+  "capacity.research.full": "สีที่กำลังศึกษาเต็มแล้ว",
+  "capacity.my.full": "สีของฉันเต็มแล้ว",
+  "capacity.choice.copy": "หากต้องการเก็บสีใหม่ โปรดจัดสีออกจากสมุดสีหนึ่งสีก่อน",
+  "capacity.choice.cleanup": "จัดสมุดสี",
+  "capacity.choice.discard": "ไม่เก็บสีนี้",
+
   "nav.draw": "วาดรูป",
   "nav.encyclopedia": "สมุดสี",
   "action.paint": "สี",

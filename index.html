@@ -15,6 +15,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Shizukuru">
 <title>Shizukuru Mixing Lab v10.6.2 Research Reproduction Promotion – v10.4.1 – Seamless Drawing</title>
+<!-- v10.11.60 code60: 16-language capacity UI + live-owned research hint fallback -->
 <!-- v10.8.14: completion color truth + recipe-repeat color gate -->
 <!-- v10.4.1 Seamless Drawing / Android Touch Tune
      - current stroke is rendered on two temporary opaque layers and composited once
@@ -1131,6 +1132,8 @@ canvas{width:100%;height:100%;aspect-ratio:1 / 1}
 .ency-family-count{margin-left:auto;padding:3px 7px;border-radius:999px;background:#f0ebe4;color:#8b7e73;font-size:.56rem}
 .ency-family-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
 .ency-empty{padding:28px 16px;text-align:center;color:var(--color-text-muted);font-size:.72rem;font-weight:850;line-height:1.7}
+.capacity-notice{margin:4px 0 14px;padding:14px 16px;border-radius:18px;background:#fff8e9;border:1px solid #ead8b8;text-align:center;color:#765f46;font-size:.74rem;font-weight:900;line-height:1.7;white-space:pre-line;box-shadow:0 5px 14px rgba(76,57,35,.07)}
+.capacity-choice-overlay{position:fixed;inset:0;z-index:120;background:rgba(45,36,29,.42);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .2s}.capacity-choice-overlay.show{opacity:1;pointer-events:auto}.capacity-choice-card{width:min(92vw,390px);border-radius:28px;background:#fffdf9;padding:24px 20px 20px;box-shadow:0 22px 72px rgba(45,36,29,.32);text-align:center;transform:scale(.94);transition:transform .24s cubic-bezier(.2,1.15,.3,1)}.capacity-choice-overlay.show .capacity-choice-card{transform:scale(1)}.capacity-choice-icon{font-size:2rem;margin-bottom:8px}.capacity-choice-title{font-size:1.08rem;font-weight:950;color:#66503d;line-height:1.55}.capacity-choice-copy{margin:10px 0 18px;font-size:.84rem;font-weight:850;color:#7b6959;line-height:1.75}.capacity-choice-actions{display:grid;gap:10px}.capacity-choice-cleanup,.capacity-choice-discard{min-height:50px;border:0;border-radius:17px;font:inherit;font-weight:950}.capacity-choice-cleanup{background:#f2df9c;color:#5f4c2f;box-shadow:0 5px 14px rgba(105,78,34,.13)}.capacity-choice-discard{background:#f3f0eb;color:#756b62}
 .hint-level{display:inline-flex;align-items:center;gap:5px;margin:0 auto 8px;padding:5px 9px;border-radius:999px;background:#f2ede6;color:#7a6d62;font-size:.6rem;font-weight:950}
 .hint-level.level-3{background:#ffe8b8;color:#7d5316}
 .near-hint-card.level-3{box-shadow:0 22px 75px rgba(45,36,29,.33),inset 0 0 0 3px rgba(240,177,61,.18)}
@@ -3500,6 +3503,7 @@ html[data-text-direction="rtl"] :is(canvas,.draw-shell,.draw-stage,.draw-toolbar
   </section>
 </div>
 <div class="discovery-card" id="discoveryCard" aria-live="polite"></div>
+<div class="capacity-choice-overlay" id="capacityChoiceOverlay" aria-hidden="true"><section class="capacity-choice-card" role="dialog" aria-modal="true" aria-labelledby="capacityChoiceTitle"><div class="capacity-choice-icon">🎨</div><div class="capacity-choice-title" id="capacityChoiceTitle"></div><div class="capacity-choice-copy" id="capacityChoiceCopy"></div><div class="capacity-choice-actions"><button type="button" class="capacity-choice-cleanup" id="capacityChoiceCleanup">色図鑑をおかたづけする</button><button type="button" class="capacity-choice-discard" id="capacityChoiceDiscard">このいろは のこさない</button></div></section></div>
 <div class="research-overlay" id="researchOverlay" aria-hidden="true"><section class="research-card" role="dialog" aria-modal="true"><div class="research-head"><div class="research-title" id="researchTitle">✨ しずくるの研究ノート</div><div class="research-level" id="researchLevel">ヒント 1</div><div class="research-big-swatch" id="researchSwatch"></div><div class="research-copy" id="researchCopy">図鑑にない色を仮発見しました。</div></div><div class="recipe-hint" id="researchHintSection"><div class="recipe-hint-title">しずくると考える、次の一歩</div><div id="recipeHintRows"></div></div><div id="researchNamingSection" hidden><div class="research-copy">もう一度出会えた色です。正式な名前をつけてあげよう。</div><div class="name-options" id="nameOptions"></div><input class="custom-name" id="customColorName" maxlength="24" placeholder="じぶんで名前をつける"><div class="name-error" id="customNameError" aria-live="polite"></div></div><div class="research-actions"><button class="research-close" id="researchClose">とじる</button><button class="target-cancel" id="researchTargetCancel" hidden>あとで作る</button><button class="research-try" id="researchTry">作ってみる</button><button class="research-save" id="researchSave" hidden>この名前で正式発見</button><button class="research-forget" id="researchForget" aria-label="3秒長押しでこの仮発見をわすれる"><span>わすれる</span><small>長押し</small></button></div><div class="research-recipe-journal" id="researchRecipeJournal"><div class="research-recipe-title">今回の作り方</div><div class="research-recipe-sub">色の丸を押した数だけ、研究ノートにスタンプしよう</div><div class="research-stamp-grid" id="researchStampGrid"></div><div class="research-water-control"><span class="research-water-icon">💧</span><button type="button" id="researchWaterMinus" aria-label="水を減らす">−</button><div class="research-water-drops" id="researchWaterDrops" aria-live="polite"></div><button type="button" id="researchWaterPlus" aria-label="水を増やす">＋</button></div><button type="button" class="research-record-save" id="researchRecordSave">この作り方を記録する</button><div class="research-history" id="researchHistory"></div></div></section></div>
 
 <div class="near-hint-overlay" id="nearHintOverlay" aria-hidden="true">
@@ -3937,7 +3941,7 @@ const PersistenceLifecycle={
 const ColorBookState={
   saveOfficial(){return PersistenceLifecycle.writeJSON(DISCOVERY_STORAGE_KEY,discoveredColors)},
   saveNearMisses(){return PersistenceLifecycle.writeJSON(NEAR_MISS_STORAGE_KEY,nearMisses)},
-  saveMine(){return PersistenceLifecycle.writeJSON(MY_DISCOVERY_STORAGE_KEY,myDiscoveries.slice(0,MAX_MY_COLORS))},
+  saveMine(){return PersistenceLifecycle.writeJSON(MY_DISCOVERY_STORAGE_KEY,myDiscoveries)},
   refresh(){renderEncyclopedia()},
   commitOfficial(expectedName=null){
     // v10.11.2: write the official discovery synchronously before any visual
@@ -3965,22 +3969,105 @@ const ColorBookState={
     discoveredColors.splice(0,discoveredColors.length);
     nearMisses={};
     myDiscoveries.splice(0,myDiscoveries.length);
+    pendingCapacityColors={research:null,my:null};
     PersistenceLifecycle.remove([
       DISCOVERY_STORAGE_KEY,
       LEGACY_DISCOVERY_STORAGE_KEY,
       NEAR_MISS_STORAGE_KEY,
-      MY_DISCOVERY_STORAGE_KEY
+      MY_DISCOVERY_STORAGE_KEY,
+      PENDING_CAPACITY_COLOR_KEY
     ]);
     this.refresh();
   }
 };
 const REPRO_DISTANCE=30; // 自分だけの色へ近づいた範囲
 const MY_CONFIRM_DISTANCE=11; // 十分近いと正式発見
-const MAX_MY_COLORS=48;
+const MAX_RESEARCH_COLORS=30; // production
+const MAX_PERSONAL_COLORS=100; // production
+const PENDING_CAPACITY_COLOR_KEY='shizuku_pending_capacity_color_v2';
 let myDiscoveries=[];
 let activeResearchId=null;
-const storedMyDiscoveries=PersistenceLifecycle.readJSON(MY_DISCOVERY_STORAGE_KEY,[]);myDiscoveries=Array.isArray(storedMyDiscoveries)?storedMyDiscoveries.slice(0,MAX_MY_COLORS).map(x=>{if(x.status==='draft')x.status='pending';if(x.status==='pending')x.name='';return x}):[]
+const legacyPendingCapacityColor=PersistenceLifecycle.readJSON('shizuku_pending_capacity_color_v1',null);
+let pendingCapacityColors=PersistenceLifecycle.readJSON(PENDING_CAPACITY_COLOR_KEY,{research:null,my:null});
+if(!pendingCapacityColors||typeof pendingCapacityColors!=='object')pendingCapacityColors={research:null,my:null};
+if(!('research' in pendingCapacityColors))pendingCapacityColors.research=null;
+if(!('my' in pendingCapacityColors))pendingCapacityColors.my=null;
+if(legacyPendingCapacityColor?.kind&&legacyPendingCapacityColor?.entry&&!pendingCapacityColors[legacyPendingCapacityColor.kind]){
+  pendingCapacityColors[legacyPendingCapacityColor.kind]=legacyPendingCapacityColor;
+  PersistenceLifecycle.remove('shizuku_pending_capacity_color_v1');
+  PersistenceLifecycle.writeJSON(PENDING_CAPACITY_COLOR_KEY,pendingCapacityColors);
+}
+const storedMyDiscoveries=PersistenceLifecycle.readJSON(MY_DISCOVERY_STORAGE_KEY,[]);myDiscoveries=Array.isArray(storedMyDiscoveries)?storedMyDiscoveries.map(x=>{if(x.status==='draft')x.status='pending';if(x.status==='pending')x.name='';return x}):[]
 function saveMyDiscoveries(){return ColorBookState.saveMine()}
+function researchColorCount(){return myDiscoveries.filter(x=>x.status!=='confirmed'&&x.status!=='awaiting-name').length}
+function personalColorCount(){return myDiscoveries.filter(x=>x.status==='confirmed'&&x.name).length}
+function savePendingCapacityColors(){return PersistenceLifecycle.writeJSON(PENDING_CAPACITY_COLOR_KEY,pendingCapacityColors)}
+function capacityMessage(kind){
+  return kind==='my'
+    ?appText('capacity.my.full',null,'自分だけの色がいっぱいです')
+    :appText('capacity.research.full',null,'研究中の色がいっぱいです');
+}
+function showCapacityChoice(kind){
+  const overlay=document.getElementById('capacityChoiceOverlay');
+  document.getElementById('capacityChoiceTitle').textContent=capacityMessage(kind);
+  document.getElementById('capacityChoiceCopy').textContent=appText('capacity.choice.copy',null,'新しい色を残すには、色図鑑からひとつお片づけしてください。');
+  document.getElementById('capacityChoiceCleanup').textContent=appText('capacity.choice.cleanup',null,'色図鑑をおかたづけする');
+  document.getElementById('capacityChoiceDiscard').textContent=appText('capacity.choice.discard',null,'この色は残さない');
+  overlay.dataset.kind=kind;overlay.classList.add('show');overlay.setAttribute('aria-hidden','false');
+}
+function closeCapacityChoice(){const overlay=document.getElementById('capacityChoiceOverlay');overlay.classList.remove('show');overlay.setAttribute('aria-hidden','true')}
+function openCapacityCleanup(kind){
+  closeCapacityChoice();
+  capacityCleanupKind=kind;
+  setEncyclopediaItemCategory(kind==='my'?'my':'provisional');
+  openEncyclopedia();
+  requestAnimationFrame(()=>{const target=kind==='research'?document.getElementById('ency-provisional'):document.getElementById('encyPanelAll');target?.scrollIntoView?.({behavior:'smooth',block:'start'})});
+}
+function holdCapacityColor(kind,entry,delay=0){
+  pendingCapacityColors[kind]={kind,entry:{...entry},heldAt:new Date().toISOString()};
+  savePendingCapacityColors();
+  setTimeout(()=>showCapacityChoice(kind),Math.max(0,delay));
+  return true;
+}
+function discardPendingCapacityColor(kind){
+  pendingCapacityColors[kind]=null;savePendingCapacityColors();closeCapacityChoice();
+}
+function promotePendingCapacityColor(kind){
+  const held=pendingCapacityColors[kind];
+  if(!held?.entry)return false;
+  // v10.11.59: capacity is derived only from the live encyclopedia array.
+  // Never rely on a previous/full flag. A successful forget must immediately
+  // create one real slot in the corresponding category.
+  const liveCount=kind==='my'?personalColorCount():researchColorCount();
+  const limit=kind==='my'?MAX_PERSONAL_COLORS:MAX_RESEARCH_COLORS;
+  if(liveCount>=limit)return false;
+  const entry={...held.entry};
+  if(!myDiscoveries.some(x=>x.id===entry.id))myDiscoveries.unshift(entry);
+  pendingCapacityColors[kind]=null;
+  savePendingCapacityColors();
+  saveMyDiscoveries();
+  capacityCleanupKind=null;
+  encyclopediaItemCategory='all';
+  renderEncyclopedia();
+  const catalog=document.getElementById('encyCatalog');
+  if(catalog)catalog.scrollTop=0;
+  if(kind==='my'){
+    closeEncyclopedia();
+    setTimeout(()=>showResearchNote(entry,true),180);
+  }
+  return true;
+}
+function promotePendingCapacityColorForForgottenKind(forgottenKind){
+  if(forgottenKind!=='research'&&forgottenKind!=='my')return false;
+  return promotePendingCapacityColor(forgottenKind);
+}
+function promoteAnyPendingCapacityColor(){
+  const researchPromoted=promotePendingCapacityColor('research');
+  const myPromoted=promotePendingCapacityColor('my');
+  return researchPromoted||myPromoted;
+}
+document.getElementById('capacityChoiceCleanup').addEventListener('click',()=>openCapacityCleanup(document.getElementById('capacityChoiceOverlay').dataset.kind||'research'));
+document.getElementById('capacityChoiceDiscard').addEventListener('click',()=>discardPendingCapacityColor(document.getElementById('capacityChoiceOverlay').dataset.kind||'research'));
 function ingredientDisplayName(hex){
   const h=String(hex||'').toLowerCase();
   const base=COLORS.find(c=>c[1].toLowerCase()===h);
@@ -5087,11 +5174,14 @@ const CompletionDiscoveryLifecycle=Object.freeze({
     }
     const repro=classification.reproduction;
     if(classification.kind==='my-confirmed'){
-      repro.entry.status='awaiting-name';repro.entry.confirmedAt=new Date().toISOString();repro.entry.reproducedHex=hex;repro.entry.reproDistance=repro.dist;repro.entry.reproducedProcess=ColorBookRecipeProcess.fromCompletion(state);repro.entry.name='';saveMyDiscoveries();renderEncyclopedia();ShizukuSound.playCompletion('discovery');
-      const discoveryCard=document.getElementById('discoveryCard');
-      clearTimeout(discoveryPresentationHideTimer);
-      discoveryCard?.classList.remove('show');
-      discoveryCard?.setAttribute('aria-hidden','true');
+      const confirmedEntry={...repro.entry,status:'awaiting-name',confirmedAt:new Date().toISOString(),reproducedHex:hex,reproDistance:repro.dist,reproducedProcess:ColorBookRecipeProcess.fromCompletion(state),name:''};
+      if(personalColorCount()>=MAX_PERSONAL_COLORS){
+        myDiscoveries=myDiscoveries.filter(x=>x.id!==repro.entry.id);saveMyDiscoveries();renderEncyclopedia();
+        ShizukuSound.playCompletion('discovery');DiscoveryPresentation.show({name:appText('research.progress.workingColor'),emoji:'✨',hex},'my-ready');
+        holdCapacityColor('my',confirmedEntry,2650);return;
+      }
+      Object.assign(repro.entry,confirmedEntry);saveMyDiscoveries();renderEncyclopedia();ShizukuSound.playCompletion('discovery');
+      const discoveryCard=document.getElementById('discoveryCard');clearTimeout(discoveryPresentationHideTimer);discoveryCard?.classList.remove('show');discoveryCard?.setAttribute('aria-hidden','true');
       DiscoveryPresentation.openResearchLater(repro.entry,true,180);return;
     }
     if(classification.kind==='my-near'){
@@ -5120,34 +5210,29 @@ const CompletionDiscoveryLifecycle=Object.freeze({
     const existingRecipe=findExistingRecipe(currentRecipe);
     if(existingRecipe){
       const sameCompletedColor=existingRecipeMatchesCompletedColor(existingRecipe,hex);
+      const sameRecipeWaterClose=existingRecipe.kind==='provisional'&&Math.abs(ColorBookRecipeProcess.forEntry(existingRecipe.entry).waterLevel-Number(state.waterLevel||0))<=0.08;
+      const reproducibleRecipeMatch=sameCompletedColor||sameRecipeWaterClose;
 
       // v10.8.14: The same pigment recipe is not enough to prove a provisional
       // color was reproduced. Promote only when the CURRENT completed color is
       // also close to the original research color.
-      if(existingRecipe.kind==='provisional'&&existingRecipe.entry.status==='pending'&&sameCompletedColor){
+      if(existingRecipe.kind==='provisional'&&existingRecipe.entry.status==='pending'&&reproducibleRecipeMatch){
         const research=existingRecipe.entry;
-        research.status='awaiting-name';
-        research.confirmedAt=new Date().toISOString();
-        research.reproducedHex=hex;
-        research.reproDistance=ColorClassification.distanceHex(hex,research.hex);
-        research.reproducedProcess=ColorBookRecipeProcess.fromCompletion(state);
-        research.name='';
-        research.attempts=(research.attempts||1)+1;
-        research.lastHex=hex;
-        research.updatedAt=research.confirmedAt;
-        saveMyDiscoveries();renderEncyclopedia();ShizukuSound.playCompletion('discovery');
-        const discoveryCard=document.getElementById('discoveryCard');
-        clearTimeout(discoveryPresentationHideTimer);
-        discoveryCard?.classList.remove('show');
-        discoveryCard?.setAttribute('aria-hidden','true');
-        DiscoveryPresentation.openResearchLater(research,true,180);
-        return;
+        const confirmedEntry={...research,status:'awaiting-name',confirmedAt:new Date().toISOString(),reproducedHex:hex,reproDistance:ColorClassification.distanceHex(hex,research.hex),reproducedProcess:ColorBookRecipeProcess.fromCompletion(state),name:'',attempts:(research.attempts||1)+1,lastHex:hex,updatedAt:new Date().toISOString()};
+        if(personalColorCount()>=MAX_PERSONAL_COLORS){
+          myDiscoveries=myDiscoveries.filter(x=>x.id!==research.id);saveMyDiscoveries();renderEncyclopedia();
+          ShizukuSound.playCompletion('discovery');DiscoveryPresentation.show({name:appText('research.progress.workingColor'),emoji:'✨',hex},'my-ready');
+          holdCapacityColor('my',confirmedEntry,2650);return;
+        }
+        Object.assign(research,confirmedEntry);saveMyDiscoveries();renderEncyclopedia();ShizukuSound.playCompletion('discovery');
+        const discoveryCard=document.getElementById('discoveryCard');clearTimeout(discoveryPresentationHideTimer);discoveryCard?.classList.remove('show');discoveryCard?.setAttribute('aria-hidden','true');
+        DiscoveryPresentation.openResearchLater(research,true,180);return;
       }
 
       // If this research color has already reached the naming stage, making
       // it again must resume naming instead of incorrectly saying that the
       // unnamed research color is already discovered.
-      if(existingRecipe.kind==='provisional'&&existingRecipe.entry.status==='awaiting-name'&&sameCompletedColor){
+      if(existingRecipe.kind==='provisional'&&existingRecipe.entry.status==='awaiting-name'&&reproducibleRecipeMatch){
         existingRecipe.entry.reproducedHex=hex;
         existingRecipe.entry.updatedAt=new Date().toISOString();
         saveMyDiscoveries();renderEncyclopedia();ShizukuSound.playCompletion('discovery');
@@ -5213,7 +5298,11 @@ function startProvisionalDiscovery(hex,recipe=recipeSnapshot()){
   }
   const id='my_'+Date.now().toString(36);
   const entry={id,hex,status:'pending',name:'',candidates:[],recipe,mixing:ColorBookRecipeProcess.fromRecipe(recipe),attempts:1,lastHex:hex,bestDist:null,createdAt:new Date().toISOString(),researchRecords:[]};
-  myDiscoveries.unshift(entry);myDiscoveries=myDiscoveries.slice(0,MAX_MY_COLORS);saveMyDiscoveries();renderEncyclopedia();showDiscoveryCard({name:appText('research.progress.workingColor'),emoji:'✨',hex},'new');
+  if(researchColorCount()>=MAX_RESEARCH_COLORS){
+    showDiscoveryCard({name:appText('research.progress.workingColor'),emoji:'✨',hex},'new');
+    holdCapacityColor('research',entry,1950);return;
+  }
+  myDiscoveries.unshift(entry);saveMyDiscoveries();renderEncyclopedia();showDiscoveryCard({name:appText('research.progress.workingColor'),emoji:'✨',hex},'new');
 }
 function hintEligibleColors(){
   const pool=[];
@@ -5221,7 +5310,8 @@ function hintEligibleColors(){
     if(!name||!hex)return;
     const normalized=hex.toLowerCase();
     if(pool.some(c=>c.hex.toLowerCase()===normalized))return;
-    pool.push({name,hex,kind});
+    const displayName=kind==='base'?localizedBaseColorName(name):kind==='official'?officialColorDisplayName(name):localizedMyColorName(name);
+    pool.push({name:displayName,hex,kind});
   };
   // 基本色はいつでもヒントに使える。
   COLORS.forEach(c=>add(c[0],c[1],'base'));
@@ -5337,41 +5427,29 @@ function researchAdjustmentRows(entry,limit=2){
     return `<div class="near-hint-tip${i===0?' primary':''}"><i class="near-tip-swatch" style="background:${t.hex};color:${t.hex==='#ffffff'?'#777':'#fff'}">${i+1}</i><span class="near-tip-copy"><b>${title}</b><small>${copy}</small></span><span class="near-tip-dose">${dose}<span>${i===0?'💧':'○'}</span></span></div>`;
   }).join('');
 }
+// v10.11.60: Rebuild every hint from the CURRENT usable palette. If an official or
+// personal color was forgotten, it disappears from hintEligibleColors() immediately and
+// the saved research recipe is remapped to colors that are still usable (base 8 always remain).
+function researchOwnedRecipeHint(entry,attempts){
+  const rows=reproducibleHintRecipe(entry.recipe||[]);
+  if(!rows.length)return '';
+  const counts=recipeExactDropCounts(rows);
+  const chips=rows.map((r,i)=>`<div class="recipe-process-row"><span class="recipe-process-icon" style="background:${r.hex};color:${r.hex==='#ffffff'?'#777':'#fff'}">${i+1}</span><span class="recipe-process-copy"><b>${r.name}</b><small>${attempts===1?'この色を使ってみよう':attempts===2?'どのくらい入っていたか思い出そう':'仮発見したときの手がかり'}</small></span><span class="recipe-process-value">${attempts===1?'●':attempts===2?hintDots(r.ratio):`×${counts[i]||1}`}</span></div>`).join('');
+  const meta=ColorBookRecipeProcess.forEntry(entry);
+  const water=Math.round(meta.waterLevel*10);
+  const waterRow=attempts>=2?`<div class="recipe-process-row"><span class="recipe-process-icon">💧</span><span class="recipe-process-copy"><b>${water===0?'水は入れない':attempts>=3?`水メーター ${water}／10くらい`:'水も手がかりだよ'}</b><small>${attempts>=3?'仮発見したときの水の量':'少しずつ比べてみよう'}</small></span><span class="recipe-process-value">${attempts>=3?`${water}/10`:'💧'}</span></div>`:'';
+  const note=attempts===1?'ヒントに出るのは、いま使える色だけだよ。':attempts===2?'仮発見したときの材料に近い組み合わせだよ。': '同じ道だけが正解ではないよ。近い色になれば正式発見できるよ。';
+  return `${researchMeter(entry)}<div class="recipe-process-hints">${chips}${waterRow}</div><div class="research-gentle-note">${note}</div>`;
+}
 function myHintRows(entry){
   const attempts=Math.max(1,entry.attempts||1);
+  const ownedHint=researchOwnedRecipeHint(entry,attempts);
+  if(ownedHint)return ownedHint;
   const mood=researchColorMood(entry.hex);
   const meter=researchMeter(entry);
-  if(attempts===1){
-    const family=localizedResearchFamily(mood.family.name);
-    const toneKey={
-      'とても明るい':'research.tone.veryLight','明るい':'research.tone.light',
-      'とても暗い':'research.tone.veryDark','落ち着いた':'research.tone.calm','やわらかな':'research.tone.soft'
-    }[mood.tone]||'research.tone.soft';
-    const vividKey={
-      'はっきりした':'research.vivid.clear','おだやかな':'research.vivid.gentle'
-    }[mood.vivid]||'';
-    const tone=appText(toneKey,null,mood.tone);
-    const vivid=mood.vivid?appText(vividKey,null,mood.vivid):'';
-    const heading=appText('research.first.familyFeeling',{emoji:mood.family.emoji,family},`${mood.family.emoji} ${family}の気配があるよ`);
-    const copy=appText('research.first.familyCopy',{vivid,tone,family},`${vivid}${vivid?'、':''}${tone}色。まずは${family}に近い色から始めて、変化を見てみよう。`);
-    const direction=appText('research.first.direction',null,'色の方向');
-    const note=appText('research.first.noAnswerYet',null,'まだ材料の答えは見せません。まずは色そのものをよく見てみよう。');
-    return `${meter}<div class="near-hint-tip primary"><i class="near-tip-swatch" style="background:${mood.family.hex};color:#fff">1</i><span class="near-tip-copy"><b>${heading}</b><small>${copy}</small></span><span class="near-tip-dose">${direction}<span>👀</span></span></div><div class="research-gentle-note">${note}</div>`;
-  }
-  if(attempts===2){
-    const note=appText('research.second.note',null,'前回と同じ作り方を思い出し、変えるのはまず1色だけ。足すたびによく混ぜて比べよう。');
-    return `${meter}${researchAdjustmentRows(entry,1)}<div class="research-gentle-note">${note}</div>`;
-  }
-  const current=entry.bestAttemptHex||entry.lastHex||entry.hex;
-  const colorTips=oldStyleNearTips(current,entry.hex);
-  const observation=colorTips.length?colorTips[0]:appText('research.third.alreadyClose',null,'かなり近い色です。少しずつ変化を見よう');
-  const step1=appText('research.third.step1Title',null,'前回の作り方を思い出そう');
-  const step1Copy=appText('research.third.step1Copy',null,'いちばん近かった色を出発点にします。');
-  const step2Copy=appText('research.third.step2Copy',null,'一度にたくさん変えず、1滴ずつ試そう。');
-  const step3=appText('research.third.step3Title',null,'混ぜたら見本と見比べよう');
-  const step3Copy=appText('research.third.step3Copy',null,'近づいたところを研究ノートが記録します。');
-  const note=appText('research.third.note',null,'これは正解のレシピではなく、前回より近づくための案内です。');
-  return `${meter}<div class="research-step-guide"><div class="research-step"><span>1</span><p><b>${step1}</b><small>${step1Copy}</small></p></div><div class="research-step"><span>2</span><p><b>${observation}</b><small>${step2Copy}</small></p></div><div class="research-step"><span>3</span><p><b>${step3}</b><small>${step3Copy}</small></p></div></div>${researchAdjustmentRows(entry,2)}<div class="research-gentle-note">${note}</div>`;
+  const family=localizedResearchFamily(mood.family.name);
+  const heading=appText('research.first.familyFeeling',{emoji:mood.family.emoji,family},`${mood.family.emoji} ${family}の気配があるよ`);
+  return `${meter}<div class="near-hint-tip primary"><i class="near-tip-swatch" style="background:${mood.family.hex};color:#fff">1</i><span class="near-tip-copy"><b>${heading}</b><small>色をよく見ながら試してみよう。</small></span></div>`;
 }
 const ResearchRecipeJournal=Object.freeze({
   palette(){return COLORS.map(([name,hex])=>({name:localizedBaseColorName(name),rawName:name,hex}));},
@@ -5498,7 +5576,13 @@ const ResearchNoteActions=Object.freeze({
     if(!custom&&(!entry.name||colorNameExists(entry.name,entry.id))){setNameError('customColorName','customNameError','ほかの名前を選んでね。');return}
     this.clearNameError();
     if(custom){entry.name=custom;entry.nameSource='custom';}
+    const wasConfirmed=entry.status==='confirmed';
     entry.status='confirmed';
+    if(!wasConfirmed&&personalColorCount()>MAX_PERSONAL_COLORS){
+      const heldEntry={...entry,status:'awaiting-name',name:''};
+      myDiscoveries=myDiscoveries.filter(x=>x.id!==entry.id);saveMyDiscoveries();this.close();
+      holdCapacityColor('my',heldEntry,0);return;
+    }
     saveMyDiscoveries();
     renderEncyclopedia();
     this.close();
@@ -5551,6 +5635,7 @@ const ColorAnalysis={
 function colorFamily(hex){return ColorAnalysis.family(hex)}
 // v9.6.3: item-category filter shown directly below the encyclopedia task bar.
 let encyclopediaItemCategory='all'; // v9.6.5: item-category row removed; encyclopedia always shows all discovered groups.
+let capacityCleanupKind=null; // v10.11.59: only non-null while encyclopedia was opened from capacity cleanup.
 function setEncyclopediaItemCategory(category){
   const allowed=new Set(['all','official','my','provisional','gift']);
   encyclopediaItemCategory=allowed.has(category)?category:'all';
@@ -5778,6 +5863,7 @@ function openEncyclopedia(){
 function closeEncyclopedia(){
   const el=document.getElementById('encyOverlay');
   el.classList.remove('show');el.setAttribute('aria-hidden','true');
+  if(capacityCleanupKind){capacityCleanupKind=null;encyclopediaItemCategory='all';renderEncyclopedia();}
   if(drawModeOpen)requestAnimationFrame(syncNativeDrawingUiGate);
 }
 
@@ -11046,30 +11132,38 @@ document.getElementById('detailRenameSave').addEventListener('click',()=>ColorDe
 function forgetDiscoveryEntry(entry){
   if(!entry)return false;
   let removed=false;
+  let forgottenKind=null;
   if(entry.kind==='official'){
-    const before=discoveredColors.length;
-    discoveredColors=discoveredColors.filter(x=>x.name!==entry.name);
-    removed=discoveredColors.length!==before;
-    if(removed)saveDiscoveries();
+    const index=discoveredColors.findIndex(x=>x.name===entry.name);
+    if(index>=0){discoveredColors.splice(index,1);removed=true;saveDiscoveries();}
   }else{
-    const before=myDiscoveries.length;
-    myDiscoveries=myDiscoveries.filter(x=>x.id!==entry.id);
-    removed=myDiscoveries.length!==before;
-    if(removed)saveMyDiscoveries();
+    const index=myDiscoveries.findIndex(x=>x.id===entry.id);
+    if(index>=0){
+      const actual=myDiscoveries[index];
+      forgottenKind=(actual.status==='confirmed'&&actual.name)?'my':'research';
+      // v10.11.59: mutate the canonical array in place so every subsystem sees
+      // the freed slot in the same turn; do not replace the array reference.
+      myDiscoveries.splice(index,1);
+      removed=true;
+      saveMyDiscoveries();
+    }
   }
   if(!removed)return false;
   if(customLibraryColor&&colorDistanceHex(customLibraryColor.hex,entry.hex||entry.canonicalHex)<1){customLibraryColor=null;PersistenceLifecycle.remove(CUSTOM_COLOR_KEY);updateCustomColorButton()}
   if(drawExtraPaletteColor&&colorDistanceHex(drawExtraPaletteColor.hex,entry.hex||entry.canonicalHex)<1){
-    drawExtraPaletteColor=null;
-    drawExtraPaletteSelected=false;
-    PersistenceLifecycle.remove(DRAW_EXTRA_COLOR_KEY);
+    drawExtraPaletteColor=null;drawExtraPaletteSelected=false;PersistenceLifecycle.remove(DRAW_EXTRA_COLOR_KEY);
     if(drawModeOpen){renderDrawPaletteTabs();updateDrawColorState()}
   }
   if(typeof clearAtelierTargetSample==='function'&&atelierTargetColor){
     const same=entry.kind==='official'?atelierTargetMatches(entry,'official'):atelierTargetMatches(entry,'my');
     if(same)clearAtelierTargetSample();
   }
-  renderEncyclopedia();
+  // v10.11.59: cleanup filtering is UI-only. The instant a color is forgotten,
+  // return to the normal encyclopedia view, then consume the newly freed slot.
+  capacityCleanupKind=null;
+  encyclopediaItemCategory='all';
+  const promoted=forgottenKind?promotePendingCapacityColorForForgottenKind(forgottenKind):false;
+  if(!promoted)renderEncyclopedia();
   status.textContent=appText('detail.forgotStatus');
   return true;
 }
@@ -13912,6 +14006,8 @@ window.ShizukuV831Manifest=Object.freeze({
       'research.try':'作ってみる',
       'research.save':'この名前で正式発見',
       'research.forget':'わすれる',
+      'capacity.research.full':'研究中の色がいっぱいです','capacity.choice.copy':'新しい色を残すには、色図鑑からひとつお片づけしてください。','capacity.choice.cleanup':'色図鑑をお片づけする','capacity.choice.discard':'この色は残さない',
+      'capacity.my.full':'自分だけの色がいっぱいです',
       'common.hold':'長押し',
       'hint.title':'色の発見ヒント',
       'hint.retry':'もう一度つくってみる',
@@ -14214,6 +14310,8 @@ window.ShizukuV831Manifest=Object.freeze({
       'research.try':'Try making it',
       'research.save':'Save as an official discovery',
       'research.forget':'Forget',
+      'capacity.research.full':'Your research colors are full.','capacity.choice.copy':'To keep the new color, tidy away one color from the Color Book.','capacity.choice.cleanup':'Tidy up the Color Book','capacity.choice.discard':'Don’t keep this color',
+      'capacity.my.full':'Your own colors are full.',
       'common.hold':'Hold',
       'hint.title':'Color discovery hint',
       'hint.retry':'Try making it again',

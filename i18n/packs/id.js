@@ -1,5 +1,11 @@
 // Shizukuru v10.10.0 — id language pack.
 export const dictionary = Object.freeze({
+  "capacity.research.full": "Warna yang sedang diteliti sudah penuh.",
+  "capacity.my.full": "Warna milikmu sudah penuh.",
+  "capacity.choice.copy": "Untuk menyimpan warna baru, rapikan satu warna dari Buku Warna terlebih dahulu.",
+  "capacity.choice.cleanup": "Rapikan Buku Warna",
+  "capacity.choice.discard": "Jangan simpan warna ini",
+
   "nav.draw": "Menggambar",
   "nav.encyclopedia": "Buku Warna",
   "action.paint": "Cat",

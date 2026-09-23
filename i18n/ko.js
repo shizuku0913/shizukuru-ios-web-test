@@ -1,6 +1,12 @@
 // Shizukuru i18n v10.9.07 — Korean complete sidecar.
 // Complete dictionary; intentionally NOT connected to runtime UI yet.
 export const ko = Object.freeze({
+  "capacity.research.full": "연구 중인 색이 가득 찼어요.",
+  "capacity.my.full": "나만의 색이 가득 찼어요.",
+  "capacity.choice.copy": "새 색을 남기려면 색 도감에서 색 하나를 정리해 주세요.",
+  "capacity.choice.cleanup": "색 도감 정리하기",
+  "capacity.choice.discard": "이 색은 남기지 않기",
+
   "nav.draw": "그리기",
   "nav.encyclopedia": "색 도감",
   "action.paint": "물감",

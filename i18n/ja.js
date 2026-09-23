@@ -1,6 +1,12 @@
 // Shizukuru i18n v10.8.95 — Japanese source dictionary.
 // Data only: no DOM access, storage, listeners, or side effects.
 export const ja = Object.freeze({
+  "capacity.research.full": "研究中の色がいっぱいです",
+  "capacity.my.full": "自分だけの色がいっぱいです",
+  "capacity.choice.copy": "新しい色を残すには、色図鑑からひとつお片づけしてください。",
+  "capacity.choice.cleanup": "色図鑑をお片づけする",
+  "capacity.choice.discard": "この色は残さない",
+
       'nav.draw':'お絵かき',
       'nav.encyclopedia':'色図鑑',
       'action.paint':'絵の具',

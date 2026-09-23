@@ -1,5 +1,11 @@
 // Shizukuru v10.10.0 — ar language pack.
 export const dictionary = Object.freeze({
+  "capacity.research.full": "امتلأت مساحة الألوان قيد البحث.",
+  "capacity.my.full": "امتلأت مساحة ألوانك الخاصة.",
+  "capacity.choice.copy": "للاحتفاظ باللون الجديد، رتّب لونًا واحدًا من كتاب الألوان أولًا.",
+  "capacity.choice.cleanup": "ترتيب كتاب الألوان",
+  "capacity.choice.discard": "عدم الاحتفاظ بهذا اللون",
+
   "nav.draw": "الرسم",
   "nav.encyclopedia": "كتاب الألوان",
   "action.paint": "الطلاء",

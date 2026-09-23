@@ -1,5 +1,11 @@
 // Shizukuru v10.10.0 — hi language pack.
 export const dictionary = Object.freeze({
+  "capacity.research.full": "अध्ययन में रखे रंगों की जगह भर गई है।",
+  "capacity.my.full": "आपके अपने रंगों की जगह भर गई है।",
+  "capacity.choice.copy": "नया रंग रखने के लिए, पहले रंग-पुस्तक से एक रंग हटा दें।",
+  "capacity.choice.cleanup": "रंग-पुस्तक व्यवस्थित करें",
+  "capacity.choice.discard": "इस रंग को न रखें",
+
   "nav.draw": "चित्र बनाएं",
   "nav.encyclopedia": "रंगों की किताब",
   "action.paint": "रंग",

@@ -1,5 +1,11 @@
 // Shizukuru v10.10.0 — zh-TW language pack.
 export const dictionary = Object.freeze({
+  "capacity.research.full": "研究中的顏色已滿。",
+  "capacity.my.full": "我的顏色已滿。",
+  "capacity.choice.copy": "要保留新顏色，請先在色彩圖鑑中整理掉一個顏色。",
+  "capacity.choice.cleanup": "整理色彩圖鑑",
+  "capacity.choice.discard": "不保留這個顏色",
+
   "nav.draw": "繪畫",
   "nav.encyclopedia": "色彩圖鑑",
   "action.paint": "顏料",

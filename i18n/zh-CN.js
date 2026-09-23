@@ -1,6 +1,12 @@
 // Shizukuru i18n v10.9.03 — Simplified Chinese complete sidecar.
 // Complete dictionary; intentionally not connected to runtime UI yet.
 export const zhCN = Object.freeze({
+  "capacity.research.full": "研究中的颜色已满。",
+  "capacity.my.full": "我的颜色已满。",
+  "capacity.choice.copy": "要保留新颜色，请先在颜色图鉴中整理掉一个颜色。",
+  "capacity.choice.cleanup": "整理颜色图鉴",
+  "capacity.choice.discard": "不保留这个颜色",
+
   "nav.draw": "绘画",
   "nav.encyclopedia": "色彩图鉴",
   "action.paint": "颜料",

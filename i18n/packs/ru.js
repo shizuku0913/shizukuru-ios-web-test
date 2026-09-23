@@ -1,5 +1,11 @@
 // Shizukuru v10.10.0 — ru language pack.
 export const dictionary = Object.freeze({
+  "capacity.research.full": "Места для исследуемых цветов больше нет.",
+  "capacity.my.full": "Места для твоих собственных цветов больше нет.",
+  "capacity.choice.copy": "Чтобы сохранить новый цвет, сначала убери один цвет из Книги цветов.",
+  "capacity.choice.cleanup": "Навести порядок в Книге цветов",
+  "capacity.choice.discard": "Не сохранять этот цвет",
+
   "nav.draw": "Рисование",
   "nav.encyclopedia": "Книга цветов",
   "action.paint": "Краска",

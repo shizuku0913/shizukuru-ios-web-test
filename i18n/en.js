@@ -1,6 +1,12 @@
 // Shizukuru i18n v10.8.97 — English source dictionary.
 // Data only: no DOM access, storage, listeners, or side effects.
 export const en = Object.freeze({
+  "capacity.research.full": "Your research colors are full.",
+  "capacity.my.full": "Your own colors are full.",
+  "capacity.choice.copy": "To keep the new color, tidy away one color from the Color Book.",
+  "capacity.choice.cleanup": "Tidy up the Color Book",
+  "capacity.choice.discard": "Don’t keep this color",
+
   "nav.draw": "Draw",
   "nav.encyclopedia": "Color Book",
   "action.paint": "Paint",

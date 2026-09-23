@@ -1,5 +1,11 @@
 // Shizukuru v10.10.0 — vi language pack.
 export const dictionary = Object.freeze({
+  "capacity.research.full": "Các màu đang nghiên cứu đã đầy.",
+  "capacity.my.full": "Các màu của riêng bạn đã đầy.",
+  "capacity.choice.copy": "Để giữ màu mới, hãy dọn bớt một màu trong Sổ màu trước.",
+  "capacity.choice.cleanup": "Dọn Sổ màu",
+  "capacity.choice.discard": "Không giữ màu này",
+
   "nav.draw": "Vẽ",
   "nav.encyclopedia": "Sách Màu",
   "action.paint": "Màu vẽ",
