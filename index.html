@@ -15,6 +15,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Shizukuru">
 <title>Shizukuru Mixing Lab v10.6.2 Research Reproduction Promotion – v10.4.1 – Seamless Drawing</title>
+<!-- v10.11.61 code61: silent research-cap stop; no cleanup prompt for provisional overflow -->
 <!-- v10.11.60 code60: 16-language capacity UI + live-owned research hint fallback -->
 <!-- v10.8.14: completion color truth + recipe-repeat color gate -->
 <!-- v10.4.1 Seamless Drawing / Android Touch Tune
@@ -3992,11 +3993,16 @@ let pendingCapacityColors=PersistenceLifecycle.readJSON(PENDING_CAPACITY_COLOR_K
 if(!pendingCapacityColors||typeof pendingCapacityColors!=='object')pendingCapacityColors={research:null,my:null};
 if(!('research' in pendingCapacityColors))pendingCapacityColors.research=null;
 if(!('my' in pendingCapacityColors))pendingCapacityColors.my=null;
-if(legacyPendingCapacityColor?.kind&&legacyPendingCapacityColor?.entry&&!pendingCapacityColors[legacyPendingCapacityColor.kind]){
-  pendingCapacityColors[legacyPendingCapacityColor.kind]=legacyPendingCapacityColor;
-  PersistenceLifecycle.remove('shizuku_pending_capacity_color_v1');
-  PersistenceLifecycle.writeJSON(PENDING_CAPACITY_COLOR_KEY,pendingCapacityColors);
+// v10.11.61: research overflow is intentionally not queued. Once the research
+// shelf is full, new provisional colors simply stop being discovered until a
+// slot is freed by formal discovery or forgetting. Clear legacy held research
+// entries so an old overflow cannot unexpectedly reappear after an upgrade.
+pendingCapacityColors.research=null;
+if(legacyPendingCapacityColor?.kind==='my'&&legacyPendingCapacityColor?.entry&&!pendingCapacityColors.my){
+  pendingCapacityColors.my=legacyPendingCapacityColor;
 }
+PersistenceLifecycle.remove('shizuku_pending_capacity_color_v1');
+PersistenceLifecycle.writeJSON(PENDING_CAPACITY_COLOR_KEY,pendingCapacityColors);
 const storedMyDiscoveries=PersistenceLifecycle.readJSON(MY_DISCOVERY_STORAGE_KEY,[]);myDiscoveries=Array.isArray(storedMyDiscoveries)?storedMyDiscoveries.map(x=>{if(x.status==='draft')x.status='pending';if(x.status==='pending')x.name='';return x}):[]
 function saveMyDiscoveries(){return ColorBookState.saveMine()}
 function researchColorCount(){return myDiscoveries.filter(x=>x.status!=='confirmed'&&x.status!=='awaiting-name').length}
@@ -4033,6 +4039,7 @@ function discardPendingCapacityColor(kind){
   pendingCapacityColors[kind]=null;savePendingCapacityColors();closeCapacityChoice();
 }
 function promotePendingCapacityColor(kind){
+  if(kind==='research')return false; // v10.11.61: research overflow is never queued/promoted
   const held=pendingCapacityColors[kind];
   if(!held?.entry)return false;
   // v10.11.59: capacity is derived only from the live encyclopedia array.
@@ -5299,8 +5306,11 @@ function startProvisionalDiscovery(hex,recipe=recipeSnapshot()){
   const id='my_'+Date.now().toString(36);
   const entry={id,hex,status:'pending',name:'',candidates:[],recipe,mixing:ColorBookRecipeProcess.fromRecipe(recipe),attempts:1,lastHex:hex,bestDist:null,createdAt:new Date().toISOString(),researchRecords:[]};
   if(researchColorCount()>=MAX_RESEARCH_COLORS){
-    showDiscoveryCard({name:appText('research.progress.workingColor'),emoji:'✨',hex},'new');
-    holdCapacityColor('research',entry,1950);return;
+    // v10.11.61: do not create/queue another provisional discovery and do not
+    // interrupt the child with a cleanup window. As soon as a pending color is
+    // formally discovered or forgotten, researchColorCount() drops below the
+    // limit and provisional discovery resumes automatically.
+    return;
   }
   myDiscoveries.unshift(entry);saveMyDiscoveries();renderEncyclopedia();showDiscoveryCard({name:appText('research.progress.workingColor'),emoji:'✨',hex},'new');
 }
